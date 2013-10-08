@@ -1,2 +1,33 @@
-%h1
-  Timers
+.ui.one.column.stackable.center.aligned.grid
+  .column
+    %h1 1h 23m 5s
+
+    .ui.buttons
+      .ui.toggle.button
+        Pause
+      .or
+      .ui.red.button
+        Stop
+%br
+%br
+.ui.stackable.grid
+  .three.wide.column
+  .ten.wide.column
+    .row
+      %table.ui.table
+        %thead
+          %th Date
+          %th Time
+          %th Value
+          %th Project
+        %tbody
+          %tr
+            %td= Time.now.strftime("%d/%m/%y %H:%M")
+            %td 5h 32m 4s
+            %td= "#{(5.32*50).to_s} euro"
+            %td JAXONS Homepage
+          %tr
+            %td= Time.now.strftime("%d/%m/%y %H:%M")
+            %td 5h 32m 4s
+            %td EUR 250
+            %td Digidentity

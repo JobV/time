@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  background-color: #fff;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
+}
+
+h1.ui.header {
+  color: #555;
+}
+

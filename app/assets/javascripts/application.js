@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+
+  // Navbar dropdown
+  $('.ui.dropdown').dropdown();
+
+});
