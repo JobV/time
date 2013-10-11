@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131001153846) do
+ActiveRecord::Schema.define(version: 20131010073245) do
+
+  create_table "moments", force: true do |t|
+    t.datetime "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "timer_id"
+  end
+
+  add_index "moments", ["timer_id"], name: "index_moments_on_timer_id"
+
+  create_table "timers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

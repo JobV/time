@@ -20,6 +20,7 @@ group :test do
   gem 'spring'
   gem 'minitest', '~> 4.7'
   gem 'guard'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :test, :development do
