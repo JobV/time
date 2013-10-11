@@ -6,6 +6,10 @@ class TimerTest < ActiveSupport::TestCase
     @timer_with_moments = FactoryGirl.create(:timer_with_moments)
   end
 
+  test 'reponders' do
+    assert_respond_to @timer, :project
+  end
+
   test '#time returns the total tracked time' do
     assert_equal @timer_with_moments.time, 5.hours
   end
@@ -33,10 +37,15 @@ class TimerTest < ActiveSupport::TestCase
   end
 
   test '#stop stops the last moment' do
-    @timer.start
-    @timer.stop(Time.parse("13:00"))
+    assert_equal false, @timer.running?
+    assert_equal 0, @timer.moments.length
 
-    p @timer.moments.last.end_time
-    p @timer.running?
+    @timer.start
+    assert_equal 1, @timer.moments.length
+    assert @timer.running?
+
+    @timer.stop
+    assert @timer.moments.last.end_time
+    assert_not @timer.running?
   end
 end
