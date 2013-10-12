@@ -3,11 +3,10 @@
     %h1 1h 23m 5s
 
     .ui.buttons
-      .ui.toggle.button
-        Pause
+      = link_to 'Start', start_timer_path, action: :post, method: :start, class: 'ui toggle button'
       .or
-      .ui.red.button
-        Stop
+      = link_to 'Stop', stop_timer_path, action: :post, method: :stop, class: 'ui red button'
+
 %br
 %br
 .ui.stackable.grid
@@ -18,16 +17,10 @@
         %thead
           %th Date
           %th Time
-          %th Value
-          %th Project
+          %th State
         %tbody
-          %tr
-            %td= Time.now.strftime("%d/%m/%y %H:%M")
-            %td 5h 32m 4s
-            %td= "#{(5.32*50).to_s} euro"
-            %td JAXONS Homepage
-          %tr
-            %td= Time.now.strftime("%d/%m/%y %H:%M")
-            %td 5h 32m 4s
-            %td EUR 250
-            %td Digidentity
+          - @timers.each do |timer|
+            %tr
+              %td= timer.created_at.strftime("%d/%m/%y - %H:%M")
+              %td= timer.time
+              %td= timer.running? ? 'running' : 'stopped'

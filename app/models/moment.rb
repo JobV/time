@@ -1,5 +1,5 @@
 class Moment < ActiveRecord::Base
-  belongs_to :timer
+  belongs_to :timer, autosave: true
 
   def time
     return end_time - created_at if end_time
