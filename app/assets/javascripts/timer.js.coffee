@@ -1,6 +1,14 @@
-app = angular.module("main_timer", ['timer'])
+app = angular.module("main_timer", ['timer', 'ngResource'])
 
-@TimerCtrl = ($scope) ->
+@TimerCtrl = ($scope, $resource) ->
+  Timer = $resource("/timers/:id", {id: "@id"}, {update: {method: "PUT"}})
+  $scope.timers = Timer.query()
+
+  $scope.addTimer =->
+    timer = Timer.save($scope.newTimer)
+    $scope.timers.push(timer)
+    $scope.newTimer = {}
+
   $scope.timerRunning = false
   $scope.startValue = 'Start'
   $scope.stopClass = 'ui disabled button'

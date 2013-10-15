@@ -6,7 +6,7 @@
           {{hours}}h {{minutes}}m {{seconds}}s
 
       %div{ class: "ui labeled icon buttons" }
-        %div{ class: "ui button", "ng-click" => "startTimer(timer.data)", "ng-class" => "startClass" }
+        %div{ class: "ui button", "ng-click" => "addTimer()", "ng-class" => "startClass" }
           %i{ class: "", "ng-class" => "startIconClass" }
           {{startValue}}
         .or
@@ -27,7 +27,7 @@
             %th Buttons
           %tbody
             %tr{"ng-repeat" => "timer in timers"}
-              %td {{timer.date}}
+              %td {{timer.created_at}}
               %td {{timer.time}}
               %td {{timer.state}}
               %td lala

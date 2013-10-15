@@ -16,7 +16,7 @@ class TimersController < ApplicationController
   end
 
   def update
-    respond_with Timer.update(params[:timer])
+    respond_with Timer.update(params[:id], params[:timer])
   end
 
   def start
