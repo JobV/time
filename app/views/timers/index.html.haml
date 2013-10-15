@@ -1,26 +1,42 @@
-.ui.one.column.stackable.center.aligned.grid
-  .column
-    %h1 1h 23m 5s
+%div{ "ng-controller" => "TimerCtrl" }
+  .ui.one.column.stackable.center.aligned.grid
+    .column
+      %h1.top-timer
+        %timer{ "interval" => "1000", "autostart" => "false", "ng-model" => "timer.data" }
+          {{hours}}h {{minutes}}m {{seconds}}s
 
-    .ui.buttons
-      = link_to 'Start', start_timer_path, action: :post, method: :start, class: 'ui toggle button'
-      .or
-      = link_to 'Stop', stop_timer_path, action: :post, method: :stop, class: 'ui red button'
+      %div{ class: "ui labeled icon buttons" }
+        %div{ class: "ui button", "ng-click" => "startTimer(timer.data)", "ng-class" => "startClass" }
+          %i{ class: "", "ng-class" => "startIconClass" }
+          {{startValue}}
+        .or
+        %div{ class: "", "ng-click" => "stopTimer()", "ng-class" => "stopClass" }
+          Stop
 
-%br
-%br
-.ui.stackable.grid
-  .three.wide.column
-  .ten.wide.column
-    .row
-      %table.ui.table
-        %thead
-          %th Date
-          %th Time
-          %th State
-        %tbody
-          - @timers.each do |timer|
-            %tr
-              %td= timer.created_at.strftime("%d/%m/%y - %H:%M")
-              %td= timer.time
-              %td= timer.running? ? 'running' : 'stopped'
+  %br
+  %br
+  .ui.stackable.grid
+    .three.wide.column
+    .ten.wide.column
+      .row
+        %table.ui.table
+          %thead
+            %th Date
+            %th Time
+            %th State
+            %th Buttons
+          %tbody
+            %tr{"ng-repeat" => "timer in timers"}
+              %td {{timer.date}}
+              %td {{timer.time}}
+              %td {{timer.state}}
+              %td lala
+
+
+
+/ - @timers.each do |timer|
+/   %tr
+/     %td= timer.created_at.strftime("%d/%m/%y - %H:%M")
+/     %td= timer.time
+/     %td= timer.running? ? 'running' : 'stopped'
+/     %td= link_to 'Delete', timer_path(timer), action: :destroy, method: :delete, class: 'ui tiny red button', remote: true, id: 'delete_button'
