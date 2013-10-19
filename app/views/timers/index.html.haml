@@ -5,13 +5,8 @@
         %timer{ "interval" => "1000", "autostart" => "false", "ng-model" => "timer.data" }
           {{hours}}h {{minutes}}m {{seconds}}s
 
-      %div{ class: "ui labeled icon buttons" }
-        %div{ class: "ui button", "ng-click" => "addTimer()", "ng-class" => "startClass" }
-          %i{ class: "", "ng-class" => "startIconClass" }
-          {{startValue}}
-        .or
-        %div{ class: "", "ng-click" => "stopTimer()", "ng-class" => "stopClass" }
-          Stop
+      %div{ class: "", "ng-click" => "addTimer($hours)", "ng-class" => "startClass" }
+        {{startValue}}
 
   %br
   %br
@@ -22,21 +17,22 @@
         %table.ui.table
           %thead
             %th Date
-            %th Time
+            %th ID
             %th State
+            %th Time running
+            %th End time
             %th Buttons
           %tbody
-            %tr{"ng-repeat" => "timer in timers"}
-              %td {{timer.created_at}}
-              %td {{timer.time}}
-              %td {{timer.state}}
-              %td lala
-
-
-
-/ - @timers.each do |timer|
-/   %tr
-/     %td= timer.created_at.strftime("%d/%m/%y - %H:%M")
-/     %td= timer.time
-/     %td= timer.running? ? 'running' : 'stopped'
-/     %td= link_to 'Delete', timer_path(timer), action: :destroy, method: :delete, class: 'ui tiny red button', remote: true, id: 'delete_button'
+            %tr{"ng-repeat" => "timer in timers", enter: "positive", "leave" => ""}
+              %td {{ timer.created_at | date:'mediumTime' }}
+              %td {{ timer.id }}
+              %td {{ timer.end_time | date:'mediumTime' }}
+              %td
+                %timer
+                  {{hours}}:{{minutes}}:{{seconds}}
+              %td {{ timer.end_time | date:'mediumTime' }}
+              %td
+                %div{ class: "ui tiny button", "ng-click" => "deleteTimer($index)" }
+                  Delete
+                %div{ class: "ui tiny button", "ng-click" => "stopTimer($index)" }
+                  Stop

@@ -1,40 +1,73 @@
 app = angular.module("main_timer", ['timer', 'ngResource'])
 
-@TimerCtrl = ($scope, $resource) ->
-  Timer = $resource("/timers/:id", {id: "@id"}, {update: {method: "PUT"}})
+app.directive "enter", ->
+  (scope, element, attrs) ->
+    element.bind "mouseenter", ->
+      element.addClass attrs.enter
+
+
+app.directive "leave", ->
+  (scope, element, attrs) ->
+    element.bind "mouseleave", ->
+      element.removeClass attrs.enter
+
+
+app.factory "Timer", ($resource) ->
+  $resource "/timers/:id", {id: "@id"}, 
+    {update: {method: "PUT"}},
+    {delete_timer: {method: "DELETE"}}
+    {stop_timer: {method: "POST"}}
+
+@TimerCtrl = ($scope, Timer) ->
   $scope.timers = Timer.query()
 
-  $scope.addTimer =->
-    timer = Timer.save($scope.newTimer)
-    $scope.timers.push(timer)
-    $scope.newTimer = {}
-
   $scope.timerRunning = false
+
+  $scope.startClass = 'ui positive button'
   $scope.startValue = 'Start'
-  $scope.stopClass = 'ui disabled button'
   $scope.startIconClass = 'play icon'
 
-  $scope.startTimer =  ->
-    $scope.$broadcast('timer-start')
-    $scope.timerRunning = true
+  $scope.addTimer = (stopTime = Date.new) ->
+    if $scope.timerRunning == false
 
-    $scope.startClass = 'ui button'
-    $scope.startValue = 'Pause'
-    $scope.startIconClass   = 'pause icon'
+      # POST
+      timer = Timer.save($scope.newTimer)
+      $scope.timers.push(timer)
+      $scope.newTimer = {}
 
-    $scope.stopClass  = 'ui button'
+      # Start running timer
+      $scope.$broadcast('timer-start')
+      $scope.timerRunning = true
 
-  $scope.stopTimer = ->
-    $scope.$broadcast('timer-stop')
-    $scope.timerRunning = false
+      # Set start button values
+      $scope.startClass = 'ui red button'
+      $scope.startValue = 'Stop'
 
-    $scope.startClass = 'ui button'
-    $scope.startValue = 'Start'
-    $scope.startIconClass   = 'play icon'
+    else
+      # timer = $scope.timers.last()
+      # timer.$update(end_time: stopTime)
 
-    $scope.stopClass  = 'ui disabled button'
+      $scope.$broadcast('timer-stop')
+      timer.
+      $scope.timerRunning     = false
+      $scope.startClass       = 'ui positive button'
+      $scope.startValue       = 'Start'
+      $scope.startIconClass   = 'play icon'
 
+  $scope.deleteTimer = (idx) ->
+    timer = $scope.timers[idx]
+    timer.$delete id: timer.id, () ->
+      $scope.timers.splice(idx, 1)
 
+  $scope.totalTime = ->
+    timer = $scope.timers[idx]
+    today = new Date
+    time = timer.created_at - Date.new()
+    return today
+
+  $scope.stopTimer = (idx) ->
+    timer = $scope.timers[idx]
+    timer.$update { id: timer.id, end_time: new Date }
 
 
 

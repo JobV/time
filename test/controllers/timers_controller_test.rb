@@ -1,19 +1,19 @@
 require "test_helper"
 
 class TimersControllerTest < ActionController::TestCase
-  test 'should get index' do
+  test '#index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:timers)
   end
 
-  test '#show works' do
+  test '#show' do
     FactoryGirl.create(:timer)
     get :show, id: 1, format: :json
     assert_response :success
   end
 
-  test '#create works' do
+  test '#create' do
     post :create
     assert_equal 1, Timer.count
     assert_redirected_to timer_path(1)
@@ -29,13 +29,5 @@ class TimersControllerTest < ActionController::TestCase
     FactoryGirl.create(:timer)
     delete :destroy, id: 1
     assert_equal 0, Timer.count
-  end
-
-
-  test 'start should start a timer' do
-    post :start
-    assert_redirected_to timer_path(1)
-    assert_equal 1, Timer.count
-    assert_equal 1, Moment.count
   end
 end

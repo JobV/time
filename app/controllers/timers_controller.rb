@@ -1,5 +1,5 @@
 class TimersController < ApplicationController
-  respond_to :html, :json, :js
+  respond_to :json, :html
   # before_filter :authenticate_user!
 
   def index
@@ -19,32 +19,19 @@ class TimersController < ApplicationController
     respond_with Timer.update(params[:id], params[:timer])
   end
 
-  def start
-    @timer = Timer.create
-    @timer.start
-    respond_with @timer
-  end
-
   def stop
-    @moment = Timer.last.moments.last
-    @moment.stop
-    @moment.save
-    redirect_to timers_path
+    timer = Timer.find_by_id(params[:id])
+    timer.stop(params[:end_time])
+    respond_with timer.save
   end
 
   def destroy
     @timer = Timer.find(params[:id])
-    @timer.destroy
-    redirect_to timers_path
+    respond_with @timer.destroy
   end
 
   def starting_time
-    timer =  Timer.find_by_id(params[:id])
-    @starting_time = timer.created_at
-
-    respond_with(@starting_time) do |format|
-      format.json { render }
-    end
+    respond_with Timer.find_by_id(params[:id]).created_at
   end
 end
 
