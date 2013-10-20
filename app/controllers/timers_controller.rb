@@ -20,9 +20,7 @@ class TimersController < ApplicationController
   end
 
   def stop
-    timer = Timer.find_by_id(params[:id])
-    timer.stop(params[:end_time])
-    respond_with timer.save
+    respond_with Timer.update(params[:id], end_time: Time.now)
   end
 
   def destroy

@@ -21,3 +21,19 @@ h1.ui.header {
   color: #555;
 }
 
+.timer-row {
+  background-color: white;
+}
+
+.ui .table tr {
+  background-color: #fff !important;
+}
+
+.ui.basic.table tbody tr {
+  border: 0 !important;
+}
+
+.ui.table tr.active td, .ui.table tr td.active {
+  background-color: #EDF8FF !important;
+  color: #555;
+}

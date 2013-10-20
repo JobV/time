@@ -5,8 +5,9 @@
         %timer{ "interval" => "1000", "autostart" => "false", "ng-model" => "timer.data" }
           {{hours}}h {{minutes}}m {{seconds}}s
 
-      %div{ class: "", "ng-click" => "addTimer($hours)", "ng-class" => "startClass" }
+      %div{ class: "", "ng-click" => "toggleTimer()", "ng-class" => "startClass" }
         {{startValue}}
+
 
   %br
   %br
@@ -14,25 +15,19 @@
     .three.wide.column
     .ten.wide.column
       .row
-        %table.ui.table
+        %table{class: "ui basic table segment"}
           %thead
             %th Date
             %th ID
             %th State
-            %th Time running
-            %th End time
             %th Buttons
           %tbody
-            %tr{"ng-repeat" => "timer in timers", enter: "positive", "leave" => ""}
+            %tr{"ng-repeat" => "timer in timers", enter: "active", "leave" => "", class: 'timer-row'}
               %td {{ timer.created_at | date:'mediumTime' }}
               %td {{ timer.id }}
               %td {{ timer.end_time | date:'mediumTime' }}
               %td
-                %timer
-                  {{hours}}:{{minutes}}:{{seconds}}
-              %td {{ timer.end_time | date:'mediumTime' }}
-              %td
-                %div{ class: "ui tiny button", "ng-click" => "deleteTimer($index)" }
+                %div{ class: "ui tiny basic button", "ng-click" => "deleteTimer($index)" }
                   Delete
-                %div{ class: "ui tiny button", "ng-click" => "stopTimer($index)" }
+                %div{ class: "ui tiny basic button", "ng-click" => "stopTimer($index)" }
                   Stop
