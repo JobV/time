@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008071131) do
+ActiveRecord::Schema.define(version: 20131021161603) do
 
   create_table "timers", force: true do |t|
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "total_time"
   end
 
   create_table "users", force: true do |t|

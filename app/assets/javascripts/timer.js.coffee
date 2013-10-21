@@ -7,8 +7,8 @@
 #
 # On stop:
 # -> V stop running timer
-# -> set end_time (PUT)
-# -> update the timer on the list
+# -> V set end_time (PUT)
+# -> V update the timer on the list
 #
 #
 #
@@ -81,7 +81,7 @@ app.factory "Timer", ($resource) ->
     else
       # Post request to stop the timer
       timer = $scope.timers[$scope.timers.length - 1]
-      Timer.stop(id: timer.id)
+      $scope.timers[$scope.timers.length - 1] = Timer.stop(id: timer.id)
 
       # Stop the timer
       $scope.$broadcast('timer-stop')

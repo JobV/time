@@ -6,8 +6,10 @@ class Timer < ActiveRecord::Base
   end
   alias_method :length, :time
 
-  def stop(time = Time.now)
-    end_time = time
+  def stop
+    end_time_will_change!
+    self.end_time = Time.now
+    set_total_time
   end
   alias_method :pause, :stop
 
@@ -22,5 +24,11 @@ class Timer < ActiveRecord::Base
 
   def state
     running? ? 'running' : 'stopped'
+  end
+
+  # TODO make this a sidekiq task if becomes big
+  def set_total_time
+    total_time_will_change!
+    self.total_time = (self.end_time - created_at).floor
   end
 end

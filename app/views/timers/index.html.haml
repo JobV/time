@@ -17,15 +17,17 @@
       .row
         %table{class: "ui basic table segment"}
           %thead
-            %th Date
             %th ID
-            %th State
+            %th Start
+            %th End
+            %th Time
             %th Buttons
           %tbody
             %tr{"ng-repeat" => "timer in timers", enter: "active", "leave" => "", class: 'timer-row'}
-              %td {{ timer.created_at | date:'mediumTime' }}
               %td {{ timer.id }}
-              %td {{ timer.end_time | date:'mediumTime' }}
+              %td {{ timer.created_at | date:'MMM d, H:mm' }}
+              %td {{ timer.end_time | date:'shortTime' }}
+              %td {{ timer.total_time }}
               %td
                 %div{ class: "ui tiny basic button", "ng-click" => "deleteTimer($index)" }
                   Delete
