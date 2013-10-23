@@ -13,6 +13,14 @@
   %br
   .ui.stackable.grid
     .three.wide.column
+    /   .ui.small.basic.vertical.menu
+    /     %a{class: 'item', enter: 'active', leave: ''}
+    /       %i.basic.folder.icon
+    /       Projects
+    /     %a{class: 'item', enter: 'active', leave: ''}
+    /       %i.basic.setting.icon
+    /       Settings
+
     .ten.wide.column
       .row
         %table{class: "ui basic table segment"}
@@ -21,7 +29,7 @@
             %th Start
             %th End
             %th Time
-            %th Buttons
+            %th
           %tbody
             %tr{"ng-repeat" => "timer in timers", enter: "active", "leave" => "", class: 'timer-row'}
               %td {{ timer.id }}
@@ -29,7 +37,13 @@
               %td {{ timer.end_time | date:'shortTime' }}
               %td {{ timer.total_time }}
               %td
-                %div{ class: "ui tiny basic button", "ng-click" => "deleteTimer($index)" }
-                  Delete
-                %div{ class: "ui tiny basic button", "ng-click" => "stopTimer($index)" }
-                  Stop
+                .text-right
+                  %i.circular.inverted.red.remove.icon.link.icon{"ng-click" => "deleteTimer($index)"}
+
+          %tfoot
+            %tr
+              %th{colspan: "1"}
+                total
+              %td {{ timers.length + " timers"}}
+              %td
+              %td

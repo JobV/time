@@ -34,4 +34,3 @@ class TimersController < ApplicationController
     respond_with Timer.find_by_id(params[:id]).created_at
   end
 end
-
