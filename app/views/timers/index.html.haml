@@ -13,17 +13,20 @@
   %br
   .ui.stackable.grid
     .three.wide.column
-    /   .ui.small.basic.vertical.menu
-    /     %a{class: 'item', enter: 'active', leave: ''}
-    /       %i.basic.folder.icon
-    /       Projects
-    /     %a{class: 'item', enter: 'active', leave: ''}
-    /       %i.basic.setting.icon
-    /       Settings
+      .ui.small.vertical.menu
+        %a{class: 'item', enter: 'active', leave: ''}
+          %i.time.icon
+          New time
+        %a{class: 'item', enter: 'active', leave: ''}
+          %i.basic.folder.icon
+          Projects
+        %a{class: 'item', enter: 'active', leave: ''}
+          %i.basic.setting.icon
+          Settings
 
     .ten.wide.column
       .row
-        %table{class: "ui basic table segment"}
+        %table{class: "ui table segment"}
           %thead
             %th ID
             %th Start
@@ -45,5 +48,6 @@
               %th{colspan: "1"}
                 total
               %td {{ timers.length + " timers"}}
+              %td
               %td
               %td

@@ -10,6 +10,7 @@ class Timer < ActiveRecord::Base
     end_time_will_change!
     self.end_time = Time.now
     set_total_time
+    save!
   end
   alias_method :pause, :stop
 

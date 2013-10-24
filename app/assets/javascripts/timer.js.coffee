@@ -49,13 +49,16 @@ app.factory "Timer", ($resource) ->
 #
 
 @TimerCtrl = ($scope, Timer) ->
-  $scope.timers = Timer.query()
 
-  $scope.timerRunning = false
+  # get all timers
+  $scope.timers = Timer.query ->
+    if aTimerIsRunning($scope.timers)
+      $scope.startClass = 'ui red button'
+      $scope.startValue = 'Stop'
+    else
+      $scope.startClass = 'ui positive button'
+      $scope.startValue = 'Start'
 
-  $scope.startClass = 'ui positive button'
-  $scope.startValue = 'Start'
-  $scope.startIconClass = 'play icon'
 
   $scope.$on 'timer-stopped', (event, data) ->
     # Do something when the timer is stopped
@@ -63,36 +66,40 @@ app.factory "Timer", ($resource) ->
 
 
   $scope.toggleTimer = ->
-    if $scope.timerRunning == false
+    if aTimerIsRunning($scope.timers)
 
-      # POST
+      # call stop on api; update dom; stop ng timer
+      timer = $scope.timers[$scope.timers.length - 1]
+      $scope.timers[$scope.timers.length - 1] = Timer.stop(id: timer.id)
+      $scope.$broadcast('timer-stop')
+
+      # Adjust styles
+      $scope.startClass = 'ui positive button'
+      $scope.startValue = 'Start'
+
+    else
+
+      # Create and start a new timer
       timer = Timer.save($scope.newTimer)
       $scope.timers.push(timer)
       $scope.newTimer = {}
-
-      # Start running timer
       $scope.$broadcast('timer-start')
-      $scope.timerRunning = true
 
-      # Set start button values
+      # Adjust styles
       $scope.startClass = 'ui red button'
       $scope.startValue = 'Stop'
-
-    else
-      # Post request to stop the timer
-      timer = $scope.timers[$scope.timers.length - 1]
-      $scope.timers[$scope.timers.length - 1] = Timer.stop(id: timer.id)
-
-      # Stop the timer
-      $scope.$broadcast('timer-stop')
-      $scope.timerRunning = false
-
-      # Adjust the button
-      $scope.startClass       = 'ui positive button'
-      $scope.startValue       = 'Start'
 
 
   $scope.deleteTimer = (idx) ->
     timer = $scope.timers[idx]
     timer.$delete id: timer.id, () ->
       $scope.timers.splice(idx, 1)
+
+  aTimerIsRunning = (timers) ->
+    if (timers.length == 0)
+      return false
+    else
+      if (!timers[timers.length-1].end_time)
+        return true
+
+      return false
