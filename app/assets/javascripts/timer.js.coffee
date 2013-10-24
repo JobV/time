@@ -53,6 +53,7 @@ app.factory "Timer", ($resource) ->
   # get all timers
   $scope.timers = Timer.query ->
     if aTimerIsRunning($scope.timers)
+      # TODO: set the time correctly
       $scope.startClass = 'ui red button'
       $scope.startValue = 'Stop'
     else
@@ -62,8 +63,6 @@ app.factory "Timer", ($resource) ->
 
   $scope.$on 'timer-stopped', (event, data) ->
     # Do something when the timer is stopped
-    console.log 'does this shit work'
-
 
   $scope.toggleTimer = ->
     if aTimerIsRunning($scope.timers)
