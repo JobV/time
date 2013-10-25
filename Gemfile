@@ -21,7 +21,6 @@ group :test do
   gem 'spring'
   gem 'minitest', '~> 4.7'
   gem 'factory_girl_rails', '~> 4.0'
-  gem "codeclimate-test-reporter", require: nil
 end
 
 group :test, :development do

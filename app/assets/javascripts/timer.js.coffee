@@ -53,13 +53,25 @@ app.factory "Timer", ($resource) ->
   # get all timers
   $scope.timers = Timer.query ->
     if aTimerIsRunning($scope.timers)
-      # TODO: set the time correctly
+      console.log 'timer is running'
+      console.log $scope.timer
+
+      # Adjust styles
       $scope.startClass = 'ui red button'
       $scope.startValue = 'Stop'
+
+      # Calculate how long it's been running
+      # $scope.startTime    = 1317020000000
+      # $scope.stoppedTime  = 1327020000000
+      $scope.startingTime = 1357020000000
+      $scope.$broadcast('timer-start')
+      
     else
+      console.log 'timer is not running'
+
+      # Adjust styles
       $scope.startClass = 'ui positive button'
       $scope.startValue = 'Start'
-
 
   $scope.$on 'timer-stopped', (event, data) ->
     # Do something when the timer is stopped
@@ -102,3 +114,4 @@ app.factory "Timer", ($resource) ->
         return true
 
       return false
+

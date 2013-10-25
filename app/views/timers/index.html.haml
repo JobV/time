@@ -2,7 +2,7 @@
   .ui.one.column.stackable.center.aligned.grid
     .column
       %h1.top-timer
-        %timer{ "interval" => "1000", "autostart" => "false", "ng-model" => "timer.data" }
+        %timer{ "interval" => "1000", "autostart" => "false", "ng-model" => "timer.data", "start-time" => "startingTime" }
           {{hours}}h {{minutes}}m {{seconds}}s
 
       %div{ class: "", "ng-click" => "toggleTimer()", "ng-class" => "startClass" }

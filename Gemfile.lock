@@ -32,8 +32,6 @@ GEM
     builder (3.1.4)
     celluloid (0.15.2)
       timers (~> 1.1.0)
-    codeclimate-test-reporter (0.1.1)
-      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -127,10 +125,6 @@ GEM
       sprockets-rails (~> 2.0.0)
     semantic-ui-rails (0.1.0.1)
       less-rails
-    simplecov (0.7.1)
-      multi_json (~> 1.0)
-      simplecov-html (~> 0.7.1)
-    simplecov-html (0.7.1)
     slop (3.4.6)
     spring (0.0.10)
     sprockets (2.10.0)
@@ -170,7 +164,6 @@ PLATFORMS
 
 DEPENDENCIES
   angularjs-rails
-  codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
   devise
   factory_girl_rails (~> 4.0)
