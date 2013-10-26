@@ -50,25 +50,25 @@ app.factory "Timer", ($resource) ->
 
 @TimerCtrl = ($scope, Timer) ->
 
+  # why the fuck this has to be assigned more than 0 is unclear to me.
+  $scope.startingTime = 30
+
   # get all timers
   $scope.timers = Timer.query ->
     if aTimerIsRunning($scope.timers)
-      console.log 'timer is running'
-      console.log $scope.timer
 
       # Adjust styles
       $scope.startClass = 'ui red button'
       $scope.startValue = 'Stop'
 
-      # Calculate how long it's been running
-      # $scope.startTime    = 1317020000000
-      # $scope.stoppedTime  = 1327020000000
-      $scope.startingTime = 1357020000000
+      $scope.startingTime = calculateStartingTime($scope.timers)
+      console.log $scope.startingTime
       $scope.$broadcast('timer-start')
       
     else
       console.log 'timer is not running'
 
+      $scope.startingTime = 0
       # Adjust styles
       $scope.startClass = 'ui positive button'
       $scope.startValue = 'Start'
@@ -115,3 +115,6 @@ app.factory "Timer", ($resource) ->
 
       return false
 
+  calculateStartingTime = (timers) ->
+    timer = timers[timers.length-1]
+    return timer.created_at
