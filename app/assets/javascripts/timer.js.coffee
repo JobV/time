@@ -61,8 +61,8 @@ app.factory "Timer", ($resource) ->
       $scope.startClass = 'ui red button'
       $scope.startValue = 'Stop'
 
+      # Set starting time to the time the timer was created
       $scope.startingTime = calculateStartingTime($scope.timers)
-      console.log $scope.startingTime
       $scope.$broadcast('timer-start')
       
     else
@@ -90,6 +90,9 @@ app.factory "Timer", ($resource) ->
 
     else
 
+      # Set startingtime to 0
+      $scope.startingTime = 0
+
       # Create and start a new timer
       timer = Timer.save($scope.newTimer)
       $scope.timers.push(timer)
@@ -102,6 +105,7 @@ app.factory "Timer", ($resource) ->
 
 
   $scope.deleteTimer = (idx) ->
+    # TODO: if this timer is running, reset the timer
     timer = $scope.timers[idx]
     timer.$delete id: timer.id, () ->
       $scope.timers.splice(idx, 1)
@@ -117,4 +121,7 @@ app.factory "Timer", ($resource) ->
 
   calculateStartingTime = (timers) ->
     timer = timers[timers.length-1]
-    return timer.created_at
+    starting_time = new Date - Date.parse(timer.created_at)
+    console.log 'calculated starting time:'
+    console.log starting_time
+    return starting_time

@@ -26,4 +26,7 @@ end
 group :test, :development do
   gem 'sqlite3'
   gem 'guard-minitest'
+  gem 'jasmine-rails'
+  gem 'guard-jasmine'
+  gem 'database_cleaner'
 end

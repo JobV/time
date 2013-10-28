@@ -24,7 +24,7 @@ angular.module("timer", []).directive "timer", ["$compile", ($compile) ->
       clearTimeout $scope.timeoutId  if $scope.timeoutId
 
     calculateTimeUnits = ->
-      $scope.seconds  = Math.floor(($scope.millis   / 1000) % 60)
+      $scope.seconds  = Math.floor(($scope.millis   / (1000)) % 60)
       $scope.minutes  = Math.floor((($scope.millis  / (60000)) % 60))
       $scope.hours    = Math.floor((($scope.millis  / (3600000)) % 24))
       $scope.days     = Math.floor((($scope.millis  / (3600000)) / 24))

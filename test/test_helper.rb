@@ -4,13 +4,17 @@ require 'rails/test_help'
 require 'minitest/spec'
 
 class ActiveSupport::TestCase
+  include Devise::TestHelpers
   ActiveRecord::Migration.check_pending!
 
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
-  fixtures :all
+  DatabaseCleaner.strategy = :transaction
+  DatabaseCleaner.clean_with(:truncation)
 
-  # Add more helper methods to be used by all tests here...
+  def setup
+    DatabaseCleaner.start
+  end
+  
+  def teardown
+    DatabaseCleaner.clean
+  end
 end
