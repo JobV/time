@@ -1,6 +1,11 @@
 require "test_helper"
+require "factory"
 
 class TimersControllerTest < ActionController::TestCase
+  def setup
+    login
+  end
+
   test '#index' do
     get :index
     assert_response :success
@@ -29,5 +34,20 @@ class TimersControllerTest < ActionController::TestCase
     FactoryGirl.create(:timer)
     delete :destroy, id: 1
     assert_equal 0, Timer.count
+  end
+
+  private
+
+  def user
+    user ||= FactoryGirl.create(:user)
+  end
+
+  def login
+        # post the login and follow through to the home page
+    post "/users/sign_in", username: user.email,
+      password: user.password
+    follow_redirect!
+    assert_equal 200, status
+    assert_equal "/", path
   end
 end
