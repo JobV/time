@@ -15,7 +15,7 @@ gem 'less-rails'
 gem 'semantic-ui-rails'
 gem 'sass-rails'
 
-gem 'thin'
+gem 'puma'
 
 group :test do
   gem 'spring'
@@ -29,4 +29,5 @@ group :test, :development do
   gem 'jasmine-rails'
   gem 'guard-jasmine'
   gem 'database_cleaner'
+  gem 'foreman'
 end
