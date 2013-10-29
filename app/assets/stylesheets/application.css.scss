@@ -12,28 +12,35 @@
  *= require_tree .
  */
 
+@import "twitter/bootstrap";
+
 body {
-  background-color: #efefef;
-  font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
+  background: #3498db;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Open Sans';
 }
 
-h1.ui.header {
-  color: #555;
+.login {
+  background-color: #edeff1;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 160px;
 }
 
-.timer-row {
-  background-color: white;
+h1.login-head {
+  color: #fff;
+  font-size: 5em;
+  font-weight: lighter;
 }
 
-.ui .table tr {
-  background-color: #fff !important;
+.form-control {
+  border: 2px solid #fff;
+  box-shadow: none;
+  &:focus {
+    box-shadow: none;
+  }
 }
 
-.ui.basic.table tbody tr {
-  border: 0 !important;
-}
-
-.ui.table tr.active td, .ui.table tr td.active {
-  background-color: #EDF8FF !important;
-  color: #555;
+.btn {
+  border: 0px;
+  padding-top: 8px;
 }
