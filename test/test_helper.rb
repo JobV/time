@@ -4,7 +4,7 @@ require 'rails/test_help'
 require 'minitest/spec'
 
 class ActiveSupport::TestCase
-  include Devise::TestHelpers
+  # include Devise::TestHelpers
   ActiveRecord::Migration.check_pending!
 
   DatabaseCleaner.strategy = :transaction

@@ -1,4 +1,5 @@
 require "test_helper"
+include Devise::TestHelpers
 
 class TimersControllerTest < ActionController::TestCase
   def setup
