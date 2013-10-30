@@ -11,12 +11,13 @@ gem 'devise'
 gem 'haml'
 
 gem 'therubyracer', platforms: :ruby # or any other runtime
-gem 'less-rails'
+# gem 'less-rails'
 gem 'sass-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 
 gem 'puma'
+gem 'rails_12factor'
 
 group :production do
   gem 'pg'
