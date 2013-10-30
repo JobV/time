@@ -1,53 +1,40 @@
-%div{ "ng-controller" => "TimerCtrl" }
-  .ui.one.column.stackable.center.aligned.grid
-    .column
-      %h1.top-timer
-        %timer{ "interval" => "1000", "autostart" => "false", "ng-model" => "timer.data", "start-time" => "startingTime" }
-          {{hours}}h {{minutes}}m {{seconds}}s
+.row
+  .col-md-12
+    .container
+      %div{ "ng-controller" => "TimerCtrl" }
+        .timer
+          %h1.top-timer
+            %timer{ "interval" => "1000", "autostart" => "false", "ng-model" => "timer.data", "start-time" => "startingTime" }
+              {{hours}} : {{minutes}} : {{seconds}}
 
-      %div{ class: "", "ng-click" => "toggleTimer()", "ng-class" => "startClass" }
-        {{startValue}}
+          %div{ class: "btn btn-primary btn-lg", "ng-click" => "toggleTimer()", "ng-class" => "startClass" }
+            {{startValue}}
 
 
-  %br
-  %br
-  .ui.stackable.grid
-    .three.wide.column
-      / .ui.small.vertical.menu
-      /   %a{class: 'item', enter: 'active', leave: ''}
-      /     %i.time.icon
-      /     New time
-      /   %a{class: 'item', enter: 'active', leave: ''}
-      /     %i.basic.folder.icon
-      /     Projects
-      /   %a{class: 'item', enter: 'active', leave: ''}
-      /     %i.basic.setting.icon
-      /     Settings
 
-    .ten.wide.column
-      .row
-        %table{class: "ui table segment"}
-          %thead
-            %th ID
-            %th Start
-            %th End
-            %th Time
-            %th
-          %tbody
-            %tr{"ng-repeat" => "timer in timers", enter: "active", "leave" => "", class: 'timer-row'}
-              %td {{ timer.id }}
-              %td {{ timer.created_at | date:'MMM d, H:mm' }}
-              %td {{ timer.end_time | date:'shortTime' }}
-              %td {{ timer.total_time }}
-              %td
-                .text-right
-                  %i.circular.inverted.red.remove.icon.link.icon{"ng-click" => "deleteTimer($index)"}
 
-          %tfoot
-            %tr
-              %th{colspan: "1"}
-                total
-              %td {{ timers.length + " timers"}}
-              %td
-              %td
-              %td
+        .row.timer-table
+          %table{class: "table"}
+            %thead
+              %th ID
+              %th Start
+              %th End
+              %th Time
+              %th
+            %tbody
+              %tr{"ng-repeat" => "timer in timers", enter: "active", "leave" => "", class: 'timer-row'}
+                %td {{ timer.id }}
+                %td {{ timer.created_at | date:'MMM d, H:mm' }}
+                %td {{ timer.end_time | date:'shortTime' }}
+                %td {{ timer.total_time }}
+                %td
+                  %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
+
+            %tfoot
+              %tr
+                %th{colspan: "1"}
+                  total
+                %td {{ timers.length + " timers"}}
+                %td
+                %td
+                %td

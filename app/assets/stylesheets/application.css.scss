@@ -13,17 +13,21 @@
  */
 
 @import "twitter/bootstrap";
+@import "colors";
 
 body {
-  background: #3498db;
+  background: rgba(239, 239, 239, 0.21);
   font-family: 'Helvetica Neue', 'Helvetica', 'Open Sans';
 }
 
 .login {
-  background-color: #edeff1;
-  border-radius: 8px;
+  background-color: #fff;
   padding: 20px;
   margin-top: 160px;
+  max-width: 430px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid #eee;
 }
 
 h1.login-head {
@@ -33,8 +37,10 @@ h1.login-head {
 }
 
 .form-control {
-  border: 2px solid #fff;
+  border: 1px solid #ccc;
+  border-radius: 0px;
   box-shadow: none;
+  font-weight: 100;
   &:focus {
     box-shadow: none;
   }
@@ -42,5 +48,15 @@ h1.login-head {
 
 .btn {
   border: 0px;
+  border-radius: 0px;
+  font-weight: 100;
+}
+
+.btn-primary {
+  background-color: $jx-blue;
+}
+
+.btn-lg {
   padding-top: 8px;
+  font-size: 1.8em;
 }
