@@ -14,10 +14,6 @@
 //= require jquery_ujs
 //= require angular
 //= require angular-resource
+//= require ng-rails-csrf
 //= require_tree .
 
-$(function() {
-  // Navbar dropdown
-  $('.ui.dropdown').dropdown();
-  
-});

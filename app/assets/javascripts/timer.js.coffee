@@ -15,7 +15,7 @@
 # This timer assumes that the requests made to the server are successful.
 # 
 
-app = angular.module("main_timer", ['timer', 'ngResource'])
+app = angular.module("main_timer", ['timer', 'ngResource', 'ng-rails-csrf'])
 
 #
 # MODEL

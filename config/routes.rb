@@ -10,5 +10,7 @@ Jxtime::Application.routes.draw do
   post 'timers/start' => 'timers#start', as:  :start_timer
   post 'timers/:id'  => 'timers#stop', as:   :stop_timer
 
+  get 'settings' => 'settings#index', as: :settings
+
   root to: 'timers#index'
 end

@@ -1,13 +1,3 @@
-###
-Settings Directive
-
-This directive should spawn the settings menu.
-
-angular.module("settings", []).directive "settings", ["$compile", ($compile) ->
-  restrict: "E"
-  replace: false # TODO -- should this be changed?
-  scope:
-###
-
-
-
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/

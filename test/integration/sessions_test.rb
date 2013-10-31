@@ -5,8 +5,4 @@ class SessionsTest < ActionDispatch::IntegrationTest
     get root_path
     assert_redirected_to new_user_session_path
   end
-
-  test 'without session get redirected' do
-
-  end
 end

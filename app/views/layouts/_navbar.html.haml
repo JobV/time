@@ -1,19 +1,9 @@
-.ui.menu
-  %a.active.green.item
-    %i.home.icon
-    Track
-  %a.red.item
-    %i.calendar.icon
-    Overview
-
-  .right.menu
-    .ui.dropdown.item
-      %i.setting.icon
-      .menu
-        %a.item
-          Settings
-        %a.item
-          You
-
-
-
+.navbar
+  .container
+    %nav.navbar-collapse
+      %ul.nav.navbar-nav.pull-right
+        - if current_user
+          %li= link_to 'Settings', settings_path
+          %li= link_to 'Sign out', destroy_user_session_path, method: :delete, action: :destroy
+        - else
+          Woah! You're not logged in!

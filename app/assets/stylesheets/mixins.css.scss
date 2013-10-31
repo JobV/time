@@ -1,0 +1,13 @@
+// MIXINS
+
+@mixin base-box {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+@mixin center-box {
+  @include base-box;
+  margin-right: auto;
+  margin-left: auto;
+}

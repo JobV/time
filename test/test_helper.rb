@@ -2,9 +2,9 @@ ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'minitest/spec'
+require "minitest/rails/capybara"
 
 class ActiveSupport::TestCase
-  # include Devise::TestHelpers
   ActiveRecord::Migration.check_pending!
 
   DatabaseCleaner.strategy = :transaction

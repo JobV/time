@@ -6,7 +6,6 @@ class TimersControllerTest < ActionController::TestCase
     login
   end
 
-
   test '#index' do
     get :index
     assert_response :success
@@ -36,6 +35,13 @@ class TimersControllerTest < ActionController::TestCase
     delete :destroy, id: 1
     assert_equal 0, Timer.count
   end
+
+  # TODO: include route helpers, post is not recognized
+  # test '#stop' do
+  #   timer = FactoryGirl.create(:timer)
+  #   post '/timers/1'
+  #   assert_response :success
+  # end
 
   private
 

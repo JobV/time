@@ -1,0 +1,11 @@
+// Place all the styles related to the Settings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "mixins";
+.settings {
+  @include center-box;
+  max-width: 600px;
+  min-height: 500px;
+  padding-top: 0px;
+}

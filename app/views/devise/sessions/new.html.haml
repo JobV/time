@@ -1,7 +1,9 @@
 .row
   .col-md-4
-  .col-md-4.login
+    = devise_error_messages!
 
+  .col-md-4.login
+    = devise_error_messages!
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
       .form-group
         = f.email_field :email, class:"form-control input-lg", placeholder: "Email"
