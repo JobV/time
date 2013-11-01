@@ -4,4 +4,3 @@
 require File.expand_path('../config/application', __FILE__)
 
 Jxtime::Application.load_tasks
-MiniTest::Rails::Testing.default_tasks << "features"
