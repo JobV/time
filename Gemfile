@@ -10,7 +10,7 @@ gem 'angularjs-rails'
 gem 'devise'
 gem 'haml'
 
-gem 'therubyracer', platforms: :ruby # or any other runtime
+# gem 'therubyracer', platforms: :ruby # or any other runtime
 # gem 'less-rails'
 gem 'sass-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
