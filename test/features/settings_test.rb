@@ -14,6 +14,9 @@ class SettingsTest < Capybara::Rails::TestCase
   end
 
   test 'can change email' do
+    fill_in :user_email, with: 'testert@new.com'
+    click_on "Change my email"
+    assert_equal 'testert@new.com', User.first.email
   end
 
   test 'can change password' do

@@ -21,3 +21,7 @@
           = f.password_field :password_confirmation, placeholder: "Confirm you new password", class: "form-control"
         .form-group
           = f.submit 'Change my password', class: "btn btn-primary"
+
+    %hr
+    %p
+      = link_to 'Back', root_path, class: 'btn btn-warning btn-block'
