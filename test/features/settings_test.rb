@@ -4,21 +4,22 @@ class SettingsTest < Capybara::Rails::TestCase
 
   def setup
     login
+    visit settings_path
   end
 
   test "settings renders" do
-    click_on "Settings"
     assert_content page, "Change your password"
     assert_content page, "Change your email"
     assert_content page, "Timers"
   end
 
   test 'can change email' do
-
   end
 
   test 'can change password' do
-
+    fill_in :user_password, with: 'jobiscool1'
+    fill_in :user_password_confirmation, with: 'jobiscool1'
+    click_on 'Change my password'
   end
 
   def user

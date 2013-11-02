@@ -11,6 +11,15 @@ Jxtime::Application.routes.draw do
   post 'timers/:id'  => 'timers#stop', as:   :stop_timer
 
   get 'settings' => 'settings#index', as: :settings
+  patch 'user/update_email' => 'settings#update_email'
+
+  patch 'user/update_password' => 'settings#update_password'
+
+  resource :user, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end
+  end
 
   root to: 'timers#index'
 end

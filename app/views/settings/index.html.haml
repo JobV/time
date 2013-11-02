@@ -3,16 +3,21 @@
   .col-md-4.settings
 
     %p
-      %h3 Change your email
-      %input{placeholder:"#{current_user.email}", class: "form-control"}
+      = form_for @user, url: { action: "update_email" } do |f|
+        %h3 Change your email
+        .form-group
+          = f.text_field :email, placeholder: "Fill in your new email address", class: "form-control"
+        .form-group
+          = f.submit 'Change my email', class: "btn btn-primary"
 
     %hr
 
     %p
-      %h3 Change your password
-      %input{placeholder: "Enter a new password and submit to confirm", class: "form-control"}
-
-
-    %br
-
-    %button{class: "btn btn-primary btn-block btn-lg"} Submit
+      = form_for @user, url: { action: "update_password" } do |f|
+        %h3 Change your password
+        .form-group
+          = f.password_field :password, placeholder: "New password", class: "form-control"
+        .form-group
+          = f.password_field :password_confirmation, placeholder: "Confirm you new password", class: "form-control"
+        .form-group
+          = f.submit 'Change my password', class: "btn btn-primary"
