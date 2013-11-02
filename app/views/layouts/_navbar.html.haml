@@ -1,9 +1,11 @@
 .navbar
   .container
     %nav.navbar-collapse
-      %ul.nav.navbar-nav.pull-right
-        - if current_user
+      -if current_user
+        %ul.nav.navbar-nav.pull-left
+          %li= link_to 'Timers', timers_path
+        %ul.nav.navbar-nav.pull-right
           %li= link_to 'Settings', settings_path
           %li= link_to 'Sign out', destroy_user_session_path, method: :delete, action: :destroy
-        - else
-          Woah! You're not logged in!
+      - else
+
