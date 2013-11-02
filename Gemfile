@@ -29,6 +29,7 @@ group :test do
   gem 'minitest', '~> 4.7'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'minitest-rails-capybara'
+  gem 'simplecov', require: false
 end
 
 group :test, :development do
