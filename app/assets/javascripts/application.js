@@ -16,6 +16,7 @@
 //= require angular-resource
 //= require ng-rails-csrf
 //= require_tree .
-//
 
-
+$(document).ready(function() {
+  alert('it is working');
+});

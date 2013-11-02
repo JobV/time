@@ -25,6 +25,7 @@ Jxtime::Application.configure do
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   config.assets.css_compressor = :scss
+  config.assets.js_compressor = Uglifier.new(mangle: false)
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
@@ -56,7 +57,6 @@ Jxtime::Application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"
-  config.assets.initialize_on_precompile = false
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
