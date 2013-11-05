@@ -1,0 +1,13 @@
+.row
+  .col-md-4
+  .col-md-4.settings
+
+    %h1= "Edit #{@project.name}"
+
+    = form_for @project do |f|
+      .form-group
+        = f.text_field :name, placeholder: "#{@project.name}", class: "form-control input-lg" 
+      = f.submit "Save", class: "btn btn-lg btn-warning"
+
+      = link_to "Cancel", project_path(@project), class: "btn btn-lg btn-primary"
+    %br

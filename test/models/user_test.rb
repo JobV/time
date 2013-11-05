@@ -5,11 +5,10 @@ class UserTest < ActiveSupport::TestCase
     user ||= User.new
   end
 
-  test 'responds to email' do 
+  test 'responders' do 
     assert_respond_to user, :email
-  end
-
-  test 'responds to first name' do
     assert_respond_to user, :first_name
+    assert_respond_to user, :timers
+    assert_respond_to user, :projects
   end
 end

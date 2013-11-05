@@ -1,0 +1,14 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "mixins";
+.n_project {
+  @include center-box;
+  padding-right: 20px;
+}
+
+.project_list {
+  @include center-box;
+  background-color: #fff;
+}

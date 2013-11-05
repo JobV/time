@@ -1,3 +1,14 @@
+# Support factories and devise
+ActionDispatch::Callbacks.after do
+  # Reload the factories
+  return unless Rails.env.test?
+
+  unless FactoryGirl.factories.blank? # first init will load factories, this should only run on subsequent reloads
+    FactoryGirl.factories.clear
+    FactoryGirl.find_definitions
+  end
+end
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|

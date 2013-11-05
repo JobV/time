@@ -7,7 +7,8 @@ class ProjectTest < ActiveSupport::TestCase
 
   test 'responds' do
     assert_respond_to @project, :name
-    assert_respond_to @project, :user_id
+    assert_respond_to @project, :users
+    assert_respond_to @project, :timers
   end
 
   test 'validates presence of attributes' do

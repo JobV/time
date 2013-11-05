@@ -1,0 +1,22 @@
+.container
+  .col-md-8.project_list
+    %h1 Your projects
+
+    %table.table
+      %thead
+        %tr
+          %td Project
+          %td Owner
+      %tbody
+      - @projects.each do |project|
+        %tr
+          %td= link_to project.name, project_path(project)
+          %td= project.users[0] ? project.users[0].email : project.users.count
+
+  .col-md-3.col-md-offset-1.n_project
+    %h3 Create a new Project
+    = form_for @new_project do |f|
+      .form-group
+        = f.text_field :name, class: 'form-control input-lg', placeholder: 'Project name'
+      .form-group
+        = f.submit 'Create', class: 'btn btn-primary btn-lg btn-block'

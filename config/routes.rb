@@ -4,6 +4,7 @@ Jxtime::Application.routes.draw do
   devise_for :users
 
   resources :timers
+  resources :projects
 
   # get 'timers/:id/starting_time' => 'timers#starting_time', as: :starting_time
 

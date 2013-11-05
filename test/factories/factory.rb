@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :timer, class: Timer do
+    association :user, factory: :user
   end
 
   factory :project, class: Project do
     name 'jx-time'
-    association :user, factory: :user
   end
 
   factory :user, class: User do

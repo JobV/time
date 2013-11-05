@@ -37,4 +37,5 @@ group :test, :development do
   gem 'guard-jasmine'
   gem 'database_cleaner'
   gem 'foreman'
+  gem 'minitest-reporters'
 end

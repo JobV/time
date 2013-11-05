@@ -9,7 +9,8 @@ class TimerTest < ActiveSupport::TestCase
     assert_respond_to @timer, :project
     assert_respond_to @timer, :end_time
     assert_respond_to @timer, :total_time
-    assert_respond_to @timer, :project_id
+    assert_respond_to @timer, :project
+    assert_respond_to @timer, :user_id
   end
 
   test '#time returns the total tracked time' do
