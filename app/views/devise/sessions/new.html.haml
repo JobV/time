@@ -1,6 +1,6 @@
 .row
   .col-md-4
-  .col-md-4.login
+  .col-md-4
     = flash[:alert]
     = form_for(resource, as: resource_name, url: session_path(resource_name), authenticity_token: true) do |f|
       .form-group

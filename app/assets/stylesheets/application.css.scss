@@ -54,17 +54,19 @@ h1.login-head {
 }
 
 .form-control {
-  border: 2px solid #ccc;
+  border: 2px solid $jx-blue;
   box-shadow: none;
+  background-color: $jx-off-white;
   &:focus {
     box-shadow: none;
     border-color: $jx-blue;
+    background-color: white;
   }
 }
 
 .btn {
   border: 2px solid;
-  background-color: #fff;
+  background-color: $jx-off-white;
 }
 
 .btn-primary {
