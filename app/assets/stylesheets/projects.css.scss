@@ -2,13 +2,76 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "colors";
 @import "mixins";
 .n_project {
-  @include center-box;
-  padding-right: 20px;
 }
 
 .project_list {
   @include center-box;
   background-color: #fff;
+}
+
+.project {
+  background-color: #f7f7f7;
+  border: 1px solid #ededed;
+  height: 100px;
+  max-height: 100px;
+  margin-bottom: 10px;
+  h1 a {
+    color: #555;
+    
+  }
+}
+
+.project .title {
+  border-right: 1px solid #ededed;
+  display: inline-block;
+  height: 100px;
+  h1 {
+    font-size: 2em;
+    margin-top: 8px;
+    margin-bottom: 2px;
+  }
+  h2 {
+    font-size: 1.2em;
+    margin: 0;
+    color: $jx-green;
+  }
+}
+
+@mixin project-sub-box {
+  display: inline-block;
+  height: 100px;
+  text-align: center;
+  h2 {
+    margin-top: 10px;
+  }
+  h4 {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 0px;
+  }
+  h5 {
+    font-size: 0.8em;
+    color: $jx-orange;
+  }
+}
+
+.project .time {
+  @include project-sub-box;
+  border-right: 1px solid #ededed;
+}
+
+.project .last {
+  @include project-sub-box;
+}
+
+.top-input {
+  width: auto;
+  display: inline;
+}
+
+.create-top {
+  padding-right: 0;
 }

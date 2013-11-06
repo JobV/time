@@ -1,22 +1,30 @@
 .container
-  .col-md-8.project_list
-    %h1 Your projects
+  .col-md-8.col-md-offset-2
 
-    %table.table
-      %thead
-        %tr
-          %td Project
-          %td Owner
-      %tbody
-      - @projects.each do |project|
-        %tr
-          %td= link_to project.name, project_path(project)
-          %td= project.users[0] ? project.users[0].email : project.users.count
+    .row
+      .col-xs-12.create-top
+        .float-right.text-right
+          = form_for @new_project, class: 'form-horizontal' do |f|
+            = f.text_field :name, class: 'form-control top-input', placeholder: 'Create a new Project'
+            = f.submit 'Create', class: 'btn btn-primary'
 
-  .col-md-3.col-md-offset-1.n_project
-    %h3 Create a new Project
-    = form_for @new_project do |f|
-      .form-group
-        = f.text_field :name, class: 'form-control input-lg', placeholder: 'Project name'
-      .form-group
-        = f.submit 'Create', class: 'btn btn-primary btn-lg btn-block'
+    %br
+
+    - @projects.each do |project|
+      .row.project
+        .col-xs-3.title
+          %h1= link_to project.name, project_path(project)
+          %h2 Within budget
+
+        .col-xs-3.time
+          %h4 Time Logged
+          %h2 25h
+          %h5 20h this week
+
+        .col-xs-3.time
+          %h4 Earned
+          %h2 € 5231
+          %h5 
+
+        .col-xs-3.last
+        / # = project.users[0] ? project.users[0].email : project.users.count

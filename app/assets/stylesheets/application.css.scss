@@ -4,12 +4,26 @@
  *= require_tree .
  */
 
-@import "twitter/bootstrap";
 @import "colors";
+
+$navbar-height: 65px;
+$navbar-bg: $jx-blue2;
+
+$navbar-link-active-color: white;
+$navbar-link-active-bg: $jx-blue;
+
+$navbar-link-color: white;
+$navbar-link-hover-color: white;
+
+$navbar-brand-color: #fff;
+$navbar-brand-hover-color: $jx-blue;
+
+
+@import "twitter/bootstrap";
 @import "mixins";
 
 body {
-  background: rgba(239, 239, 239, 0.91);
+  background: #fff; //rgba(239, 239, 239, 0.91);
   font-family: 'Helvetica Neue', 'Helvetica', 'Open Sans';
 }
 
@@ -28,23 +42,36 @@ h1.login-head {
 }
 
 .form-control {
-  border: 1px solid #ccc;
-  border-radius: 0px;
+  border: 2px solid #ccc;
   box-shadow: none;
-  font-weight: 100;
   &:focus {
     box-shadow: none;
+    border-color: $jx-blue;
   }
 }
 
 .btn {
-  border: 0px;
-  border-radius: 0px;
-  font-weight: 100;
+  border: 2px solid;
+  background-color: #fff;
 }
 
 .btn-primary {
-  background-color: $jx-blue;
+  border: 2px solid $jx-blue;
+  color: $jx-blue;
+
+  &:hover {
+    background-color: $jx-blue;
+    border-color: $jx-blue;
+  }
+}
+
+.btn-warning {
+  border-color: $jx-pumpkin;
+  color: $jx-pumpkin;
+  &:hover {
+    background-color: $jx-pumpkin;
+    border-color: $jx-pumpkin;
+  }
 }
 
 .btn-lg {
