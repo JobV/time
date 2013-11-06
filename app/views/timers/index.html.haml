@@ -17,6 +17,7 @@
               %th Start
               %th End
               %th Time
+              %th User id
               %th
             %tbody
               %tr{"ng-repeat" => "timer in timers", enter: "active", "leave" => "", class: 'timer-row'}
@@ -24,6 +25,7 @@
                 %td {{ timer.created_at | date:'MMM d, H:mm' }}
                 %td {{ timer.end_time | date:'shortTime' }}
                 %td {{ timer.total_time }}
+                %td {{ timer.user_id }}
                 %td
                   %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
 
@@ -32,6 +34,7 @@
                 %th{colspan: "1"}
                   total
                 %td {{ timers.length + " timers"}}
+                %td
                 %td
                 %td
                 %td

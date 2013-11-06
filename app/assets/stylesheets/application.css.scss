@@ -22,8 +22,20 @@ $navbar-brand-hover-color: $jx-blue;
 @import "twitter/bootstrap";
 @import "mixins";
 
+.navbar-default {
+  background-color: $jx-blue;
+  color: white;
+  border-radius: 0px;
+  border: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  &:hover { background-color: $jx-blue2; color: white; }
+}
+
 body {
-  background: #fff; //rgba(239, 239, 239, 0.91);
+  background: rgba(239, 239, 239, 0.91);
   font-family: 'Helvetica Neue', 'Helvetica', 'Open Sans';
 }
 

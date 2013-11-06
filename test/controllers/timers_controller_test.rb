@@ -3,6 +3,8 @@ include Devise::TestHelpers
 
 class TimersControllerTest < ActionController::TestCase
   def setup
+    FactoryGirl.factories.clear
+    FactoryGirl.find_definitions
     login
   end
 
@@ -19,9 +21,10 @@ class TimersControllerTest < ActionController::TestCase
   end
 
   test '#create' do
-    post :create
+    post :create, user_id: 1
     assert_equal 1, Timer.count
     assert_redirected_to timer_path(1)
+    assert_equal 1, Timer.first.user.id
   end
 
   test '#update' do

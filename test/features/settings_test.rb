@@ -10,7 +10,7 @@ class SettingsTest < Capybara::Rails::TestCase
   test "settings renders" do
     assert_content page, "Change your password"
     assert_content page, "Change your email"
-    assert_content page, "Timers"
+    assert_content page, "Start Work"
   end
 
   test 'can change email' do

@@ -3,16 +3,16 @@ class TimersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @timers = Timer.all
+    @timers = Timer.where(user_id: current_user.id)
     respond_with @timers
   end
 
   def show
-    respond_with Timer.find_by_id(params[:id])
+    respond_with Timer.find_by(id: params[:id])
   end
 
   def create
-    respond_with Timer.create(params[:timer])
+    respond_with Timer.create(end_time: params[:end_time], user_id: current_user.id)
   end
 
   def update
@@ -20,17 +20,23 @@ class TimersController < ApplicationController
   end
 
   def stop
-    timer = Timer.find_by_id(params[:id])
+    timer = Timer.find_by(id: params[:id])
     timer.stop
     respond_with timer
   end
 
   def destroy
-    @timer = Timer.find(params[:id])
+    @timer = Timer.find_by(id: params[:id])
     respond_with @timer.destroy
   end
 
   def starting_time
-    respond_with Timer.find_by_id(params[:id]).created_at
+    respond_with Timer.find_by(id: params[:id]).created_at
+  end
+
+  private
+
+  def timer_params
+    params.permit(:end_time, :user_id)
   end
 end

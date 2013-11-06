@@ -4,13 +4,7 @@ class ProjectsTest < Capybara::Rails::TestCase
   def setup
     login
   end
-
-  test "navigate to index" do
-    visit root_path
-    click_on "Projects"
-    assert_content page,"Your projects"
-  end
-
+  
   test 'create a new project' do
     visit projects_path    
     fill_in :project_name, with: "JX-Time"
