@@ -18,27 +18,26 @@ $navbar-link-hover-color: white;
 $navbar-brand-color: #fff;
 $navbar-brand-hover-color: $jx-blue;
 
-
 @import "twitter/bootstrap";
 @import "mixins";
 
 .navbar-default {
-  background-color: $jx-blue;
-  color: white;
+  background-color: $jx-white;
+  // color: white;
   border-radius: 0px;
-  border: 0;
+  border-top: 0;
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: white;
+  // color: white;
   transition: all 0.3s;
-  &:hover { background-color: $jx-blue2; color: white; }
+  &:hover { background-color: $maincolor; color: white; }
 }
 
 body {
-  background: $jx-blue;//rgba(239, 239, 239, 0.91);
+  background: $bgcolor;
   font-family: 'Helvetica Neue', 'Helvetica', 'Open Sans';
-  color: white;
+  color: $textcolor;
 }
 
 .login {
@@ -50,63 +49,63 @@ body {
 }
 
 h1.login-head {
-  color: #fff;
+  color: $textcolor;
   font-size: 5em;
   font-weight: lighter;
 }
 
 .form-control {
-  border: 2px solid white;
+  border: 2px solid $maincolor;
   box-shadow: none;
-  background-color: $jx-blue;
-  color: white;
+  background-color: $bgcolor;
+  color: $textcolor;
 
   &:focus {
     box-shadow: none;
-    border-color: white;
-    background-color: $jx-blue2;
+    border-color: $secondarycolor;
+    background-color: $bgcolor;
   }
 }
 
 // Placeholder text
 .form-control::-webkit-input-placeholder { /* WebKit browsers */
-  color:    $jx-blue2;
+  color:    $maincolor;
 }
 .form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    $jx-blue2;
+    color:    $maincolor;
 }
 .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    $jx-blue2;
+    color:    $maincolor;
 }
 .form-control:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    $jx-blue2;
+    color:    $maincolor;
 }
 
 .btn {
-  border: 2px solid;
-  background-color: $jx-blue;
+  border: 2px solid $textcolor;
+  background-color: $bgcolor;
   transition: all 0.3s;
+  text-transform: uppercase;
 }
 
 .btn-primary {
-  border: 2px solid white;
-  color: white;
-  text-transform: uppercase;
+  border: 2px solid $btn-primary-color;
+  color: $btn-primary-color;
 
   &:hover {
-    background-color: white;
-    border-color: white;
-    color: $jx-blue2;
+    border-color: $btn-primary-color;
+    background-color: $btn-primary-color;
+    color: $bgcolor;
   }
 }
 
 .btn-warning {
-  border-color: $jx-purple2;
-  color: $jx-purple2;
-  text-transform: uppercase;
+  border-color: $btn-warning-color;
+  color: $btn-warning-color;
   &:hover {
-    background-color: $jx-purple2;
-    border-color: $jx-purple2;
+    background-color: $btn-warning-color;
+    border-color: $btn-warning-color;
+    color: $bgcolor;
   }
 }
 

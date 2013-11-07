@@ -1,15 +1,18 @@
 .row
   .col-md-4
   .col-md-4
-    = flash[:alert]
+    .alert.alert-warning.alert-dismissable
+      %button.close{type: "button", class: "close", "data-dismiss"=> "alert", "aria-hidden"=> "true"}
+      = flash[:alert]
+
     = form_for(resource, as: resource_name, url: session_path(resource_name), authenticity_token: true) do |f|
       .form-group
         = f.email_field :email, class: "form-control input-lg", placeholder: "Email"
 
       .form-group
         = f.password_field :password, class:"form-control input-lg", placeholder: "Password"
-      %div
-        = f.check_box :remember_me
-        = f.label :remember_me
+      / %div
+      /   = f.check_box :remember_me
+      /   = f.label :remember_me
       %div= f.submit "Sign in", class: 'btn btn-primary btn-lg btn-block'
     / = render "devise/shared/links"
