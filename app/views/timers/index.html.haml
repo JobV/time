@@ -10,31 +10,7 @@
           %div{ class: "btn btn-primary btn-lg", "ng-click" => "toggleTimer()", "ng-class" => "startClass" }
             {{startValue}}
 
-        .row.timer-table
-          %table{class: "table"}
-            %thead
-              %th ID
-              %th Start
-              %th End
-              %th Time
-              %th User id
-              %th
-            %tbody
-              %tr{"ng-repeat" => "timer in timers", enter: "active", "leave" => "", class: 'timer-row'}
-                %td {{ timer.id }}
-                %td {{ timer.created_at | date:'MMM d, H:mm' }}
-                %td {{ timer.end_time | date:'shortTime' }}
-                %td {{ timer.total_time }}
-                %td {{ timer.user_id }}
-                %td
-                  %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
-
-            %tfoot
-              %tr
-                %th{colspan: "1"}
-                  total
-                %td {{ timers.length + " timers"}}
-                %td
-                %td
-                %td
-                %td
+        .timer-list{"ng-repeat" => "timer in timers"}
+          .timer-n
+            %h4 {{ timer.created_at | date:'MMM d, H:mm' }} - {{ timer.end_time | date:'MMM d, H:mm' }} {{ timer.total_time }}s
+            %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete

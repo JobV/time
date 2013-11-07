@@ -7,7 +7,6 @@
   margin-left: auto;
   text-align: center;
   margin-bottom: 40px;
-
 }
 
 .timer h1 {
@@ -16,7 +15,18 @@
 }
 
 .timer-table {
-  background-color: white;
-  border: 1px solid #ccc;
+  // border: 2px solid #fff;
   padding: 5px
+}
+
+.timer-list {
+  text-align: center;
+  .btn {
+    border: 0;
+  }
+}
+
+.timer-n {
+  padding: 5px;
+  h4 { display: inline-block;}
 }

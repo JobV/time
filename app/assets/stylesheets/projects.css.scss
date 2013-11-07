@@ -13,19 +13,23 @@
 }
 
 .project {
-  background-color: #f7f7f7;
-  border: 1px solid #ededed;
+  // background-color: #f7f7f7;
+  // border: 2px solid #fff;
   height: 100px;
   max-height: 100px;
   margin-bottom: 10px;
   h1 a {
-    color: #555;
+    color: #fff;
     
+  }
+  &:hover {
+    background-color: $jx-blue2;
+    transition: all 0.3s;
   }
 }
 
 .project .title {
-  border-right: 1px solid #ededed;
+  // border-right: 2px solid #fff;
   display: inline-block;
   height: 100px;
   h1 {
@@ -49,7 +53,7 @@
   }
   h4 {
     font-size: 0.9em;
-    color: #aaa;
+    color: #fff;
     margin-bottom: 0px;
   }
   h5 {
@@ -60,7 +64,6 @@
 
 .project .time {
   @include project-sub-box;
-  border-right: 1px solid #ededed;
 }
 
 .project .last {

@@ -9,6 +9,7 @@
             = f.submit 'Create', class: 'btn btn-primary'
 
     %br
+    %br
     - @projects.each do |project|
       .row.project
         .col-xs-3.title
@@ -18,7 +19,7 @@
         .col-xs-3.time
           %h4 Time Logged
           %h2 25h
-          %h5 20h this week
+          / %h5 20h this week
 
         .col-xs-3.time
           %h4 Earned
