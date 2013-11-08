@@ -14,3 +14,8 @@
           .timer-n
             %h4 {{ timer.created_at | date:'MMM d, H:mm' }} - {{ timer.end_time | date:'MMM d, H:mm' }} {{ timer.total_time }}s
             %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
+
+.container
+  Laatste verandering:
+  %br
+  = @release_notes

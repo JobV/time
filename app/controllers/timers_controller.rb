@@ -4,6 +4,7 @@ class TimersController < ApplicationController
 
   def index
     @timers = Timer.where(user_id: current_user.id)
+    @release_notes = `git log --color --pretty=format:'(%cr) %s' --abbrev-commit -1`
     respond_with @timers
   end
 
