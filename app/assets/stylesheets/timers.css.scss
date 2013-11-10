@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.navbar {
+  margin-bottom: 0 !important;
+}
 .timer {
   margin-right: auto;
   margin-left: auto;
@@ -29,4 +32,18 @@
 .timer-n {
   padding: 5px;
   h4 { display: inline-block;}
+}
+
+.barbar {
+  background-color: #ECF2F8;
+  min-height: 50px;
+}
+
+.barbar .form-control {
+  display: inline-block;
+  width: auto;
+}
+
+.barbar .top-form {
+  margin-top: 7px;
 }

@@ -8,8 +8,9 @@ gem 'turbolinks'
 gem 'angularjs-rails'
 
 gem 'devise'
-gem 'haml'
+# gem 'pundit'
 
+gem 'haml'
 gem 'sass-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'

@@ -5,10 +5,16 @@ class UserTest < ActiveSupport::TestCase
     user ||= User.new
   end
 
+  ATTRIBUTES = %w(email
+                  first_name
+                  last_name
+                  timers
+                  projects
+                  )
+
   test 'responders' do 
-    assert_respond_to user, :email
-    assert_respond_to user, :first_name
-    assert_respond_to user, :timers
-    assert_respond_to user, :projects
+    ATTRIBUTES.each do |attribute|
+      assert_respond_to user, attribute
+    end
   end
 end

@@ -1,21 +1,30 @@
-.row
+.barbar
   .col-md-12
-    .container
-      %div{ "ng-controller" => "TimerCtrl" }
-        .timer
-          %h1.top-timer
-            %timer{ "interval" => "1000", "autostart" => "false", "ng-model" => "timer.data", "start-time" => "startingTime" }
-              {{hours}} : {{minutes}} : {{seconds}}
+    .container.text-center
+      .top-form
+        = form_for Timer.new do |f|
+          = text_field :total_time, 'total time', class: 'form-control', placeholder: 'Time e.g. 1h 20m'
+          = text_field :project,    'project',    class: 'form-control', placeholder: 'Project'
+          %button.btn.btn-primary Log
 
-          %div{ class: "btn btn-primary btn-lg", "ng-click" => "toggleTimer()", "ng-class" => "startClass" }
-            {{startValue}}
+/ .row
+/   .col-md-12
+/     .container
+/       %div{ "ng-controller" => "TimerCtrl" }
+/         .timer
+/           %h1.top-timer
+/             %timer{ "interval" => "1000", "autostart" => "false", "ng-model" => "timer.data", "start-time" => "startingTime" }
+/               {{hours}} : {{minutes}} : {{seconds}}
 
-        .timer-list{"ng-repeat" => "timer in timers"}
-          .timer-n
-            %h4 {{ timer.created_at | date:'MMM d, H:mm' }} - {{ timer.end_time | date:'MMM d, H:mm' }} {{ timer.total_time }}s
-            %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
+/           %div{ class: "btn btn-primary btn-lg", "ng-click" => "toggleTimer()", "ng-class" => "startClass" }
+/             {{startValue}}
 
-.container
-  Laatste verandering:
-  %br
-  = @release_notes
+/         .timer-list{"ng-repeat" => "timer in timers"}
+/           .timer-n
+/             %h4 {{ timer.created_at | date:'MMM d, H:mm' }} - {{ timer.end_time | date:'MMM d, H:mm' }} {{ timer.total_time }}s
+/             %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
+
+/ .container
+/   Laatste verandering:
+/   %br
+/   = @release_notes

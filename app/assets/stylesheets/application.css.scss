@@ -22,14 +22,14 @@ $navbar-brand-hover-color: $jx-blue;
 @import "mixins";
 
 .navbar-default {
-  background-color: $jx-white;
+  background-color: $secondarycolor;//#C9D4DB;
   // color: white;
   border-radius: 0px;
   border-top: 0;
 }
 
 .navbar-default .navbar-nav > li > a {
-  // color: white;
+  color: white;
   transition: all 0.3s;
   &:hover { background-color: $maincolor; color: white; }
 }
@@ -55,7 +55,7 @@ h1.login-head {
 }
 
 .form-control {
-  border: 2px solid $maincolor;
+  // border: 1px solid $maincolor;
   box-shadow: none;
   background-color: $bgcolor;
   color: $textcolor;
@@ -82,20 +82,20 @@ h1.login-head {
 }
 
 .btn {
-  border: 2px solid $textcolor;
+  border: 1px solid $textcolor;
   background-color: $bgcolor;
   transition: all 0.3s;
   text-transform: uppercase;
 }
 
 .btn-primary {
-  border: 2px solid $btn-primary-color;
+  border: 1px solid #ccc;
   color: $btn-primary-color;
 
   &:hover {
-    border-color: $btn-primary-color;
-    background-color: $btn-primary-color;
-    color: $bgcolor;
+    border-color: $secondarycolor;
+    background-color: $bgcolor;
+    color: $secondarycolor;
   }
 }
 
