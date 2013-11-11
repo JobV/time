@@ -3,7 +3,6 @@ require "test_helper"
 class SessionsTest < Capybara::Rails::TestCase
   test "sign in without account" do
     visit root_path
-    assert_content page, "Remember me"
     refute_content page, "Sign out"
 
     fill_in :user_email, with: 'test@new.com'
