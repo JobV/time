@@ -125,3 +125,5 @@ app.factory "Timer", ($resource) ->
     console.log 'calculated starting time:'
     console.log starting_time
     return starting_time
+
+@BarCtrl = ($scope) ->

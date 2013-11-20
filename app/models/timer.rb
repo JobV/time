@@ -2,6 +2,8 @@ class Timer < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
 
+  attr_reader :written_time
+
   def time
     end_time? ? end_time - created_at : Time.now - created_at
   end

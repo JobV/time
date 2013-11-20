@@ -3,6 +3,7 @@ class TimersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    @new_timer = Timer.new
     @timers = Timer.where(user_id: current_user.id)
     @release_notes = `git log --color --pretty=format:'(%cr) %s' --abbrev-commit -1`
     respond_with @timers

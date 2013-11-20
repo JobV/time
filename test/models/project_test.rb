@@ -9,6 +9,7 @@ class ProjectTest < ActiveSupport::TestCase
     assert_respond_to @project, :name
     assert_respond_to @project, :users
     assert_respond_to @project, :timers
+    assert_respond_to @project, :hourly_rate
   end
 
   test 'validates presence of attributes' do

@@ -9,7 +9,12 @@ class CreateTimerTest < Capybara::Rails::TestCase
   test "create a timer" do
     visit root_path
 
+    fill_in :timer_written_time, with: '1h 30m'
+    # Choose from selector box the project
+    click_on 'Log'
 
+    assert_content page, '1h 30m'
+    
   end
 
   def user

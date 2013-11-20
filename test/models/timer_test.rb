@@ -2,6 +2,8 @@ require 'test_helper'
 
 class TimerTest < ActiveSupport::TestCase
   def setup
+    FactoryGirl.factories.clear
+    FactoryGirl.find_definitions
     @timer = FactoryGirl.create(:timer)
   end
 
