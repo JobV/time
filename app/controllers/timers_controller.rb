@@ -10,11 +10,11 @@ class TimersController < ApplicationController
   end
 
   def show
-    respond_with Timer.find_by(id: params[:id])
+    respond_with find_timer_by_id
   end
 
   def create
-    respond_with Timer.create(end_time: params[:end_time], user_id: current_user.id)
+    respond_with Timer.create(end_time: params[:end_time], project_id: params[:project_id], user_id: current_user.id)
   end
 
   def update
@@ -22,23 +22,27 @@ class TimersController < ApplicationController
   end
 
   def stop
-    timer = Timer.find_by(id: params[:id])
+    timer = find_timer_by_id
     timer.stop
     respond_with timer
   end
 
   def destroy
-    @timer = Timer.find_by(id: params[:id])
+    @timer = find_timer_by_id
     respond_with @timer.destroy
   end
 
   def starting_time
-    respond_with Timer.find_by(id: params[:id]).created_at
+    respond_with find_timer_by_id.created_at
   end
 
   private
 
+  def find_timer_by_id
+    Timer.find_by(id: params[:id])
+  end
+
   def timer_params
-    params.permit(:end_time, :user_id)
+    params.permit(:end_time, :user_id, :project_id)
   end
 end

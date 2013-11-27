@@ -1,12 +1,10 @@
-%nav.navbar.navbar-default{ role:"navigation" }
-  .container
-    %nav.navbar-collapse
-      -if current_user
-        %ul.nav.navbar-nav.pull-left
-          %li= link_to 'Start Work', timers_path
-          %li= link_to 'Projects', projects_path
-        %ul.nav.navbar-nav.pull-right
-          %li= link_to 'Settings', settings_path
-          %li= link_to 'Sign out', destroy_user_session_path, method: :delete, action: :destroy
-      - else
+%nav.top-bar
+  %ul.title-area
+    %li.name
+      %h1= link_to 'Time', nil
 
+  %section.top-bar-section
+    %ul.right
+      %li
+        %a.settings-link
+          %i.icon-arrow-down.icon-4x

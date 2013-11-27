@@ -1,36 +1,13 @@
-.hider{ "ng-controller" => "BarCtrl"}
-  .barbar
-    .col-md-12
-      .container.text-center
-        .top-form
-          %input{ type: "text", "ng-model" => "new_timer.time", placeholder: "Time e.g. 1h 29m", class: "form-control" }
-          %input{ type: "text", "ng-model" => "new_timer.hourly_rate", placeholder: "Hourly Rate", class: "form-control" }
-          %input{ type: "text", "ng-model" => "new_timer.project", placeholder: "Project", class: "form-control" }
-          %button{ "ng-click" => "submitNewTimer()", class: "btn btn-primary"} Log
-
-  %br
-  %pre{ "ng-bind" => "new_timer | json" }
+.row
+  %div{ class: "small-10 small-centered columns" }
+    %div{ "ng-controller" => "TimerCtrl" }
+      .timer-list{"ng-repeat" => "timer in timers"}
+        .timer-n
+          %h4 {{ timer.created_at | date:'MMM d, H:mm' }} - {{ timer.end_time | date:'MMM d, H:mm' }} {{ timer.total_time }}s
+          %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
 
 .row
-  .col-md-12
-    .container
-
-      %div{ "ng-controller" => "TimerCtrl" }
-        .timer-list{"ng-repeat" => "timer in timers"}
-          .timer-n
-            %h4 {{ timer.created_at | date:'MMM d, H:mm' }} - {{ timer.end_time | date:'MMM d, H:mm' }} {{ timer.total_time }}s
-            %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
-
-.container
-  Laatste verandering:
-  %br
-  = @release_notes
-
-
-/ .timer
-/   %h1.top-timer
-/     %timer{ "interval" => "1000", "autostart" => "false", "ng-model" => "timer.data", "start-time" => "startingTime" }
-/       {{hours}} : {{minutes}} : {{seconds}}
-
-/   %div{ class: "btn btn-primary btn-lg", "ng-click" => "toggleTimer()", "ng-class" => "startClass" }
-/     {{startValue}}
+  .small-4.small-centered.column
+    Laatste verandering:
+    %br
+    = @release_notes

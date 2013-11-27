@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require angular
 //= require angular-resource
 //= require ng-rails-csrf
@@ -20,3 +21,5 @@
 $(document).ready(function() {
   
 });
+
+$(function(){ $(document).foundation(); });

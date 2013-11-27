@@ -1,9 +1,11 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!
+  respond_to :json, :html
 
   def index
     @new_project = Project.new
-    @projects = Project.all
+    @projects = current_user.projects #current_user.projects
+    respond_with current_user.projects
   end
 
   def create

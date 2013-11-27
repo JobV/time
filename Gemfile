@@ -12,8 +12,8 @@ gem 'devise'
 
 gem 'haml'
 gem 'sass-rails'
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :github => 'anjlab/bootstrap-rails'
+gem 'foundation-rails'
+gem 'font-awesome-rails', '~> 3.2.1.3'
 
 gem 'puma'
 gem 'ng-rails-csrf'

@@ -44,6 +44,10 @@ app.factory "Timer", ($resource) ->
             }
     }
 
+app.factory "Project", ($resource) ->
+  $resource "/projects/:id", { id: "@id" }
+
+
 #
 # CONTROLLER
 #
@@ -126,4 +130,12 @@ app.factory "Timer", ($resource) ->
     console.log starting_time
     return starting_time
 
-@BarCtrl = ($scope) ->
+@BarCtrl = ($scope, Project, Timer) ->
+
+  $scope.new_timer = {}
+
+  $scope.projects = Project.query ->
+    # Do something on a succesful query
+
+  $scope.logTime = ->
+    timer = Timer.save($scope.new_timer)

@@ -1,115 +1,12 @@
 /*
  *
  *= require_self
+ //= require foundation_and_overrides
  *= require_tree .
  */
 
-@import "colors";
+@import 'font-awesome';
 
-$navbar-height: 65px;
-$navbar-bg: $jx-blue2;
-
-$navbar-link-active-color: white;
-$navbar-link-active-bg: $jx-blue;
-
-$navbar-link-color: white;
-$navbar-link-hover-color: white;
-
-$navbar-brand-color: #fff;
-$navbar-brand-hover-color: $jx-blue;
-
-@import "twitter/bootstrap";
-@import "mixins";
-
-.navbar-default {
-  background-color: $secondarycolor;//#C9D4DB;
-  // color: white;
-  border-radius: 0px;
-  border-top: 0;
-}
-
-.navbar-default .navbar-nav > li > a {
-  color: white;
-  transition: all 0.3s;
-  &:hover { background-color: $maincolor; color: white; }
-}
-
-body {
-  background: $bgcolor;
-  font-family: 'Helvetica Neue', 'Helvetica', 'Open Sans';
-  color: $textcolor;
-}
-
-.login {
-  @include base-box;
-  margin-top: 160px;
-  max-width: 430px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-h1.login-head {
-  color: $textcolor;
-  font-size: 5em;
-  font-weight: lighter;
-}
-
-.form-control {
-  // border: 1px solid $maincolor;
-  box-shadow: none;
-  background-color: $bgcolor;
-  color: $textcolor;
-
-  &:focus {
-    box-shadow: none;
-    border-color: $secondarycolor;
-    background-color: $bgcolor;
-  }
-}
-
-// Placeholder text
-.form-control::-webkit-input-placeholder { /* WebKit browsers */
-  color:    $maincolor;
-}
-.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    $maincolor;
-}
-.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    $maincolor;
-}
-.form-control:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    $maincolor;
-}
-
-.btn {
-  border: 1px solid $textcolor;
-  background-color: $bgcolor;
-  transition: all 0.3s;
-  text-transform: uppercase;
-}
-
-.btn-primary {
-  border: 1px solid #ccc;
-  color: $btn-primary-color;
-
-  &:hover {
-    border-color: $secondarycolor;
-    background-color: $bgcolor;
-    color: $secondarycolor;
-  }
-}
-
-.btn-warning {
-  border-color: $btn-warning-color;
-  color: $btn-warning-color;
-  &:hover {
-    background-color: $btn-warning-color;
-    border-color: $btn-warning-color;
-    color: $bgcolor;
-  }
-}
-
-.btn-lg {
-  padding-top: 8px;
-  font-size: 1.8em;
+.settings-link {
+  padding-top: 13px !important;
 }

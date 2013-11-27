@@ -11,9 +11,10 @@ class ProjectsControllerTest < ActionController::TestCase
     login(@user)
   end
 
-  test 'responds' do
+  test '#index reponds with users projects' do
     get :index
     assert_response :success
+    assert_not_nil assigns @projects
   end
 
   test '#create' do
