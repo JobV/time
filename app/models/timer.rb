@@ -30,7 +30,6 @@ class Timer < ActiveRecord::Base
     running? ? 'running' : 'stopped'
   end
 
-  # TODO make this a sidekiq task if becomes big
   def set_total_time
     total_time_will_change!
     self.total_time = (self.end_time - created_at).floor

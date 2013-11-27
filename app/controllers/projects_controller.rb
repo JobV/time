@@ -4,8 +4,8 @@ class ProjectsController < ApplicationController
 
   def index
     @new_project = Project.new
-    @projects = current_user.projects #current_user.projects
-    respond_with current_user.projects
+    @projects = current_user.projects
+    respond_with @projects
   end
 
   def create
@@ -13,23 +13,22 @@ class ProjectsController < ApplicationController
     project.users << current_user
     if project.save
       flash[:notice] = "New project made."
-      redirect_to projects_path
     else
       flash[:alert] = "Project not made. Something went wrong."
-      redirect_to projects_path
     end
+    redirect_to projects_path
   end
 
   def show
-    @project = Project.find_by(id: params[:id])
+    @project = Project.find_project_by_id
   end
 
   def edit
-    @project = Project.find_by(id: params[:id])
+    @project = Project.find_project_by_id
   end
 
   def update
-    @project = Project.find_by(id: params[:id])
+    @project = Project.find_project_by_id
     if @project.update(project_params)
       flash[:notice] = "Your project has been updated."
       redirect_to project_path(@project)
@@ -40,13 +39,17 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find_by(id: params[:id])
+    @project = Project.find_project_by_id
     @project.delete
     flash[:notice] = "Your project has been deleted."
     redirect_to projects_path
   end
 
   private
+
+  def find_project_by_id
+    Project.find_by(id: params[:id])
+  end
 
   def project_params
     params.required(:project).permit(:name)
