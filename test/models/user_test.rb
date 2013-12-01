@@ -5,12 +5,7 @@ class UserTest < ActiveSupport::TestCase
     user ||= User.new
   end
 
-  ATTRIBUTES = %w(email
-                  first_name
-                  last_name
-                  timers
-                  projects
-                  )
+  ATTRIBUTES = %w(email, first_name, last_name, timers, projects)
 
   test 'responders' do 
     ATTRIBUTES.each do |attribute|

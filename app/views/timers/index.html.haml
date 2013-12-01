@@ -1,13 +1,36 @@
 .row
-  %div{ class: "small-10 small-centered columns" }
-    %div{ "ng-controller" => "TimerCtrl" }
-      .timer-list{"ng-repeat" => "timer in timers"}
-        .timer-n
-          %h4 {{ timer.created_at | date:'MMM d, H:mm' }} - {{ timer.end_time | date:'MMM d, H:mm' }} {{ timer.total_time }}s
-          %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
+  .small-10.small-centered.column{ "ng-controller" => "TimerCtrl" }
 
-.row
-  .small-4.small-centered.column
-    Laatste verandering:
-    %br
-    = @release_notes
+    .timer-box
+      %timer{ "autostart" => 'false' }
+        %button.start-button{ "ng-click" => "toggleTimer()" }
+          Start
+        
+        {{ hours }}:{{ minutes }}:{{ seconds }}
+
+
+    .timer-list
+      %h1.date-title Today
+      .timers{ "ng-repeat" => "timer in timers" }  
+        .timer-n
+          {{ timer.created_at | date:'H:m' }} on {{ timer.project.name }} for JAXONS
+          %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
+          .money
+            € 460
+
+        %pre {{ timer | json }}
+
+  
+/ .row
+/   %div{ class: "small-10 small-centered columns" }
+/     %div{ "ng-controller" => "TimerCtrl" }
+/       .timer-list{"ng-repeat" => "timer in timers"}
+/         .timer-n
+/           %h4 {{ timer.created_at | date:'MMM d, H:mm' }} - {{ timer.end_time | date:'MMM d, H:mm' }} {{ timer.total_time }}s
+/           %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
+
+/ .row
+/   .small-4.small-centered.column
+/     Laatste verandering:
+/     %br
+/     = @release_notes

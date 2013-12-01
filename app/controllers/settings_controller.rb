@@ -6,7 +6,7 @@ class SettingsController < ApplicationController
   end
 
   def update_email
-    @user = User.find(current_user.id)
+    @user = current_user
     if @user.update(user_params)
       sign_in @user, bypass: true
       flash[:notice] = "Your email was changed."
@@ -18,7 +18,7 @@ class SettingsController < ApplicationController
   end
 
   def update_password
-    @user = User.find(current_user.id)
+    @user = current_user
     if @user.update(user_params)
       sign_in @user, bypass: true
       flash[:notice] = "Your password was changed."

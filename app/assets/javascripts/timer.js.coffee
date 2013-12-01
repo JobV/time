@@ -1,17 +1,4 @@
 #
-# On start:
-# -> V start running timer
-# -> V create a timer (POST)
-# -> V add the timer to the list, running
-# ->
-#
-# On stop:
-# -> V stop running timer
-# -> V set end_time (PUT)
-# -> V update the timer on the list
-#
-#
-#
 # This timer assumes that the requests made to the server are successful.
 # 
 
@@ -54,43 +41,28 @@ app.factory "Project", ($resource) ->
 
 @TimerCtrl = ($scope, Timer) ->
 
-  # why the fuck this has to be assigned more than 0 is unclear to me.
-  $scope.startingTime = 30
+  $scope.startingTime = 3
 
-  # get all timers
   $scope.timers = Timer.query ->
     if aTimerIsRunning($scope.timers)
-
-      # Adjust styles
-      $scope.startClass = 'ui red button'
-      $scope.startValue = 'Stop'
 
       # Set starting time to the time the timer was created
       $scope.startingTime = calculateStartingTime($scope.timers)
       $scope.$broadcast('timer-start')
       
     else
-      console.log 'timer is not running'
-
-      $scope.startingTime = 0
-      # Adjust styles
-      $scope.startClass = 'ui positive button'
-      $scope.startValue = 'Start'
+      # no timer is running
 
   $scope.$on 'timer-stopped', (event, data) ->
     # Do something when the timer is stopped
 
+
   $scope.toggleTimer = ->
     if aTimerIsRunning($scope.timers)
-
       # call stop on api; update dom; stop ng timer
       timer = $scope.timers[$scope.timers.length - 1]
       $scope.timers[$scope.timers.length - 1] = Timer.stop(id: timer.id)
       $scope.$broadcast('timer-stop')
-
-      # Adjust styles
-      $scope.startClass = 'ui positive button'
-      $scope.startValue = 'Start'
 
     else
 
@@ -103,16 +75,13 @@ app.factory "Project", ($resource) ->
       $scope.newTimer = {}
       $scope.$broadcast('timer-start')
 
-      # Adjust styles
-      $scope.startClass = 'ui red button'
-      $scope.startValue = 'Stop'
-
 
   $scope.deleteTimer = (idx) ->
     # TODO: if this timer is running, reset the timer
     timer = $scope.timers[idx]
     timer.$delete id: timer.id, () ->
       $scope.timers.splice(idx, 1)
+
 
   aTimerIsRunning = (timers) ->
     if (timers.length == 0)
@@ -123,6 +92,7 @@ app.factory "Project", ($resource) ->
 
       return false
 
+
   calculateStartingTime = (timers) ->
     timer = timers[timers.length-1]
     starting_time = new Date - Date.parse(timer.created_at)
@@ -130,10 +100,10 @@ app.factory "Project", ($resource) ->
     console.log starting_time
     return starting_time
 
+
 @BarCtrl = ($scope, Project, Timer) ->
-
   $scope.new_timer = {}
-
+  
   $scope.projects = Project.query ->
     # Do something on a succesful query
 

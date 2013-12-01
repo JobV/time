@@ -7,6 +7,48 @@
 
 @import 'font-awesome';
 
+.start-button {
+  background-color: #fff;
+  border: 1px solid #00aeef;
+  color: #00aeef;
+  padding: 0.4rem 1.8rem;
+  font-size: 1.5rem;
+  font-weight: 100 !important;
+  margin-right: 7px;
+  &:hover, &:focus {
+    background-color: #fff;
+    color: #333;
+    border-color: #333;
+  }
+}
+
 .settings-link {
   padding-top: 13px !important;
+}
+
+.timer {
+  font-size: 2.1rem;
+  color: #e1e1e1;
+  position: relative;
+  top: 3px;
+}
+
+.timer-list {
+  padding-top: 80px;
+}
+
+.date-title {
+  color: #00aeef;
+}
+
+.timer-n {
+  color: #999;
+  font-weight: 100;
+  font-size: 1.7rem;
+  .money {
+    display: inline;
+    font-weight: normal;
+    color: #333;
+    padding-left: 50px;
+  }
 }
