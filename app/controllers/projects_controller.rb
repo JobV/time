@@ -20,15 +20,15 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find_project_by_id
+    @project = find_project_by_id
   end
 
   def edit
-    @project = Project.find_project_by_id
+    @project = find_project_by_id
   end
 
   def update
-    @project = Project.find_project_by_id
+    @project = find_project_by_id
     if @project.update(project_params)
       flash[:notice] = "Your project has been updated."
       redirect_to project_path(@project)
@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find_project_by_id
+    @project = find_project_by_id
     @project.delete
     flash[:notice] = "Your project has been deleted."
     redirect_to projects_path

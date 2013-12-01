@@ -10,13 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require angular
 //= require angular-resource
 //= require ng-rails-csrf
 //= require_tree .
 
 $(document).ready(function() {
-  
 });
 
 // $(function(){ $(document).foundation(); });

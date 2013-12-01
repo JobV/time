@@ -41,14 +41,14 @@ app.factory "Project", ($resource) ->
 
 @TimerCtrl = ($scope, Timer) ->
 
-  $scope.startingTime = 3
+  $scope.startingTime = 33
 
   $scope.timers = Timer.query ->
     if aTimerIsRunning($scope.timers)
 
       # Set starting time to the time the timer was created
-      $scope.startingTime = calculateStartingTime($scope.timers)
-      $scope.$broadcast('timer-start')
+      # $scope.startingTime = calculateStartingTime($scope.timers)
+      # $scope.$broadcast('timer-start')
       
     else
       # no timer is running
@@ -58,22 +58,29 @@ app.factory "Project", ($resource) ->
 
 
   $scope.toggleTimer = ->
-    if aTimerIsRunning($scope.timers)
-      # call stop on api; update dom; stop ng timer
-      timer = $scope.timers[$scope.timers.length - 1]
-      $scope.timers[$scope.timers.length - 1] = Timer.stop(id: timer.id)
-      $scope.$broadcast('timer-stop')
+    console.log 'ding'
 
-    else
+    timer = Timer.save($scope.newTimer)
+    $scope.timers.push(timer)
+    $scope.newTimer = {}
+    $scope.$broadcast('timer-start')
 
-      # Set startingtime to 0
-      $scope.startingTime = 0
+    # if aTimerIsRunning($scope.timers)
+    #   # call stop on api; update dom; stop ng timer
+    #   timer = $scope.timers[$scope.timers.length - 1]
+    #   $scope.timers[$scope.timers.length - 1] = Timer.stop(id: timer.id)
+    #   $scope.$broadcast('timer-stop')
 
-      # Create and start a new timer
-      timer = Timer.save($scope.newTimer)
-      $scope.timers.push(timer)
-      $scope.newTimer = {}
-      $scope.$broadcast('timer-start')
+    # else
+
+    #   # Set startingtime to 0
+    #   $scope.startingTime = 0
+
+    #   # Create and start a new timer
+    # timer = Timer.save($scope.newTimer)
+    # $scope.timers.push(timer)
+    # $scope.newTimer = {}
+    # $scope.$broadcast('timer-start')
 
 
   $scope.deleteTimer = (idx) ->

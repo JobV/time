@@ -2,7 +2,7 @@
   .small-10.small-centered.column{ "ng-controller" => "TimerCtrl" }
 
     .timer-box
-      %timer{ "autostart" => 'false' }
+      %timer{ "interval" => "1000", "autostart" => "true", "ng-model" => "timer.data" }
         %button.start-button{ "ng-click" => "toggleTimer()" }
           Start
         
@@ -14,9 +14,9 @@
       .timers{ "ng-repeat" => "timer in timers" }  
         .timer-n
           {{ timer.created_at | date:'H:m' }} on {{ timer.project.name }} for JAXONS
-          %button.btn.btn-warning{"ng-click" => "deleteTimer($index)"} delete
           .money
             € 460
+          %i.icon-trash{ "ng-click" => "deleteTimer($index)"}
 
         %pre {{ timer | json }}
 
