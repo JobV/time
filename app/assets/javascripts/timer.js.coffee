@@ -1,26 +1,22 @@
 #
 # This timer assumes that the requests made to the server are successful.
 # 
-
 app = angular.module("main_timer", ['timer', 'ngResource', 'ng-rails-csrf'])
 
 #
 # MODEL
 #
-
 # Change the class to whatever specified on mouseEnter
 app.directive "enter", ->
   (scope, element, attrs) ->
     element.bind "mouseenter", ->
       element.addClass attrs.enter
 
-
 # Change the class to whatever specified on mouseLeave
 app.directive "leave", ->
   (scope, element, attrs) ->
     element.bind "mouseleave", ->
       element.removeClass attrs.enter
-
 
 # Timer resources
 app.factory "Timer", ($resource) ->
@@ -41,11 +37,10 @@ app.factory "Project", ($resource) ->
 
 @TimerCtrl = ($scope, Timer) ->
 
-  $scope.startingTime = 33
+  $scope.startingTime = 0
 
   $scope.timers = Timer.query ->
     if aTimerIsRunning($scope.timers)
-
       # Set starting time to the time the timer was created
       # $scope.startingTime = calculateStartingTime($scope.timers)
       # $scope.$broadcast('timer-start')

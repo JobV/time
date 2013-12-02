@@ -1,0 +1,11 @@
+.timer-list
+  %h1.date-title Today
+  .timers{ "ng-repeat" => "timer in timers" }  
+    %fieldset
+      .timer-n
+        {{ timer.created_at | date:'H:m' }} on {{ timer.project.name }} for JAXONS
+        
+        .right
+          .money
+            € 460
+          %i.fa.fa-times{ "ng-click" => "deleteTimer($index)"}

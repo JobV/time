@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20131114162537) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "hourly_rate"

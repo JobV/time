@@ -1,0 +1,6 @@
+.timer-box
+  %timer{ "interval" => "1000", "autostart" => "false" }
+    %button.start-button{ "ng-click" => "toggleTimer()" }
+      Start
+    
+    {{ hours }}:{{ minutes }}:{{ seconds }}

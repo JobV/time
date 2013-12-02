@@ -1,11 +1,10 @@
 /*
  *
  *= require_self
+ *= require font-awesome
  //= require foundation_and_overrides
  *= require_tree .
  */
-
-@import 'font-awesome';
 
 .start-button {
   background-color: #fff;
@@ -15,6 +14,20 @@
   font-size: 1.5rem;
   font-weight: 100 !important;
   margin-right: 7px;
+  &:hover, &:focus {
+    background-color: #fff;
+    color: #333;
+    border-color: #333;
+  }
+}
+
+.log-button {
+  background-color: #fff;
+  border: 1px solid #00aeef;
+  color: #00aeef;
+  padding: 0.2rem 1.8rem;
+  font-size: 1.5rem;
+  font-weight: 100 !important;
   &:hover, &:focus {
     background-color: #fff;
     color: #333;
@@ -34,7 +47,7 @@
 }
 
 .timer-list {
-  padding-top: 80px;
+  
 }
 
 .date-title {

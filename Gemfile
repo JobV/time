@@ -9,11 +9,12 @@ gem 'angularjs-rails'
 
 gem 'devise'
 # gem 'pundit'
+gem 'chronic'
 
 gem 'haml'
 gem 'sass-rails'
 gem 'foundation-rails'
-gem 'font-awesome-rails', '~> 3.2.1.3'
+gem 'font-awesome-rails'
 
 gem 'puma'
 gem 'ng-rails-csrf'
