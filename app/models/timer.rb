@@ -4,11 +4,11 @@ class Timer < ActiveRecord::Base
 
   attr_reader :written_time
 
-  # Deprecate ASAP
-  def time
-    end_time? ? end_time - created_at : Time.now - created_at
+  after_initialize :parse_time
+
+  def parse_time
+    ChronicDuration.parse(written_time) if written_time
   end
-  alias_method :length, :time
 
   def stop
     end_time_will_change!

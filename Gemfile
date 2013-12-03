@@ -9,6 +9,7 @@ gem 'angularjs-rails'
 
 gem 'devise'
 # gem 'pundit'
+gem 'chronic_duration'
 
 gem 'haml'
 gem 'sass-rails'
