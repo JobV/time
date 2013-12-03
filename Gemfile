@@ -9,7 +9,6 @@ gem 'angularjs-rails'
 
 gem 'devise'
 # gem 'pundit'
-gem 'chronic'
 
 gem 'haml'
 gem 'sass-rails'
@@ -25,6 +24,7 @@ group :production do
 end
 
 group :test do
+  gem 'rspec-rails'
   gem 'spring'
   gem 'minitest', '~> 4.7'
   gem 'factory_girl_rails', '~> 4.0'

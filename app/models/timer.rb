@@ -4,6 +4,7 @@ class Timer < ActiveRecord::Base
 
   attr_reader :written_time
 
+  # Deprecate ASAP
   def time
     end_time? ? end_time - created_at : Time.now - created_at
   end
@@ -24,7 +25,6 @@ class Timer < ActiveRecord::Base
   def stopped?
     !running?
   end
-  alias_method :done?, :stopped?
 
   def state
     running? ? 'running' : 'stopped'
