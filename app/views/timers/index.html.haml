@@ -1,12 +1,18 @@
 .row
-  .small-10.small-centered.column{ "ng-controller" => "TimerCtrl" }
+  .small-10.column{ "ng-controller" => "TimerCtrl" }
 
     / = render 'timer'
     = render 'layouts/new_timer'
     = render 'timer_list'
-    
-  / .row
-  /   .small-4.small-centered.column
-  /     Laatste verandering:
-  /     %br
-  /     = @release_notes
+
+  .small-1.right.column
+    %dl.tabs.vertical{ "data-tab" => ""}
+    - @projects.each do |project|
+      %dd
+        = link_to project.name, nil
+
+.row
+  .small-4.small-centered.column
+    Laatste verandering:
+    %br
+    = @release_notes

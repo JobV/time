@@ -4,8 +4,9 @@ class TimersController < ApplicationController
 
   def index
     @new_timer = Timer.new
-    @timers = Timer.where(user_id: current_user.id)
-    @release_notes = `git log --color --pretty=format:'(%cr) %s' --abbrev-commit -1`
+    @timers         = current_user.timers.includes(:project)
+    @projects       = current_user.projects
+    @release_notes  = `git log --color --pretty=format:'(%cr) %s' --abbrev-commit -1`
     respond_with @timers
   end
 
@@ -14,7 +15,10 @@ class TimersController < ApplicationController
   end
 
   def create
-    respond_with Timer.create(end_time: params[:end_time], project_id: params[:project_id], user_id: current_user.id)
+    total_time  = ChronicDuration.parse(params[:written_time]) if params[:written_time]
+    project     = current_user.projects.find_or_create_by(name: params[:project_name]) if params[:project_name]
+
+    respond_with current_user.timers.create(end_time: params[:end_time], project_id: project.id, total_time: total_time)
   end
 
   def update
