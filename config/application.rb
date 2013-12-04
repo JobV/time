@@ -20,6 +20,10 @@ module Jxtime
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    ActiveSupport.on_load(:active_model_serializers) do
+      # Disable root for all serializers (except ArraySerializer)
+      ActiveModel::Serializer.root = false
+    end
   end
 end
 

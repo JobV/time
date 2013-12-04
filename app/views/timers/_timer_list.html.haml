@@ -1,14 +1,14 @@
 .timer-list
   %h1.date-title Today
-  .timers{ "ng-repeat" => "timer in timers" }  
-    %fieldset
+  %fieldset
+    .timers{ "ng-repeat" => "timer in timers" }  
       .timer-n
         {{ timer.total_time }} seconds on {{ timer.project.name }} for JAXONS
         
         .right
           .money
-            € 460
+            EUR {{ timer.total_value }}
           %i.fa.fa-times{ "ng-click" => "deleteTimer($index)"}
 
-        %pre
-          {{ timer | json }}
+        %pre {{ timer | json }}
+      <br />

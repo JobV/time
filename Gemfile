@@ -15,6 +15,7 @@ gem 'haml'
 gem 'sass-rails'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
+gem 'active_model_serializers'
 
 gem 'puma'
 gem 'ng-rails-csrf'

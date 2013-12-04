@@ -1,6 +1,6 @@
 require 'spec_helper'
 describe Timer do
-  ATTRIBUTES = [:total_time, :end_time]
+  ATTRIBUTES = [:total_time, :end_time, :total_value]
 
   let(:timer) { FactoryGirl.build(:timer) }
 

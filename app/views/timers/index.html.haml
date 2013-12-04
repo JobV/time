@@ -5,14 +5,16 @@
     = render 'layouts/new_timer'
     = render 'timer_list'
 
-  .small-1.right.column
-    %dl.tabs.vertical{ "data-tab" => ""}
-    - @projects.each do |project|
-      %dd
+  .small-2.right.column
+    %fieldset
+      %legend Projects
+      - @projects.each do |project|
         = link_to project.name, nil
+        <br />
 
 .row
   .small-4.small-centered.column
-    Laatste verandering:
-    %br
-    = @release_notes
+    %fieldset
+      Laatste verandering:
+      %br
+      = @release_notes
