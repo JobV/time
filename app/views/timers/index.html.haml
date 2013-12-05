@@ -1,11 +1,11 @@
 .row
-  .small-10.column{ "ng-controller" => "TimerCtrl" }
+  .medium-10.column{ "ng-controller" => "TimerCtrl" }
 
     / = render 'timer'
     = render 'layouts/new_timer'
     = render 'timer_list'
 
-  .small-2.right.column
+  .medium-2.right.column
     %fieldset
       %legend Projects
       - @projects.each do |project|

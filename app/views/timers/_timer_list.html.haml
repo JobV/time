@@ -1,7 +1,7 @@
 .timer-list
   %h1.date-title Today
   %fieldset
-    .timers{ "ng-repeat" => "timer in timers" }  
+    .timers{ "ng-repeat" => "timer in timers | orderBy:'id':true" }  
       .timer-n
         {{ timer.total_time }} seconds on {{ timer.project.name }} for JAXONS
         
