@@ -1,0 +1,7 @@
+.row
+  .small-10.column
+    %fieldset
+      %legend Laatste veranderingen
+      - @release_notes.each do |rn|
+        = rn
+        %br

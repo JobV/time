@@ -9,6 +9,6 @@
           .money
             EUR {{ timer.total_value }}
           %i.fa.fa-times{ "ng-click" => "deleteTimer($index)"}
+        <br />
 
-        %pre {{ timer | json }}
-      <br />
+        / %pre {{ timer | json }}

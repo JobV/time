@@ -12,9 +12,5 @@
         = link_to project.name, nil
         <br />
 
-.row
-  .small-10.column
-    %fieldset
-      Laatste verandering:
-      %br
-      = @release_notes
+= render 'layouts/commits'
+
