@@ -1,27 +1,24 @@
 .row
-  .col-md-4
-  .col-md-4.settings
+  .small-8.small-centered.column
 
     %p
       = form_for @user, url: { action: "update_email" } do |f|
-        %h3 Change your email
         .form-group
           = f.text_field :email, placeholder: "Fill in your new email address", class: "form-control"
         .form-group
-          = f.submit 'Change my email', class: "btn btn-primary"
+          = f.submit 'Change my email', class: "log-button"
 
-    %hr
-
+    %br
     %p
       = form_for @user, url: { action: "update_password" } do |f|
-        %h3 Change your password
         .form-group
           = f.password_field :password, placeholder: "New password", class: "form-control"
         .form-group
           = f.password_field :password_confirmation, placeholder: "Confirm you new password", class: "form-control"
         .form-group
-          = f.submit 'Change my password', class: "btn btn-primary"
+          = f.submit 'Change my password', class: "log-button"
 
-    %hr
-    %p
+    %br
+    %br
+    %p.text-center
       = link_to 'Back', root_path, class: 'btn btn-warning btn-block'
