@@ -6,7 +6,7 @@ class TimersController < ApplicationController
     @new_timer = Timer.new
     @timers         = current_user.timers.includes(:project)
     @projects       = current_user.projects
-    @release_notes  = `git log --color --pretty=format:'(%cr) %s ;' --abbrev-commit -5`.split(";")
+    @release_notes  = `git log --color --pretty=format:'(%cr) %s ;' --abbrev-commit -8`.split(";")
     respond_with @timers, root: false
   end
 

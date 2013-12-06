@@ -3,11 +3,11 @@
   %fieldset
     .timers{ "ng-repeat" => "timer in timers | orderBy:'id':true" }  
       .timer-n
-        {{ timer.total_time }} seconds on {{ timer.project.name }} for JAXONS
+        <strong>{{ timer.total_time }}</strong> seconds on <strong>{{ timer.project.name }}</strong> for JAXONS
         
         .right
           .money
-            EUR {{ timer.total_value }}
+            <strong>{{ timer.total_value }}</strong>
           %i.fa.fa-times{ "ng-click" => "deleteTimer($index)"}
         <br />
 
