@@ -59,6 +59,11 @@
   color: #555;
   font-weight: 100;
   font-size: 1.2rem;
+  padding: 6px 9px;
+
+  &:hover { 
+    background-color: #eee; 
+  }
   .money {
     display: inline;
     font-weight: normal;

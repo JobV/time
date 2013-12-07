@@ -24,5 +24,7 @@ Jxtime::Application.routes.draw do
     end
   end
 
+  get 'admin' => 'admin#index', as: :admin
+
   root to: 'timers#index'
 end
