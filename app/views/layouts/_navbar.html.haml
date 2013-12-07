@@ -10,5 +10,5 @@
           %i.fa.fa-cog.fa-2x
 
       %li
-        %a{ href: '/users/sign_out', "data-method" => 'delete', rel: "no-follow" }
+        = link_to destroy_user_session_path do
           %i.fa.fa-sign-out.fa-2x
