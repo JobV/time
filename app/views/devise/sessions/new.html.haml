@@ -1,9 +1,9 @@
 .row
-  .col-md-4
-  .col-md-4
-    .alert.alert-warning.alert-dismissable
-      %button.close{type: "button", class: "close", "data-dismiss"=> "alert", "aria-hidden"=> "true"}
-      = flash[:alert]
+  .medium-8.medium-centered.column
+    - if flash[:alert]
+      .alert-box{ "data-alert" => '' }
+        = flash[:alert]
+        %a.close{ href:"#" } &times;
 
     = form_for(resource, as: resource_name, url: session_path(resource_name), authenticity_token: true) do |f|
       .form-group
@@ -14,5 +14,4 @@
       / %div
       /   = f.check_box :remember_me
       /   = f.label :remember_me
-      %div= f.submit "Sign in", class: 'btn btn-primary btn-lg btn-block'
-    / = render "devise/shared/links"
+      %div= f.submit "Sign in", class: 'button'
