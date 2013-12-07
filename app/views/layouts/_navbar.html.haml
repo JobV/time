@@ -4,18 +4,19 @@
       %h1= link_to 'Time', nil
 
   %section.top-bar-section
-    %ul.right
-      %li
-        = link_to current_user.email, nil
-
-      %li
-        = link_to settings_path do
-          %i.fa.fa-cog.fa-2x
-      - if current_user.admin
+    - if current_user
+      %ul.right
         %li
-          = link_to admin_path do
-            %i.fa.fa-fighter-jet.fa-2x
+          = link_to current_user.email, nil
 
-      %li
-        = link_to destroy_user_session_path do
-          %i.fa.fa-sign-out.fa-2x
+        %li
+          = link_to settings_path do
+            %i.fa.fa-cog.fa-2x
+        - if current_user.admin
+          %li
+            = link_to admin_path do
+              %i.fa.fa-fighter-jet.fa-2x
+
+        %li
+          = link_to destroy_user_session_path do
+            %i.fa.fa-sign-out.fa-2x
