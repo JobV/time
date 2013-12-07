@@ -40,3 +40,10 @@ app.factory "Project", ($resource) ->
     timer = $scope.timers[idx]
     timer.$delete id: timer.id, () ->
       $scope.timers.splice(idx, 1)
+
+  $scope.parseTime = (seconds) ->
+    minutes           = Math.floor(seconds / 60)
+    seconds_left      = Math.floor(seconds % 60)
+    hours             = Math.floor(minutes / 60)
+    minutes_left      = Math.floor(minutes % 60)
+    return "#{hours}h #{minutes_left}m #{seconds_left}s"

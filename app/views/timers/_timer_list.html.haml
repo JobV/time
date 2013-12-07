@@ -3,7 +3,7 @@
   %fieldset
     .timers{ "ng-repeat" => "timer in timers | orderBy:'id':true" }  
       .timer-n
-        <strong>{{ timer.total_time }}</strong> seconds on <strong>{{ timer.project.name }}</strong> for JAXONS
+        <strong>{{ parseTime(timer.total_time) }}</strong> on <strong>{{ timer.project.name }}</strong> for JAXONS
         
         .right
           .money
