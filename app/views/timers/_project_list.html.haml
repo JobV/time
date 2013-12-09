@@ -1,0 +1,9 @@
+%fieldset
+  %legend Projects
+  %div{ "ng-repeat" => "timer in timers | orderBy:'id':true" }  
+    / %a{ "ng-click" => "showProject(project)" }
+    {{ timer.project.name }}
+    <br />
+
+%fieldset{ "ng-show" => "selected_project.show" }
+  %legend test

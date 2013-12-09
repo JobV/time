@@ -29,13 +29,18 @@ app.factory "Project", ($resource) ->
 
   $scope.new_timer = {}
   $scope.projects = Project.query()
-  $scope.timers = Timer.query()
+  $scope.timers   = Timer.query()
 
+  $scope.selected_project = {}
+
+
+  # POST
   $scope.logTime = ->
     console.log 'logging..'
     timer = Timer.save($scope.new_timer)
     $scope.timers.push(timer)
 
+  # DELETE
   $scope.deleteTimer = (idx) ->
     timer = $scope.timers[idx]
     timer.$delete id: timer.id, () ->
@@ -47,3 +52,7 @@ app.factory "Project", ($resource) ->
     hours             = Math.floor(minutes / 60)
     minutes_left      = Math.floor(minutes % 60)
     return "#{hours}h #{minutes_left}m #{seconds_left}s"
+
+  $scope.showProject = (project) ->
+    # $scope.selected_project = project
+    console.log project

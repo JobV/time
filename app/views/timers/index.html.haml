@@ -1,16 +1,13 @@
-.row
-  .medium-10.column{ "ng-controller" => "TimerCtrl" }
+.row{ "ng-controller" => "TimerCtrl" }
+  .medium-9.column
 
     / = render 'timer'
     = render 'layouts/new_timer'
     = render 'timer_list'
+    / # = render 'layouts/commits'
 
-  .medium-2.right.column
-    %fieldset
-      %legend Projects
-      - @projects.each do |project|
-        = link_to project.name, nil
-        <br />
+  .medium-3.right.column
+    = render 'project_list'
 
-= render 'layouts/commits'
+  
 
