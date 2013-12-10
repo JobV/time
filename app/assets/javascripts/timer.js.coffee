@@ -26,7 +26,7 @@ app.factory "Project", ($resource) ->
   $resource "/projects/:id", { id: "@id" },
     { update: { method: 'PUT', params: 'hourly_rate' }}
 
-@TimerCtrl = ($scope, Timer, Project) ->
+@TimerCtrl = ($scope, $timeout, Timer, Project) ->
 
   $scope.new_timer  = {}
   $scope.projects   = Project.query()
@@ -38,8 +38,12 @@ app.factory "Project", ($resource) ->
   # POST
   $scope.logTime = ->
     timer = Timer.save($scope.new_timer)
-    $scope.timers.push(timer) ->
-      $scope.timers = Project.query()
+    $scope.timers.push(timer)
+    # Possibly replace this with $apply or something
+    $timeout ->
+      $scope.projects = Project.query()
+      console.log 'DING DONG'
+    , 200
 
   # DELETE
   $scope.deleteTimer = (idx) ->
