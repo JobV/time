@@ -39,13 +39,18 @@ app.factory "Project", ($resource) ->
   $scope.logTime = ->
     timer = Timer.save($scope.new_timer)
     $scope.timers.push(timer) ->
-      $scope.projects = Project.query()
+      $scope.timers = Project.query()
 
   # DELETE
   $scope.deleteTimer = (idx) ->
     timer = $scope.timers[idx]
     timer.$delete id: timer.id, () ->
       $scope.timers.splice(idx, 1)
+
+  $scope.deleteProject = (project) ->
+    project.$delete ->
+      $scope.projects.splice($scope.projects.indexOf(project), 1)
+      $scope.selected_project_show = false
 
   $scope.parseTime = (seconds) ->
     minutes           = Math.floor(seconds / 60)

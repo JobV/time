@@ -34,9 +34,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = find_project_by_id
-    @project.delete
-    flash[:notice] = "Your project has been deleted."
-    redirect_to projects_path
+    respond_with @project.delete
   end
 
   private
