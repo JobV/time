@@ -38,8 +38,8 @@ app.factory "Project", ($resource) ->
   # POST
   $scope.logTime = ->
     timer = Timer.save($scope.new_timer)
-    $scope.timers.push(timer)
-    $scope.projects = Project.query()
+    $scope.timers.push(timer) ->
+      $scope.projects = Project.query()
 
   # DELETE
   $scope.deleteTimer = (idx) ->
