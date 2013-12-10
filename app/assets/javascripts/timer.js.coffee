@@ -23,20 +23,20 @@ app.factory "Timer", ($resource) ->
   $resource "/timers/:id", {id: "@id"}
 
 app.factory "Project", ($resource) ->
-  $resource "/projects/:id", { id: "@id" }
+  $resource "/projects/:id", { id: "@id" },
+    { update: { method: 'PUT', params: 'hourly_rate' }}
 
 @TimerCtrl = ($scope, Timer, Project) ->
 
-  $scope.new_timer = {}
-  $scope.projects = Project.query()
-  $scope.timers   = Timer.query()
+  $scope.new_timer  = {}
+  $scope.projects   = Project.query()
+  $scope.timers     = Timer.query()
 
   $scope.selected_project = {}
-
+  $scope.selected_project_show = false
 
   # POST
   $scope.logTime = ->
-    console.log 'logging..'
     timer = Timer.save($scope.new_timer)
     $scope.timers.push(timer)
     $scope.projects = Project.query()
@@ -56,3 +56,7 @@ app.factory "Project", ($resource) ->
 
   $scope.showProject = (project) ->
     $scope.selected_project = project
+    $scope.selected_project_show = true
+
+  $scope.updateProject = ->
+    $scope.selected_project.$update()

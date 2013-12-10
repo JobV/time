@@ -29,13 +29,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = find_project_by_id
-    if @project.update(project_params)
-      flash[:notice] = "Your project has been updated."
-      redirect_to project_path(@project)
-    else
-      flash[:alert] = "Your project was not updated. Something went wrong."
-      redirect_to edit_project_path(@project)
-    end
+    respond_with @project.update(project_params)
   end
 
   def destroy
@@ -52,6 +46,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.required(:project).permit(:name)
+    params.required(:project).permit(:name, :hourly_rate)
   end
 end

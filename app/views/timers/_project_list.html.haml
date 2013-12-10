@@ -2,9 +2,23 @@
   %legend Projects
   %div{ "ng-repeat" => "project in projects" }  
     %a{ "ng-click" => "showProject(project)" }
-      {{ project.name }}
+      {{ project.name }} {{ project.hourly_rate }}
     <br />
 
-%fieldset{ "ng-show" => "selected_project" }
+%fieldset{ "ng-show" => "selected_project_show" }
   %legend {{ selected_project.name }}
-  {{ selected_project.hourly_rate }}
+
+  %form{ "ng-submit" => "updateProject(selected_project)" }
+    .row
+      .small-12.column
+        %label Project name
+        %input{ type: 'text', "ng-model" => "selected_project.name", placeholder: "Project name" }
+
+      .small-12.column
+        %label Hourly Rate
+        %input{ type: 'text', "ng-model" => "selected_project.hourly_rate", placeholder: "Hourly rate, e.g. 65" }
+
+    .row
+      .small-12.column
+        %button.log-button
+          Update Project
