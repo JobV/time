@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   def index
     @new_project = Project.new
     @projects = current_user.projects
-    respond_with @projects
+    respond_with @projects, root: false
   end
 
   def create

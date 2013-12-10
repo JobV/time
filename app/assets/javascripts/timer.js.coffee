@@ -39,6 +39,7 @@ app.factory "Project", ($resource) ->
     console.log 'logging..'
     timer = Timer.save($scope.new_timer)
     $scope.timers.push(timer)
+    $scope.projects = Project.query()
 
   # DELETE
   $scope.deleteTimer = (idx) ->
@@ -54,5 +55,4 @@ app.factory "Project", ($resource) ->
     return "#{hours}h #{minutes_left}m #{seconds_left}s"
 
   $scope.showProject = (project) ->
-    # $scope.selected_project = project
-    console.log project
+    $scope.selected_project = project

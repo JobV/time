@@ -1,9 +1,10 @@
 %fieldset
   %legend Projects
-  %div{ "ng-repeat" => "timer in timers | orderBy:'id':true" }  
-    / %a{ "ng-click" => "showProject(project)" }
-    {{ timer.project.name }}
+  %div{ "ng-repeat" => "project in projects" }  
+    %a{ "ng-click" => "showProject(project)" }
+      {{ project.name }}
     <br />
 
-%fieldset{ "ng-show" => "selected_project.show" }
-  %legend test
+%fieldset{ "ng-show" => "selected_project" }
+  %legend {{ selected_project.name }}
+  {{ selected_project.hourly_rate }}
