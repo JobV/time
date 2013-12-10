@@ -59,4 +59,6 @@ app.factory "Project", ($resource) ->
     $scope.selected_project_show = true
 
   $scope.updateProject = ->
-    $scope.selected_project.$update()
+    $scope.selected_project.$update ->
+      $scope.selected_project_show = false
+
