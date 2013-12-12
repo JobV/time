@@ -36,7 +36,7 @@ describe AdminController do
     let(:existing_user) { FactoryGirl.create(:user) }
     before do 
       sign_in admin
-      post :add_admin, email: existing_user.email
+      post :add_admin, user: { email: existing_user.email }
     end
     specify { expect(User.last.admin).to be true }
   end
