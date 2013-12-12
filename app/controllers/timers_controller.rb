@@ -1,6 +1,6 @@
 class TimersController < ApplicationController
-  respond_to :json, :html
   before_filter :authenticate_user!
+  respond_to :json, :html
 
   def index
     @new_timer = Timer.new

@@ -25,6 +25,7 @@ Jxtime::Application.routes.draw do
   end
 
   get 'admin' => 'admin#index', as: :admin
+  post 'add_admin' => 'admin#add_admin', as: :add_admin
 
   root to: 'timers#index'
 end
