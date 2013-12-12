@@ -1,20 +1,28 @@
-%fieldset
-  %legend Laatste veranderingen
-  %h3 12 dec
-  %ul
-    %li
-    
-  %h3 11 dec
-  %ul
-    %li De lijst me projecten wordt nu nog slimmer geupdate.  
-  %h3 10 dec
-  %ul
-    %li Een project kan nu weg worden gegooid
-    %li Je kan nu makkelijk een project naam en hourly rate instellen. Klik maar op een bestaand project.
-    %li Het lijstje projecten laat nu altijd alle projecten zien van de huidige gebruiker. Dus ook projecten die niet direct in gebruik zijn.
+%dl.accordion{"data-accordion" => ""}
+  %dd
+    %a{ href:"#panel1" } 12 december 2013
+    #panel1.content.active
+      %ul
+        %li Super fancy changelog
+        %li Meer testjes
+        %li Je kan nu een admin toevoegen, heel makkelijk
+        %li Meer admin functies
 
-  %br
-  %h3 9 dec
-  %ul
-    %li Makkelijke changelog voor Renaai
-    %li Als je nu een nieuw project aanmaakt (door gewoon te typen), wordt deze automatisch en meteen toegevoegd aan het lijstje projecten.
+    %a{ href:"#panel2" } 11 december 2013
+    #panel2.content
+      %ul
+        %li De lijst me projecten wordt nu nog slimmer geupdate. 
+
+    %a{ href:"#panel3" } 10 december 2013
+    #panel3.content
+      %ul
+        %li Een project kan nu weg worden gegooid
+        %li Je kan nu makkelijk een project naam en hourly rate instellen. Klik maar op een bestaand project.
+        %li Het lijstje projecten laat nu altijd alle projecten zien van de huidige gebruiker. Dus ook projecten die niet direct in gebruik zijn.
+
+      %br
+    %a{ href:"#panel4" } 9 december 2013
+    #panel4.content
+      %ul
+        %li Makkelijke changelog voor Renaai
+        %li Als je nu een nieuw project aanmaakt (door gewoon te typen), wordt deze automatisch en meteen toegevoegd aan het lijstje projecten.

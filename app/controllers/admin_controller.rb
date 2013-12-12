@@ -6,10 +6,11 @@ class AdminController < ApplicationController
     @user_count    = User.count
     @timer_count   = Timer.count
     @project_count = Project.count
+    @users = User.all
   end
 
   def add_admin
-    user = User.find_by(email:params[:email])
+    user = User.find_by(email:params[:user][:email])
     user.update(admin: true) if user
     redirect_to admin_path
   end

@@ -1,9 +1,9 @@
 .row
   .medium-10.medium-centered.column
-
-    %h3 You've got the power!
-    %p
-      Als je dit ziet, ben je een JAXONS admin. Als je een functie mist, maak dan even een Asana task aan en assign deze aan Job. Dan poept die zo even de benodigde code uit.
+    .panel
+      %h3 You've got the power!
+      %p
+        Als je dit ziet, ben je een JAXONS admin. Als je een functie mist, maak dan even een Asana task aan en assign deze aan Job. Dan poept die zo even de benodigde code uit.
 
     .row
       .medium-6.column
@@ -26,7 +26,21 @@
         %h2 Voeg admin toe
         %p Voer hier het emailadres van een bestaande user in om deze persoon admin te maken.
 
-        = form_for :user do |f|
+        = form_for :user, url: add_admin_path do |f|
           = f.text_field :email, placeholder: 'test@new.com'
           = f.submit 'Maak Admin', class: 'button'
+
+    %hr
+    .row
+      .medium-12.columns
+        %h2 Users
+        %table
+          %tr
+            %th email
+            %th admin?
+
+          - @users.each do |user|
+            %tr
+              %td= user.email
+              %td= user.admin
 
