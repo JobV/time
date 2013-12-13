@@ -17,8 +17,12 @@ class TimersController < ApplicationController
   def create
     total_time  = ChronicDuration.parse(params[:written_time]) if params[:written_time]
     project     = current_user.projects.find_or_create_by(name: params[:project_name]) if params[:project_name]
-
-    respond_with current_user.timers.create(end_time: params[:end_time], project_id: project.id, total_time: total_time)
+    total_value = calculate_total_value(total_time, project.hourly_rate)
+    respond_with current_user.timers.create(
+      end_time:     params[:end_time], 
+      project_id:   project.id, 
+      total_time:   total_time, 
+      total_value:  total_value)
   end
 
   def update
@@ -41,6 +45,12 @@ class TimersController < ApplicationController
   end
 
   private
+
+  def calculate_total_value(time_in_seconds, hourly_rate)
+    return 0 unless hourly_rate or time_in_seconds
+    sec_rate = hourly_rate.to_f / 60 / 60
+    return sec_rate * time_in_seconds
+  end
 
   def find_timer_by_id
     Timer.find_by(id: params[:id])

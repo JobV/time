@@ -39,10 +39,10 @@ app.factory "Project", ($resource) ->
   $scope.logTime = ->
     timer = Timer.save($scope.new_timer)
     $scope.timers.push(timer)
+
     # Possibly replace this with $apply or something
     $timeout ->
       $scope.projects = Project.query()
-      console.log 'DING DONG'
     , 200
 
   # DELETE
@@ -65,9 +65,10 @@ app.factory "Project", ($resource) ->
 
   $scope.showProject = (project) ->
     $scope.selected_project = project
+    $scope.selected_project.new_hourly_rate = project.hourly_rate / 100
     $scope.selected_project_show = true
 
   $scope.updateProject = ->
+    $scope.selected_project.hourly_rate = $scope.selected_project.new_hourly_rate * 100
     $scope.selected_project.$update ->
       $scope.selected_project_show = false
-

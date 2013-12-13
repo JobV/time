@@ -7,6 +7,6 @@
         
         .right
           .money
-            <strong>{{ timer.total_value }}</strong>
+            <strong>€ {{ timer.total_value / 100 }}</strong>
           %i.fa.fa-times{ "ng-click" => "deleteTimer($index)"}
         <br />
