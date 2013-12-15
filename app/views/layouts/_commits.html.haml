@@ -1,35 +1,40 @@
 - if current_user.admin
   %dl.accordion{"data-accordion" => ""}
     %dd
-      %a{ href:"#panel0" } 13 december 2013
-      #panel0.content.active
-        %ul
-          %li Nu wordt meteen de waarde van je gewerkte tijd uitgerekend.
-          %li Centen, minuten en seconden worden nu goed ondersteund.
+      %a{ href:"#changes" } Laatste veranderingen
+      #changes.content
 
-      %a{ href:"#panel1" } 12 december 2013
-      #panel1.content.active
-        %ul
-          %li Super fancy changelog
-          %li Meer testjes
-          %li Je kan nu een admin toevoegen, heel makkelijk
-          %li Meer admin functies
+        %dl.accordion{"data-accordion" => ""}
+          %dd
+            %a{ href:"#panel0" } 13 december 2013
+            #panel0.content
+              %ul
+                %li Nu wordt meteen de waarde van je gewerkte tijd uitgerekend.
+                %li Centen, minuten en seconden worden nu goed ondersteund.
 
-      %a{ href:"#panel2" } 11 december 2013
-      #panel2.content
-        %ul
-          %li De lijst me projecten wordt nu nog slimmer geupdate. 
+            %a{ href:"#panel1" } 12 december 2013
+            #panel1.content
+              %ul
+                %li Super fancy changelog
+                %li Meer testjes
+                %li Je kan nu een admin toevoegen, heel makkelijk
+                %li Meer admin functies
 
-      %a{ href:"#panel3" } 10 december 2013
-      #panel3.content
-        %ul
-          %li Een project kan nu weg worden gegooid
-          %li Je kan nu makkelijk een project naam en hourly rate instellen. Klik maar op een bestaand project.
-          %li Het lijstje projecten laat nu altijd alle projecten zien van de huidige gebruiker. Dus ook projecten die niet direct in gebruik zijn.
+            %a{ href:"#panel2" } 11 december 2013
+            #panel2.content
+              %ul
+                %li De lijst me projecten wordt nu nog slimmer geupdate. 
 
-        %br
-      %a{ href:"#panel4" } 9 december 2013
-      #panel4.content
-        %ul
-          %li Makkelijke changelog voor Renaai
-          %li Als je nu een nieuw project aanmaakt (door gewoon te typen), wordt deze automatisch en meteen toegevoegd aan het lijstje projecten.
+            %a{ href:"#panel3" } 10 december 2013
+            #panel3.content
+              %ul
+                %li Een project kan nu weg worden gegooid
+                %li Je kan nu makkelijk een project naam en hourly rate instellen. Klik maar op een bestaand project.
+                %li Het lijstje projecten laat nu altijd alle projecten zien van de huidige gebruiker. Dus ook projecten die niet direct in gebruik zijn.
+
+              %br
+            %a{ href:"#panel4" } 9 december 2013
+            #panel4.content
+              %ul
+                %li Makkelijke changelog voor Renaai
+                %li Als je nu een nieuw project aanmaakt (door gewoon te typen), wordt deze automatisch en meteen toegevoegd aan het lijstje projecten.
