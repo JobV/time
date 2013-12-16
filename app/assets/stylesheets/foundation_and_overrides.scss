@@ -927,12 +927,12 @@ $input-box-shadow: none; // inset 0 1px 2px rgba(0,0,0,0.1);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #fff;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color: #f8f8f8;
+$topbar-bg: $topbar-bg-color;
 
 // Height and margin
 $topbar-height: 65px;
-// $topbar-margin-bottom: 0;
+$topbar-margin-bottom: 15px;
 
 // Control Input height for top bar
 
@@ -949,13 +949,13 @@ $topbar-dropdown-link-bg: #fff;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: #ccc;
-$topbar-link-color-hover: #aaa;
+$topbar-link-color: #999;
+$topbar-link-color-hover: #555;
 // $topbar-link-color-active: #fff;
 // $topbar-link-weight: normal;
 // $topbar-link-font-size: rem-calc(13);
 $topbar-link-hover-lightness: -10%; // Darken by 10%
-$topbar-link-bg-hover: #fff  ;
+$topbar-link-bg-hover: #f8f8f8;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: darken($primary-color, 5%);
 // $topbar-link-font-family: $body-font-family;

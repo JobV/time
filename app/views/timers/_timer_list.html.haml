@@ -1,5 +1,20 @@
 .timer-list
-  %h3.date-title{ "ng-show" => "timers.today" } Today
+  %h3.date-title Today
+  .timers{ "ng-repeat" => "timer in timers | orderBy:'created_at':true" }  
+    = render 'listed_timer'
+
+  %br
+  %h3.date-title Yesterday
+  .timers{ "ng-repeat" => "timer in timers | orderBy:'created_at':true" }  
+    = render 'listed_timer'
+
+  %br
+  %h3.date-title This week
+  .timers{ "ng-repeat" => "timer in timers | orderBy:'created_at':true" }  
+    = render 'listed_timer'
+
+  %br
+  %h3.date-title This month
   .timers{ "ng-repeat" => "timer in timers | orderBy:'created_at':true" }  
     = render 'listed_timer'
 

@@ -11,10 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require foundation
 //= require angular
 //= require angular-resource
 //= require ng-rails-csrf
 //= require_tree .
 
+$(document).ready(function(){});
 $(document).foundation();

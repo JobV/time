@@ -6,8 +6,10 @@
   %section.top-bar-section
     - if current_user
       %ul.right
-        %li
+        %li.has-dropdown
           = link_to current_user.email, nil
+          %ul.dropdown
+            %li= link_to 'dropdown', nil
 
         %li
           = link_to settings_path do
