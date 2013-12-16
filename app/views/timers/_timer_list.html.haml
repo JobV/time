@@ -1,14 +1,8 @@
 .timer-list
-  %h3.date-title Today
+  %h3.date-title{ "ng-show" => "timers.today" } Today
   .timers{ "ng-repeat" => "timer in timers | orderBy:'created_at':true" }  
-    .timer-n.animate{}
-      <strong>{{ parseTime(timer.total_time) }}</strong> on <strong>{{ timer.project.name }}</strong> for JAXONS
-      
-      .right
-        .money
-          <strong>€ {{ timer.total_value / 100 }}</strong>
-        %i.fa.fa-times{ "ng-click" => "deleteTimer($index)" }
-      <br />
+    = render 'listed_timer'
+
 
 %br
 %br

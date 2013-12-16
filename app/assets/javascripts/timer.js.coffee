@@ -46,10 +46,9 @@ app.factory "Project", ($resource) ->
     , 200
 
   # DELETE
-  $scope.deleteTimer = (idx) ->
-    timer = $scope.timers[idx]
-    timer.$delete id: timer.id, () ->
-      $scope.timers.splice(idx, 1)
+  $scope.deleteTimer = (timer) ->
+    timer.$delete ->
+      $scope.timers.splice($scope.timers.indexOf(timer), 1)
 
   $scope.deleteProject = (project) ->
     project.$delete ->

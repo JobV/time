@@ -1,0 +1,8 @@
+.timer-n
+  <strong>{{ parseTime(timer.total_time) }}</strong> on <strong>{{ timer.project.name }}</strong> for JAXONS
+  
+  .right
+    .money
+      <strong>€ {{ timer.total_value / 100 }}</strong>
+    %i.fa.fa-times{ "ng-click" => "deleteTimer(timer)" }
+  %br
