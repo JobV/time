@@ -30,10 +30,23 @@ app.factory "Project", ($resource) ->
 
   $scope.new_timer  = {}
   $scope.projects   = Project.query()
-  $scope.timers     = Timer.query()
+
+  $scope.timers_of_today = []
+  $scope.timers = Timer.query ->
+    $scope.timers_of_today = $scope.timers.filter fl_today
+
+  fl_today = (x) ->
+    d1 = new Date Date.parse(x.created_at)
+    d2 = new Date()
+    d1.setHours(0,0,0,0)
+    d2.setHours(0,0,0,0)
+
+    console.log 'equal' if d2 == d1
+    d1.getTime() == d2.getTime()
 
   $scope.selected_project = {}
   $scope.selected_project_show = false
+
 
   # POST
   $scope.logTime = ->
