@@ -1,9 +1,13 @@
-%fieldset
-  %legend Projects
-  %div{ "ng-repeat" => "project in projects" }  
-    %a{ "ng-click" => "showProject(project)" }
-      {{ project.name }} - € {{ project.hourly_rate / 100 }}/hr
-    <br />
+%h3 Projects
+%table{ "ng-repeat" => "project in projects" }
+  %tbody
+    %tr
+      %td
+        %a{ "ng-click" => "showProject(project)" }
+          {{ project.name }} 
+      %td
+        € {{ project.hourly_rate / 100 }}/hr
+
 
 %fieldset{ "ng-show" => "selected_project_show" }
   %legend {{ selected_project.name }}

@@ -33,8 +33,9 @@ app.factory "Project", ($resource) ->
 
   $scope.timers_of_today = []
   $scope.timers = Timer.query ->
-    $scope.timers_of_today = $scope.timers.filter fl_today
-    $scope.timers_of_today = $scope.timers.filter fl_yesterday
+    $scope.timers_of_today     = $scope.timers.filter fl_today
+    $scope.timers_of_yesterday = $scope.timers.filter fl_yesterday
+    $scope.timers_of_this_week = $scope.timers.filter fl_this_week
 
   # TODO: Dry this up
   fl_today = (x) ->
@@ -59,7 +60,6 @@ app.factory "Project", ($resource) ->
     timer = Timer.save($scope.new_timer)
     $scope.timers_of_today.push(timer)
 
-    # Possibly replace this with $apply or something
     $timeout ->
       $scope.projects = Project.query()
     , 200
