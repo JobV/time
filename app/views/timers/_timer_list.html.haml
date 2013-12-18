@@ -6,7 +6,7 @@
 
   .yesterday{ "ng-show" => "timers_of_yesterday[0]" }
     %h3.date-title Yesterday
-    .timers{ "ng-repeat" => "timer in timers_of_yesteday | orderBy:'created_at':true" }
+    .timers{ "ng-repeat" => "timer in timers_of_yesterday | orderBy:'created_at':true" }
       = render 'listed_timer'
 
   / .before{ "ng-show" => "timers[0]" }

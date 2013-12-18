@@ -35,7 +35,7 @@ app.factory "Project", ($resource) ->
   $scope.timers = Timer.query ->
     $scope.timers_of_today     = $scope.timers.filter fl_today
     $scope.timers_of_yesterday = $scope.timers.filter fl_yesterday
-    $scope.timers_of_this_week = $scope.timers.filter fl_this_week
+    # $scope.timers_of_this_week = $scope.timers.filter fl_this_week
 
   # TODO: Dry this up
   fl_today = (x) ->
@@ -47,7 +47,9 @@ app.factory "Project", ($resource) ->
 
   fl_yesterday = (x) ->
     d1 = new Date Date.parse(x.created_at)
-    d2 = new Date() - 1
+    d2 = new Date()
+    d2.setDate(d2.getDate() - 1)
+    console.log d2
     d1.setHours(0,0,0,0)
     d2.setHours(0,0,0,0)
     d1.getTime() == d2.getTime()
