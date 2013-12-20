@@ -1,12 +1,10 @@
-%h3 Projects
-%table{ "ng-repeat" => "project in projects" }
-  %tbody
-    %tr
-      %td
-        %a{ "ng-click" => "showProject(project)" }
-          {{ project.name }} 
-      %td
-        € {{ project.hourly_rate / 100 }}/hr
+.projects
+  %h3.text-center Projects
+  .project-n{ "ng-repeat" => "project in projects", "ng-click" => "showProject(project)" }
+    .project-name
+      {{ project.name }} 
+    .project-rate
+      € {{ project.hourly_rate / 100 }}/hr
 
 
 %fieldset{ "ng-show" => "selected_project_show" }

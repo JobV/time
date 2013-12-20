@@ -1,0 +1,29 @@
+.projects {
+  // border: 1px solid #ccc;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  h3 {
+    padding: 5px;
+    margin: 0px;
+    // background: #ddd;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+.project-n {
+  padding: 12px 14px;
+  background: #fff;
+  &:hover { background: #C3E2FF; }
+}
+
+.project-name {
+  font-weight: bold;
+  text-align: left;
+  display: inline-block;
+}
+
+.project-rate {
+  text-align: right;
+  float: right;
+  display: inline-block;
+}

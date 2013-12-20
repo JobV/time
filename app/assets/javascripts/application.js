@@ -18,5 +18,6 @@
 //= require ng-rails-csrf
 //= require_tree .
 
-$(document).ready(function(){});
 $(document).foundation();
+$(document).ready(function(){
+});
