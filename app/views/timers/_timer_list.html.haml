@@ -9,6 +9,11 @@
     .timers{ "ng-repeat" => "timer in timers_of_yesterday | orderBy:'created_at':true" }
       = render 'listed_timer'
 
+  .this-week{ "ng-show" => "timers_of_this_week[0]" }
+    %h3.date-title This week
+    .timers{ "ng-repeat" => "timer in timers_of_this_week | orderBy:'created_at':true" }
+      = render 'listed_timer'
+
   / .before{ "ng-show" => "timers[0]" }
   /   %h3.date-title Before
   /   .timers{ "ng-repeat" => "timer in timers | orderBy:'created_at':true" }

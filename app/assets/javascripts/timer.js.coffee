@@ -35,7 +35,7 @@ app.factory "Project", ($resource) ->
   $scope.timers = Timer.query ->
     $scope.timers_of_today     = $scope.timers.filter fl_today
     $scope.timers_of_yesterday = $scope.timers.filter fl_yesterday
-    # $scope.timers_of_this_week = $scope.timers.filter fl_this_week
+    $scope.timers_of_this_week = $scope.timers.filter fl_this_week
 
   # TODO: Dry this up
   fl_today = (x) ->
@@ -54,6 +54,16 @@ app.factory "Project", ($resource) ->
     d2.setHours(0,0,0,0)
     d1.getTime() == d2.getTime()
 
+  fl_this_week = (x) ->
+    d1 = new Date Date.parse(x.created_at)
+    d2 = new Date()
+    d2.setDate(d2.getDate() - 7)
+    console.log d2
+    d1.setHours(0,0,0,0)
+    d2.setHours(0,0,0,0)
+    d1.getTime() >= d2.getTime()
+
+
   $scope.selected_project = {}
   $scope.selected_project_show = false
 
@@ -61,6 +71,7 @@ app.factory "Project", ($resource) ->
   $scope.logTime = ->
     timer = Timer.save($scope.new_timer)
     $scope.timers_of_today.push(timer)
+    $scope.timers_of_this_week.push(timer)
 
     $timeout ->
       $scope.projects = Project.query()
@@ -72,6 +83,7 @@ app.factory "Project", ($resource) ->
       $scope.timers.splice($scope.timers.indexOf(timer), 1)
       $scope.timers_of_today.splice($scope.timers_of_today.indexOf(timer), 1)
       $scope.timers_of_yesterday.splice($scope.timers_of_yesterday.indexOf(timer), 1)
+      $scope.timers_of_this_week.splice($scope.timers_of_this_week.indexOf(timer), 1)
 
   $scope.deleteProject = (project) ->
     project.$delete ->
