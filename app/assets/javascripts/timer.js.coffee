@@ -81,7 +81,13 @@ app.factory "Project", ($resource) ->
   $scope.deleteTimer = (timer) ->
     timer.$delete ->
       $scope.timers.splice($scope.timers.indexOf(timer), 1)
-      $scope.timers_of_today.splice($scope.timers_of_today.indexOf(timer), 1)
+      today = new Date()
+      today.setHours(0,0,0,0)
+      timer_time = new Date Date.parse(timer.created_at)
+      timer_time.setHours(0,0,0,0)
+      if compareTimes(today,timer_time)
+        $scope.timers_of_today.splice($scope.timers_of_today.indexOf(timer), 1)
+
       $scope.timers_of_yesterday.splice($scope.timers_of_yesterday.indexOf(timer), 1)
       $scope.timers_of_this_week.splice($scope.timers_of_this_week.indexOf(timer), 1)
 
@@ -106,3 +112,6 @@ app.factory "Project", ($resource) ->
     $scope.selected_project.hourly_rate = $scope.selected_project.new_hourly_rate * 100
     $scope.selected_project.$update ->
       $scope.selected_project_show = false
+
+  compareTimes = (t1,t2) ->
+    t1.getTime() == t2.getTime()
