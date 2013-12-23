@@ -16,6 +16,16 @@
   &:hover { background: #C3E2FF; }
 }
 
+.timer-n .delete-button { 
+  color: #eee;
+  display: inline;
+}
+.timer-n:hover  .delete-button { color: #999; }
+.timer-n i:hover {
+  color: #e74c3c;
+}
+
+
 .project-name {
   font-weight: bold;
   text-align: left;

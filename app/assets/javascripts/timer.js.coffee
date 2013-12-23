@@ -38,7 +38,7 @@ app.factory "Project", ($resource) ->
     $scope.timers_of_this_week = $scope.timers.filter fl_this_week
 
   $scope.project_select2_options = {
-    placeholder: "test",
+    placeholder: "Project",
     dropDownCssClass: "select2_project",
     containerCssClass: "select2_project"
   }
