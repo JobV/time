@@ -30,7 +30,14 @@
 
 .select2-container .select2-choice {
   border-radius: 0px !important;
+  border: 1px solid #ccc;
   padding: 5px;
   height: 2.3125rem;
   background: white; 
+}
+
+.select2-container .select2-choice .select2-arrow {
+  border: 0px;
+  border-radius: 0px;
+  background: #fff;
 }
