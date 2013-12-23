@@ -20,6 +20,8 @@ gem 'active_model_serializers'
 gem 'puma'
 gem 'ng-rails-csrf'
 
+gem "bower-rails", "~> 0.6.0"
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'

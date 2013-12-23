@@ -1,7 +1,7 @@
 #
 # This timer assumes that the requests made to the server are successful.
 # 
-app = angular.module("main_timer", ['timer', 'ngResource', 'ng-rails-csrf'])
+app = angular.module("main_timer", ['timer', 'ngResource', 'ng-rails-csrf', 'ui.select2'])
 
 #
 # MODEL
@@ -36,6 +36,12 @@ app.factory "Project", ($resource) ->
     $scope.timers_of_today     = $scope.timers.filter fl_today
     $scope.timers_of_yesterday = $scope.timers.filter fl_yesterday
     $scope.timers_of_this_week = $scope.timers.filter fl_this_week
+
+  $scope.project_select2_options = {
+    placeholder: "test",
+    dropDownCssClass: "select2_project",
+    containerCssClass: "select2_project"
+  }
 
   # TODO: Dry this up
   fl_today = (x) ->

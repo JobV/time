@@ -15,6 +15,8 @@
 //= require foundation
 //= require angular
 //= require angular-resource
+//= require select2
+//= require angular-ui-select2
 //= require ng-rails-csrf
 //= require_tree .
 
