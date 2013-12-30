@@ -1,15 +1,14 @@
-.row{ "ng-controller" => "TimerCtrl" }
-  .medium-9.column
+%div{ "ng-controller" => "TimerCtrl" }
+  = render 'layouts/new_timer'
 
-    / = render 'timer'
-    = render 'layouts/new_timer'
-    = render 'timer_list'
-    %br
-    %br
-    = render 'layouts/commits'
+  .row
+    .medium-9.column
 
-  .medium-3.right.column
-    = render 'project_list'
+      / = render 'timer'
+      = render 'timer_list'
 
-  
+    .medium-3.right.column
+      = render 'project_list'
+
+    
 

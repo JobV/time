@@ -1,9 +1,21 @@
-.timer-n
-  <strong>{{ parseTime(timer.total_time) }}</strong> on <strong>{{ timer.project.name }}</strong> for <strong>JAXONS</strong> on <strong>{{ timer.created_at | date }}</strong>
-  
-  .right
-    .money
-      <strong>€ {{ timer.total_value / 100 }}</strong>
+.row.timer-n
+  .medium-3.column
+    {{ timer.project.name }}
+  .medium-3.column
+    {{ timer.start_time | date }}
+  .medium-2.column
+    {{ parseTime(timer.total_time) }}
+  .medium-3.column.text-right
+    € {{ timer.total_value / 100 }}
+  .small-1.column
     .delete-button
       %i.fa.fa-times{ "ng-click" => "deleteTimer(timer)" }
+
+  / <strong>{{ parseTime(timer.total_time) }}</strong> on <strong>{{ timer.project.name }}</strong> for <strong>JAXONS</strong> on <strong>{{ timer.start_time | date }}</strong>
+  
+  / .right
+  /   .money
+  /     <strong>€ {{ timer.total_value / 100 }}</strong>
+
+
   %br

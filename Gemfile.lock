@@ -44,6 +44,7 @@ GEM
       timers (~> 1.1.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
+    chronic (0.10.2)
     chronic_duration (0.10.2)
       numerizer (~> 0.1.1)
     coderay (1.1.0)
@@ -244,6 +245,7 @@ DEPENDENCIES
   active_model_serializers
   angularjs-rails
   bower-rails (~> 0.6.0)
+  chronic
   chronic_duration
   coffee-rails (~> 4.0.0)
   database_cleaner

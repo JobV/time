@@ -1,16 +1,17 @@
-%form{ "ng-submit" =>"logTime()" }
-  .row 
-    .large-12.columns
-      .row
-        .medium-5.columns
-          %input{ type: 'text', "ng-model" => "new_timer.written_time", placeholder: 'e.g. 1h 23m' }
-        .medium-4.columns
-          %select.small-12{ "ng-model" => "new_timer.project_name", "ui-select2" => "project_select2_options", "data-customforms" => "disabled" }
-            %option{ value: "" }
-            %option{ "ng-repeat" => "project in projects", value: "{{project.name}}" }
-              {{ project.name }}
-        .medium-3.columns
-          %button.log-button
-            Log
+.new-timer-row
+  %form{ "ng-submit" =>"logTime()" }
+    .row
+      .medium-3.columns
+        %input{ type: 'text', "ng-model" => "new_timer.written_start_time", placeholder: 'Today' }
+      .medium-3.columns
+        %input{ type: 'text', "ng-model" => "new_timer.written_time", placeholder: 'e.g. 1h 23m' }
+      .medium-3.columns
+        %select.small-12{ "ng-model" => "new_timer.project_name", "ui-select2" => "project_select2_options", "data-customforms" => "disabled" }
+          %option{ value: "" }
+          %option{ "ng-repeat" => "project in projects", value: "{{project.name}}" }
+            {{ project.name }}
+      .medium-3.columns
+        %button.log-button
+          Log
 
 

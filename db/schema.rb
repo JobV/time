@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212152600) do
+ActiveRecord::Schema.define(version: 20131224123646) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "hourly_rate"
@@ -34,6 +33,7 @@ ActiveRecord::Schema.define(version: 20131212152600) do
     t.integer  "project_id"
     t.integer  "user_id"
     t.integer  "total_value"
+    t.datetime "start_time"
   end
 
   create_table "users", force: true do |t|

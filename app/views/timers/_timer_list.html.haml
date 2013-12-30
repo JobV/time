@@ -1,25 +1,31 @@
 .timer-list
-  .today{ "ng-show" => "timers_of_today[0]" }
-    %h3.date-title Today
-    .timers{ "ng-repeat" => "timer in timers_of_today | orderBy:'created_at':true" }  
+  .all
+    %h3.date-title All logged time
+    .timers{ "ng-repeat" => "timer in timers | orderBy:'start_time':true" }  
       = render 'listed_timer'
 
-  %br
+/ .timer-list
+/   .today{ "ng-show" => "timers_of_today[0]" }
+/     %h3.date-title Today
+/     .timers{ "ng-repeat" => "timer in timers_of_today | orderBy:'created_at':true" }  
+/       = render 'listed_timer'
 
-  .yesterday{ "ng-show" => "timers_of_yesterday[0]" }
-    %h3.date-title Yesterday
-    .timers{ "ng-repeat" => "timer in timers_of_yesterday | orderBy:'created_at':true" }
-      = render 'listed_timer'
+/   %br
 
-  %br
+/   .yesterday{ "ng-show" => "timers_of_yesterday[0]" }
+/     %h3.date-title Yesterday
+/     .timers{ "ng-repeat" => "timer in timers_of_yesterday | orderBy:'created_at':true" }
+/       = render 'listed_timer'
+
+/   %br
   
-  .this-week{ "ng-show" => "timers_of_this_week[0]" }
-    %h3.date-title This week
-    .timers{ "ng-repeat" => "timer in timers_of_this_week | orderBy:'created_at':true" }
-      = render 'listed_timer'
+/   .this-week{ "ng-show" => "timers_of_this_week[0]" }
+/     %h3.date-title This week
+/     .timers{ "ng-repeat" => "timer in timers_of_this_week | orderBy:'created_at':true" }
+/       = render 'listed_timer'
 
-  / .before{ "ng-show" => "timers[0]" }
-  /   %h3.date-title Before
-  /   .timers{ "ng-repeat" => "timer in timers | orderBy:'created_at':true" }
-  /     = render 'listed_timer'
+/   / .before{ "ng-show" => "timers[0]" }
+/   /   %h3.date-title Before
+/   /   .timers{ "ng-repeat" => "timer in timers | orderBy:'created_at':true" }
+/   /     = render 'listed_timer'
 

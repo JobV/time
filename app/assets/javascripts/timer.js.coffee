@@ -31,11 +31,7 @@ app.factory "Project", ($resource) ->
   $scope.new_timer  = {}
   $scope.projects   = Project.query()
 
-  $scope.timers_of_today = []
-  $scope.timers = Timer.query ->
-    $scope.timers_of_today     = $scope.timers.filter fl_today
-    $scope.timers_of_yesterday = $scope.timers.filter fl_yesterday
-    $scope.timers_of_this_week = $scope.timers.filter fl_this_week
+  $scope.timers = Timer.query()
 
   $scope.project_select2_options = {
     placeholder: "Project",
@@ -76,8 +72,7 @@ app.factory "Project", ($resource) ->
   # POST
   $scope.logTime = ->
     timer = Timer.save($scope.new_timer)
-    $scope.timers_of_today.push(timer)
-    $scope.timers_of_this_week.push(timer)
+    $scope.timers.push(timer)
 
     $timeout ->
       $scope.projects = Project.query()
@@ -87,15 +82,6 @@ app.factory "Project", ($resource) ->
   $scope.deleteTimer = (timer) ->
     timer.$delete ->
       $scope.timers.splice($scope.timers.indexOf(timer), 1)
-      today = new Date()
-      today.setHours(0,0,0,0)
-      timer_time = new Date Date.parse(timer.created_at)
-      timer_time.setHours(0,0,0,0)
-      if compareTimes(today,timer_time)
-        $scope.timers_of_today.splice($scope.timers_of_today.indexOf(timer), 1)
-
-      $scope.timers_of_yesterday.splice($scope.timers_of_yesterday.indexOf(timer), 1)
-      $scope.timers_of_this_week.splice($scope.timers_of_this_week.indexOf(timer), 1)
 
   $scope.deleteProject = (project) ->
     project.$delete ->

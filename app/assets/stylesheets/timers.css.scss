@@ -11,7 +11,7 @@
 }
 
 .project-n {
-  padding: 12px 14px;
+  padding: 4px 14px;
   background: #fff;
   &:hover { background: #C3E2FF; }
 }
@@ -50,4 +50,11 @@
   border: 0px;
   border-radius: 0px;
   background: #fff;
+}
+
+.new-timer-row {
+  background: #efefef;
+  padding-top: 15px;
+  border-top:     1px solid #ccc;
+  border-bottom:  1px solid #ccc;
 }
