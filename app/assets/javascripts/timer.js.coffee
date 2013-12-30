@@ -20,11 +20,14 @@ app.directive "leave", ->
 
 # Timer resources
 app.factory "Timer", ($resource) ->
-  $resource "/timers/:id", {id: "@id"}
+  $resource "/timers/:id", { id: "@id" }
 
 app.factory "Project", ($resource) ->
   $resource "/projects/:id", { id: "@id" },
     { update: { method: 'PUT', params: 'hourly_rate' }}
+
+app.factory "Client", ($resource) ->
+  $resource "/clients/:id", { id: "@id" }
 
 @TimerCtrl = ($scope, $timeout, Timer, Project) ->
 

@@ -1,0 +1,7 @@
+.clients
+  %h3 Clients    
+  %i.fa.fa-plus.add-client
+
+  .client-n{ "ng-repeat" => "client in clients" }
+    .client-name
+      {{ client.company_name }}

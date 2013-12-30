@@ -58,3 +58,15 @@
   border-top:     1px solid #ccc;
   border-bottom:  1px solid #ccc;
 }
+
+.clients {
+  h3 {
+    display: inline;
+  }
+  .add-client {
+    display: inline;
+    font-size: 1.2em;
+    &:hover { color: #2ecc71; }
+    padding-left: 5px;
+  }
+}

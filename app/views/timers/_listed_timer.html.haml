@@ -11,11 +11,4 @@
     .delete-button
       %i.fa.fa-times{ "ng-click" => "deleteTimer(timer)" }
 
-  / <strong>{{ parseTime(timer.total_time) }}</strong> on <strong>{{ timer.project.name }}</strong> for <strong>JAXONS</strong> on <strong>{{ timer.start_time | date }}</strong>
-  
-  / .right
-  /   .money
-  /     <strong>€ {{ timer.total_value / 100 }}</strong>
-
-
   %br
