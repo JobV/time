@@ -1,6 +1,6 @@
 .clients
   %h3 Clients    
-  %i.fa.fa-plus.add-client
+  %i.fa.fa-plus.add-client{ "ng-click" => "new_timer_window=true", "data-reveal-id" => "myModal" }
 
   .client-n{ "ng-repeat" => "client in clients" }
     .client-name

@@ -1,7 +1,7 @@
 #
 # This timer assumes that the requests made to the server are successful.
 # 
-app = angular.module("main_timer", ['timer', 'ngResource', 'ng-rails-csrf', 'ui.select2'])
+app = angular.module("main_timer", ['timer', 'ngResource', 'ng-rails-csrf', 'ui.select2', 'ngAnimate'])
 
 #
 # MODEL
@@ -41,6 +41,8 @@ app.factory "Client", ($resource) ->
     dropDownCssClass: "select2_project",
     containerCssClass: "select2_project"
   }
+
+  $scope.new_timer_window = false
 
   # TODO: Dry this up
   fl_today = (x) ->

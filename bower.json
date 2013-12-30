@@ -8,7 +8,8 @@
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
-      "angular-ui-select2" : "git@github.com:angular-ui/ui-select2.git"
+      "angular-ui-select2" : "git@github.com:angular-ui/ui-select2.git",
+      "angular-animate" : "git://github.com/angular/bower-angular-animate.git"
     }
   }
 }
