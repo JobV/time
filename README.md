@@ -12,3 +12,9 @@ TODO
 - make rake task that calculates missing total_value
 - calculate total_value in its own method
 - !! cents to euros filter
+
+# Setup
+
+To run Time you need NPM and bower.
+After installing those and running bundle install, run:
+` rake bower:install`
