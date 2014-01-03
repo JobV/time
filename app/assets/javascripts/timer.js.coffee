@@ -18,6 +18,7 @@ app.directive "leave", ->
     element.bind "mouseleave", ->
       element.removeClass attrs.enter
 
+
 # Timer resources
 app.factory "Timer", ($resource) ->
   $resource "/timers/:id", { id: "@id" }
@@ -43,33 +44,6 @@ app.factory "Client", ($resource) ->
   }
 
   $scope.new_timer_window = false
-
-  # TODO: Dry this up
-  fl_today = (x) ->
-    d1 = new Date Date.parse(x.created_at)
-    d2 = new Date()
-    d1.setHours(0,0,0,0)
-    d2.setHours(0,0,0,0)
-    d1.getTime() == d2.getTime()
-
-  fl_yesterday = (x) ->
-    d1 = new Date Date.parse(x.created_at)
-    d2 = new Date()
-    d2.setDate(d2.getDate() - 1)
-    console.log d2
-    d1.setHours(0,0,0,0)
-    d2.setHours(0,0,0,0)
-    d1.getTime() == d2.getTime()
-
-  fl_this_week = (x) ->
-    d1 = new Date Date.parse(x.created_at)
-    d2 = new Date()
-    d2.setDate(d2.getDate() - 7)
-    console.log d2
-    d1.setHours(0,0,0,0)
-    d2.setHours(0,0,0,0)
-    d1.getTime() >= d2.getTime()
-
 
   $scope.selected_project = {}
   $scope.selected_project_show = false
@@ -117,14 +91,35 @@ app.factory "Client", ($resource) ->
     $scope.selected_project.$update ->
       $scope.selected_project_show = false
 
-  #
-  # Clients
-  #
-  $scope.clients = Client.query()
-
-@newClientCtrl = ($scope, Client) ->
+@newClientCtrl = ($scope, $rootScope, Client) ->
   $scope.new_client = {}
+  $rootScope.modal = {}
+  $rootScope.modal.showModal = false
 
   $scope.newClient = ->
     client = Client.save($scope.new_client)
     $scope.clients.push(client)
+
+  $scope.clients = Client.query()
+
+  $scope.modalNewClient = ->
+    console.log 'change'
+    $rootScope.modal.showModal = true
+
+# @modalCtrl = ($rootScope) ->
+
+
+app.directive "revealModal", ->
+  (scope, elem, attrs) ->
+    scope.$watch attrs.revealModal, (val) ->
+      console.log 'change!'
+      console.log val
+      if val
+        console.log 'directive called'
+        elem.trigger "reveal:open"
+        elem.foundation('reveal', 'open')
+      else
+        elem.trigger "reveal:close"
+        elem.foundation('reveal', 'close')
+
+    # elem.foundation('reveal', 'open')
