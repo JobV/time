@@ -121,6 +121,8 @@ app.factory "Client", ($resource) ->
   # Clients
   #
   $scope.clients = Client.query()
+
+@newClientCtrl = ($scope, Client) ->
   $scope.new_client = {}
 
   $scope.newClient = ->
