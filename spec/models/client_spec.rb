@@ -13,5 +13,10 @@ describe Client do
     specify { expect(client).to respond_to(:timers) }
     specify { expect(client).to respond_to(:projects) }
   end
+
+  it 'validates company_name' do
+    false_client = FactoryGirl.build(:client, company_name: "")
+    expect(false_client).to_not be_valid
+  end
 end
 

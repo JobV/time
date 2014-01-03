@@ -3,17 +3,22 @@ class ClientsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with current_user.clients
+    respond_with current_user.clients, root: false
   end
 
   def create
     client = Client.new(client_params)
     client.users << current_user
     if client.save
-      # sumtin
+      respond_with client
     else
-      # sumtin else
+      render json: { status: :bad_request, error: "Can't save client." }
     end
+  end
+
+  def update
+    client = Client.find_by(id: params[:id])
+    respond_with client.update(client_params)
   end
 
   private
