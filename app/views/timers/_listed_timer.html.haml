@@ -1,11 +1,11 @@
 .row.timer-n
-  .medium-3.column
+  .small-3.column
     {{ timer.project.name }}
-  .medium-3.column
+  .small-3.column
     {{ timer.start_time | date }}
-  .medium-2.column
+  .small-2.column
     {{ parseTime(timer.total_time) }}
-  .medium-3.column.text-right
+  .small-3.column.text-right
     € {{ timer.total_value / 100 }}
   .small-1.column
     .delete-button
