@@ -91,10 +91,11 @@ app.factory "Client", ($resource) ->
     $scope.selected_project.$update ->
       $scope.selected_project_show = false
 
-@newClientCtrl = ($scope, $rootScope, Client) ->
+app.run ($rootScope) ->
+  $rootScope.modal = {show: false}
+
+@newClientCtrl = ($scope, $rootScope, $timeout, Client) ->
   $scope.new_client = {}
-  $rootScope.modal = {}
-  $rootScope.modal.showModal = false
 
   $scope.newClient = ->
     client = Client.save($scope.new_client)
@@ -102,24 +103,20 @@ app.factory "Client", ($resource) ->
 
   $scope.clients = Client.query()
 
-  $scope.modalNewClient = ->
-    console.log 'change'
-    $rootScope.modal.showModal = true
+  $scope.openModal = ->
+    $rootScope.modal = { show: true }
 
-# @modalCtrl = ($rootScope) ->
+  $(document).on "close", "[data-reveal]", ->
+    $timeout ->
+      $rootScope.modal = { show: false }
+    , 200
 
-
-app.directive "revealModal", ->
+app.directive "revealModal", ($rootScope) ->
   (scope, elem, attrs) ->
     scope.$watch attrs.revealModal, (val) ->
-      console.log 'change!'
-      console.log val
       if val
-        console.log 'directive called'
         elem.trigger "reveal:open"
         elem.foundation('reveal', 'open')
       else
         elem.trigger "reveal:close"
         elem.foundation('reveal', 'close')
-
-    # elem.foundation('reveal', 'open')

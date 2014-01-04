@@ -7,13 +7,7 @@ class ClientsController < ApplicationController
   end
 
   def create
-    client = Client.new(client_params)
-    client.users << current_user
-    if client.save
-      respond_with client
-    else
-      render json: { status: :bad_request, error: "Can't save client." }
-    end
+    respond_with current_user.clients.create(client_params)
   end
 
   def update

@@ -1,9 +1,13 @@
 .clients{ "ng-controller" => "newClientCtrl" }
   %h3 Clients    
-  %i.fa.fa-plus.add-client{ "ng-click" => "modalNewClient()" }
+  %i.fa.fa-plus.add-client{ "ng-click" => "openModal()" }
 
-  .client-n{ "ng-repeat" => "client in clients" }
-    .client-name
+  %br
+  showModal: {{ modal.show }}
+  %br
+
+  .project-n{ "ng-repeat" => "client in clients" }
+    .project-name
       {{ client.company_name }}
 
 = render 'layouts/new_client'

@@ -1,4 +1,6 @@
-#modalNewClient.reveal-modal.medium{ "data-reveal" => "", "reveal-modal" => "modal.showModal" }
+%div{ "ng-controller" => "newClientCtrl" }
+  newClientCtrl showModal: {{ modal.show }}
+#modalNewClient.reveal-modal.medium{ "ng-controller" => "newClientCtrl", "data-reveal" => "", "reveal-modal" => "modal.show" }
   %h2 Create a new client
   %p A client can be your employer, a person or company that you invoice or anyone else. A client has one or multiple projects, which each contain logged time.
   %form{ "ng-submit" => "newClient()" }
@@ -7,7 +9,7 @@
     %input{ "ng-model" => "new_client.kvk", type: 'text', placeholder: "Client company registry number"}
     %input{ "ng-model" => "new_client.address", type: 'text', placeholder: "Address"}
     %input{ "ng-model" => "new_client.postal_code", type: 'text', placeholder: "Postal code"}
-    %button{ "ng-click" => "showModal = false"} Create Client
+    %button.log-button{ type: 'submit' } Create Client
 
 
-  %a.close-reveal-modal ×
+  %a.close-reveal-modal{ "ng-click" => "modal.showModal = false" } ×
