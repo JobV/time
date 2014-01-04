@@ -7,7 +7,8 @@ class ClientsController < ApplicationController
   end
 
   def create
-    respond_with current_user.clients.create(client_params)
+    company_name = params[:client][:company_name]
+    respond_with current_user.clients.create(company_name: company_name)
   end
 
   def update

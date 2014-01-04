@@ -1,6 +1,3 @@
-#
-# This timer assumes that the requests made to the server are successful.
-# 
 app = angular.module("main_timer", ['timer', 'ngResource', 'ng-rails-csrf', 'ui.select2', 'ngAnimate'])
 
 #
@@ -18,8 +15,6 @@ app.directive "leave", ->
     element.bind "mouseleave", ->
       element.removeClass attrs.enter
 
-
-# Timer resources
 app.factory "Timer", ($resource) ->
   $resource "/timers/:id", { id: "@id" }
 
@@ -30,12 +25,11 @@ app.factory "Project", ($resource) ->
 app.factory "Client", ($resource) ->
   $resource "/clients/:id", { id: "@id" }
 
-@TimerCtrl = ($scope, $timeout, Timer, Project, Client) ->
+@TimerCtrl = ($scope, $timeout, Timer, Project) ->
 
   $scope.new_timer  = {}
   $scope.projects   = Project.query()
-
-  $scope.timers = Timer.query()
+  $scope.timers     = Timer.query()
 
   $scope.project_select2_options = {
     placeholder: "Project",
@@ -91,17 +85,18 @@ app.factory "Client", ($resource) ->
     $scope.selected_project.$update ->
       $scope.selected_project_show = false
 
-app.run ($rootScope) ->
+app.run ($rootScope, Client) ->
   $rootScope.modal = {show: false}
+  $rootScope.clients = Client.query()
 
 @newClientCtrl = ($scope, $rootScope, $timeout, Client) ->
   $scope.new_client = {}
 
   $scope.newClient = ->
     client = Client.save($scope.new_client)
-    $scope.clients.push(client)
+    $rootScope.clients.push(client)
+    $rootScope.modal = { show: false }
 
-  $scope.clients = Client.query()
 
   $scope.openModal = ->
     $rootScope.modal = { show: true }

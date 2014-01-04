@@ -2,10 +2,6 @@
   %h3 Clients    
   %i.fa.fa-plus.add-client{ "ng-click" => "openModal()" }
 
-  %br
-  showModal: {{ modal.show }}
-  %br
-
   .project-n{ "ng-repeat" => "client in clients" }
     .project-name
       {{ client.company_name }}
