@@ -57,6 +57,7 @@ app.factory "Client", ($resource) ->
     timer.$delete ->
       $scope.timers.splice($scope.timers.indexOf(timer), 1)
 
+  # TODO: only display s if nec
   $scope.parseTime = (seconds) ->
     minutes           = Math.floor(seconds / 60)
     seconds_left      = Math.floor(seconds % 60)
