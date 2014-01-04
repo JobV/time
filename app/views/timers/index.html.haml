@@ -1,11 +1,10 @@
 %div{ "ng-controller" => "TimerCtrl" }
   = render 'layouts/new_timer'
 
-  .row
-    .medium-9.column
+  .medium-9.column
 
-      / = render 'timer'
-      = render 'timer_list'
+    / = render 'timer'
+    = render 'timer_list'
 
-    .medium-3.right.column
-      = render 'client_list'
+  .medium-3.right.column
+    = render 'client_list'
