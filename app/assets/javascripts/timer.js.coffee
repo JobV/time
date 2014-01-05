@@ -55,7 +55,8 @@ app.factory "Activity", ($resource) ->
     $scope.timers.push(timer)
 
     $timeout ->
-      $scope.projects = Project.query()
+      $scope.projects   = Project.query()
+      $scope.activities = Activity.query()
     , 200
 
   $scope.deleteTimer = (timer) ->
