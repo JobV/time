@@ -24,7 +24,8 @@ class TimersController < ApplicationController
       end_time:     params[:end_time], 
       project_id:   project.id, 
       total_time:   total_time, 
-      total_value:  total_value)
+      total_value:  total_value,
+      activity:     params[:activity])
   end
 
   def update
