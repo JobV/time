@@ -92,12 +92,21 @@ app.factory "Activity", ($resource) ->
     $scope.selected_project.$update ->
       $scope.selected_project_show = false
 
+@navbarCtrl = ($scope, $rootScope) ->
+
+  $scope.openModal = ->
+    $rootScope.$emit "openClientModal"
+
+
 app.run ($rootScope, Client) ->
   $rootScope.modal = {show: false}
   $rootScope.clients = Client.query()
 
 @newClientCtrl = ($scope, $rootScope, $timeout, Client) ->
   $scope.new_client = {}
+
+  $rootScope.$on "openClientModal", ->
+    $scope.openModal()
 
   $scope.newClient = ->
     client = Client.save($scope.new_client)
