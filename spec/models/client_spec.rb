@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Client do
-  ATTRIBUTES = [:kvk, :postal_code, :company_name, :contact_person, :address]
+  ATTRIBUTES = [:kvk, :postal_code, :company_name, :contact_person, :address, :city]
   let(:client) { FactoryGirl.build(:client) }
 
   ATTRIBUTES.each do |attr|

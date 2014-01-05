@@ -7,8 +7,8 @@ class ClientsController < ApplicationController
   end
 
   def create
-    company_name = params[:client][:company_name]
-    respond_with current_user.clients.create(company_name: company_name)
+
+    respond_with current_user.clients.create(client_params)
   end
 
   def update
@@ -19,6 +19,6 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.required(:client).permit(:company_name, :contact_person, :kvk, :address, :postal_code)
+    params.required(:client).permit(:company_name, :contact_person, :kvk, :address, :postal_code, :city)
   end
 end
