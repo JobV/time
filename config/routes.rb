@@ -8,8 +8,7 @@ Jxtime::Application.routes.draw do
   resources :timers
   resources :projects
   resources :clients
-
-  # get 'timers/:id/starting_time' => 'timers#starting_time', as: :starting_time
+  resources :activities
 
   post 'timers/start' => 'timers#start', as:  :start_timer
   post 'timers/:id'  => 'timers#stop', as:   :stop_timer

@@ -1,31 +1,14 @@
 .timer-list
-  .all
-    %h3.date-title All logged time
-    .timers{ "ng-repeat" => "timer in timers | orderBy:'start_time':true" }  
-      = render 'listed_timer'
+  %table.small-12.timer-table
+    %thead
+      %tr
+        %th Activity
+        %th Project
+        %th Date
+        %th Time
+        %th Value
+        %th Actions
 
-/ .timer-list
-/   .today{ "ng-show" => "timers_of_today[0]" }
-/     %h3.date-title Today
-/     .timers{ "ng-repeat" => "timer in timers_of_today | orderBy:'created_at':true" }  
-/       = render 'listed_timer'
-
-/   %br
-
-/   .yesterday{ "ng-show" => "timers_of_yesterday[0]" }
-/     %h3.date-title Yesterday
-/     .timers{ "ng-repeat" => "timer in timers_of_yesterday | orderBy:'created_at':true" }
-/       = render 'listed_timer'
-
-/   %br
-  
-/   .this-week{ "ng-show" => "timers_of_this_week[0]" }
-/     %h3.date-title This week
-/     .timers{ "ng-repeat" => "timer in timers_of_this_week | orderBy:'created_at':true" }
-/       = render 'listed_timer'
-
-/   / .before{ "ng-show" => "timers[0]" }
-/   /   %h3.date-title Before
-/   /   .timers{ "ng-repeat" => "timer in timers | orderBy:'created_at':true" }
-/   /     = render 'listed_timer'
-
+    %tbody
+      %tr{ "ng-repeat" => "timer in timers | orderBy:'start_time':true" }
+        = render 'listed_timer'

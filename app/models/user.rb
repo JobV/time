@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :activities
   has_many :timers
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :clients

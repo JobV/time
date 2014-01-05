@@ -25,11 +25,16 @@ app.factory "Project", ($resource) ->
 app.factory "Client", ($resource) ->
   $resource "/clients/:id", { id: "@id" }
 
-@TimerCtrl = ($scope, $timeout, Timer, Project) ->
+app.factory "Activity", ($resource) ->
+  $resource "/activities/:id", { id: "@id" }
+
+@TimerCtrl = ($scope, $timeout, Timer, Project, Activity) ->
 
   $scope.new_timer  = {}
   $scope.projects   = Project.query()
   $scope.timers     = Timer.query()
+  $scope.activities = Activity.query()
+
 
   $scope.project_select2_options = {
     placeholder: "Project",

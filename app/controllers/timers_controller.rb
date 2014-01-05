@@ -17,6 +17,7 @@ class TimersController < ApplicationController
   def create
     total_time  = ChronicDuration.parse(params[:written_time]) if params[:written_time]
     project     = current_user.projects.find_or_create_by(name: params[:project_name]) if params[:project_name]
+    activity    = current_user.activities.find_or_create_by(name: params[:activity]) if params[:activity]
     total_value = calculate_total_value(total_time, project.hourly_rate)
     start_time  = parse_start_time(params[:written_start_time])
     respond_with current_user.timers.create(
@@ -25,7 +26,7 @@ class TimersController < ApplicationController
       project_id:   project.id, 
       total_time:   total_time, 
       total_value:  total_value,
-      activity:     params[:activity])
+      activity:     activity.name)
   end
 
   def update

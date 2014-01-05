@@ -1,19 +1,22 @@
 .new-timer-row
   %form{ "ng-submit" =>"logTime()" }
     .row
-      .medium-2.columns
-        %input{ type: 'text', "ng-model" => "new_timer.activity", placeholder: 'Specific activity' }
-      .medium-2.columns
-        %input{ type: 'text', "ng-model" => "new_timer.written_start_time", placeholder: 'Today' }
-      .medium-2.columns
-        %select.small-12{ "ng-model" => "new_timer.project_name", "ui-select2" => "project_select2_options", "data-customforms" => "disabled", "required" => "" }
-          %option{ value: "" }
-          %option{ "ng-repeat" => "project in projects", value: "{{project.name}}" }
-            {{ project.name }}
-      .medium-2.columns
-        %input{ type: 'text', "ng-model" => "new_timer.written_time", placeholder: 'e.g. 1h 22m', "required" => "" }
-      .medium-1.columns
+      .medium-10.column
+        .medium-3.columns
+          %input{ type: 'text', "ng-model" => "new_timer.activity", placeholder: 'Specific activity', list: "activity" }
+        .medium-3.columns
+          %input{ type: 'text', "ng-model" => "new_timer.written_start_time", placeholder: 'Today' }
+        .medium-3.columns
+          %select.small-12{ "ng-model" => "new_timer.project_name", "ui-select2" => "project_select2_options", "data-customforms" => "disabled", "required" => "" }
+            %option{ value: "" }
+            %option{ "ng-repeat" => "project in projects", value: "{{project.name}}" }
+              {{ project.name }}
+        .medium-3.columns
+          %input{ type: 'text', "ng-model" => "new_timer.written_time", placeholder: 'e.g. 1h 22m', "required" => "" }
+      .medium-1.column.left
         %button.log-button
           Log
 
+%datalist#activity
+  %option{ "ng-repeat" => "activity in activities", value: "{{ activity.name }}" }
 

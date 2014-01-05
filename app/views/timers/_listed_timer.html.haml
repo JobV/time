@@ -1,16 +1,8 @@
-.row.timer-n
-  .small-2.column
-    {{ timer.project.name }}
-  .small-2.column
-    {{ timer.activity }}
-  .small-2.column
-    {{ timer.start_time | date }}
-  .small-2.column
-    {{ parseTime(timer.total_time) }}
-  .small-2.column.text-right
-    € {{ timer.total_value / 100 }}
-  .small-1.column
-    .delete-button
-      %i.fa.fa-times{ "ng-click" => "deleteTimer(timer)" }
-
-  %br
+%td {{ timer.activity }}
+%td {{ timer.project.name }}
+%td {{ timer.start_time | date }}
+%td {{ parseTime(timer.total_time) }}
+%td € {{ timer.total_value / 100 }}
+%td
+  .delete-button
+    %i.fa.fa-times{ "ng-click" => "deleteTimer(timer)" }  

@@ -838,8 +838,8 @@ $input-include-glowing-effect: false;
 // $table-even-row-bg: #f9f9f9  ;
 
 // These control the table cell border style
-// $table-border-style: solid;
-// $table-border-size: 1px;
+$table-border-style: none;
+$table-border-size: 0px;
 // $table-border-color: #ddd;
 
 // These control the table head styles
