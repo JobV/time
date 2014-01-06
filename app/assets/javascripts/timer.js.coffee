@@ -31,7 +31,6 @@ app.factory "Activity", ($resource) ->
 @TimerCtrl = ($scope, $timeout, Timer, Project, Activity) ->
 
   $scope.new_timer  = {}
-  $scope.projects   = Project.query()
   $scope.timers     = Timer.query()
   $scope.activities = Activity.query()
 
@@ -98,16 +97,25 @@ app.factory "Activity", ($resource) ->
   $scope.openModal = ->
     $rootScope.$emit "openClientModal"
 
+  $scope.openProjectModal = ->
+    $rootScope.$emit "openProjectModal"    
 
-app.run ($rootScope, Client) ->
-  $rootScope.modal = {show: false}
-  $rootScope.clients = Client.query()
 
-@newClientCtrl = ($scope, $rootScope, $timeout, Client) ->
-  $scope.new_client = {}
+app.run ($rootScope, Client, Project) ->
+  $rootScope.modal          = { show: false }
+  $rootScope.project_modal  = { show: false }
+  $rootScope.projects       = Project.query()
+  $rootScope.clients        = Client.query()
+
+@newClientCtrl = ($scope, $rootScope, $timeout, Client, Project) ->
+  $scope.new_client   = {}
+  $scope.new_project  = {}
 
   $rootScope.$on "openClientModal", ->
     $scope.openModal()
+
+  $rootScope.$on "openProjectModal", ->
+    $scope.openProjectModal()
 
   $scope.newClient = ->
     client = Client.save($scope.new_client)
@@ -115,16 +123,27 @@ app.run ($rootScope, Client) ->
     $scope.new_client = {}
     $rootScope.modal = { show: false }
 
+  $scope.createProject = ->
+    $scope.new_project.hourly_rate = $scope.new_project.hourly_rate * 100
+    project = Project.save($scope.new_project)
+    $rootScope.projects.push(project)
+    $scope.new_project = {}
+    $rootScope.project_modal = { show: false }
 
   $scope.openModal = ->
     $rootScope.modal = { show: true }
 
+  $scope.openProjectModal = ->
+    console.log 'open sesame'
+    $rootScope.project_modal = { show: true }
+
   $(document).on "close", "[data-reveal]", ->
     $timeout ->
       $rootScope.modal = { show: false }
+      $rootScope.project_modal = { show: false }
     , 200
 
-app.directive "revealModal", ($rootScope) ->
+app.directive "revealModal", ->
   (scope, elem, attrs) ->
     scope.$watch attrs.revealModal, (val) ->
       if val

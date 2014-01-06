@@ -62,7 +62,7 @@ class TimersController < ApplicationController
   end
 
   def find_timer_by_id
-    Timer.find_by(id: params[:id])
+    current_user.timers.find_by(id: params[:id])
   end
 
   def timer_params

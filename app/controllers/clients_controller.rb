@@ -7,12 +7,12 @@ class ClientsController < ApplicationController
   end
 
   def create
-
+    current_user.clients.find_by(company_name: params[:company_name])
     respond_with current_user.clients.create(client_params)
   end
 
   def update
-    client = Client.find_by(id: params[:id])
+    client = current_user.clients.find_by(id: params[:id])
     respond_with client.update(client_params)
   end
 

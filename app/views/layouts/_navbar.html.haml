@@ -10,10 +10,11 @@
           %a{ "ng-click" => "openModal()" }
             %i.fa.fa-plus
             Client
-        / %li
-        /   = link_to '#' do
-        /     %i.fa.fa-plus
-        /     Project
+
+        %li
+          %a{ "ng-click" => "openProjectModal()" }
+            %i.fa.fa-plus
+            Project
 
 
         %li.has-dropdown

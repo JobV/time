@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!
-  respond_to :json, :html
+  respond_to :json
 
   def index
     @new_project = Project.new
@@ -9,14 +9,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project = Project.new(project_params)
-    project.users << current_user
-    if project.save
-      flash[:notice] = "New project made."
-    else
-      flash[:alert] = "Project not made. Something went wrong."
-    end
-    redirect_to projects_path
+    client = current_user.clients.find_by(company_name: params[:client])
+    respond_with current_user.projects.create(project_params.merge(client_id: client.id))
   end
 
   def show
@@ -44,6 +38,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.required(:project).permit(:name, :hourly_rate)
+    params.required(:project).permit(:name, :hourly_rate, :client_id)
   end
 end
