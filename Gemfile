@@ -12,6 +12,8 @@ gem 'devise'
 gem 'chronic_duration'
 gem 'chronic'
 
+# gem 'act-as-taggable-on'
+
 gem 'haml'
 gem 'sass-rails'
 gem 'foundation-rails'
