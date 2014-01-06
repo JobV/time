@@ -53,6 +53,7 @@ app.factory "Activity", ($resource) ->
   $scope.logTime = ->
     timer = Timer.save($scope.new_timer)
     $scope.timers.push(timer)
+    $scope.new_timer = {}
 
     $timeout ->
       $scope.projects   = Project.query()
@@ -111,6 +112,7 @@ app.run ($rootScope, Client) ->
   $scope.newClient = ->
     client = Client.save($scope.new_client)
     $rootScope.clients.push(client)
+    $scope.new_client = {}
     $rootScope.modal = { show: false }
 
 
