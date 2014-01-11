@@ -1,46 +1,5 @@
 @import "colors";
 
-.projects {
-  // border: 1px solid #ccc;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  h3 {
-    padding: 5px;
-    margin: 0px;
-    // background: #ddd;
-    border-bottom: 1px solid #ccc;
-  }
-}
-
-.project-n {
-  padding: 4px 14px;
-  background: #fff;
-  &:hover { background: #C3E2FF; }
-}
-
-.timer-n .delete-button { 
-  color: #eee;
-  display: inline;
-}
-
-.timer-n:hover  .delete-button { color: #999; }
-.timer-n i:hover {
-  color: #e74c3c;
-}
-
-
-.project-name {
-  font-weight: bold;
-  text-align: left;
-  display: inline-block;
-}
-
-.project-rate {
-  text-align: right;
-  float: right;
-  display: inline-block;
-}
-
 .select2-container .select2-choice {
   border-radius: 0px !important;
   border: 0;  
@@ -85,45 +44,4 @@
   ::-webkit-input-placeholder { /* WebKit browsers */
     color: $jx-blue;
   }
-}
-
-$client-bg: #86C0E6;
-
-.clients {
-
-  background: $client-bg;
-  padding: 0;
-  padding-top: 20px;
-
-  h2 {
-    text-align: center;
-    // font-family: Monda;
-    color: $jx-blue2;
-    // display: inline;
-  }
-
-  .add-client {
-    padding-bottom: 15px;
-    color: $jx-blue2;
-    text-align: center;
-    &:hover { color: #fff; }
-  }
-
-  .client-n {
-    font-family: Monda;
-    color: white;
-    background: $client-bg;
-    padding: 10px 0px;
-    text-align: center;
-    border-top: 1px solid #6BA7D6;
-  }
-}
-
-.clientcol {
-  background: $client-bg;
-}
-
-.timerstuff {
-  // border: 4px solid #aaa;
-  // background-color: #ccc;
 }

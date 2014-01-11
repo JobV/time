@@ -1,0 +1,35 @@
+@import "colors";
+
+$client-bg: #86C0E6;
+$client-head-color: #305D7A;
+
+.clients {
+  background: $client-bg;
+  padding: 0;
+  padding-top: 20px;
+
+  h2 {
+    text-align: center;
+    color: $client-head-color;
+  }
+
+  .add-client {
+    padding-bottom: 15px;
+    color: $client-head-color;
+    text-align: center;
+    &:hover { color: #fff; }
+  }
+
+  .client-n {
+    font-family: Monda;
+    color: white;
+    background: $client-bg;
+    padding: 10px 0px;
+    text-align: center;
+    border-top: 1px solid #6BA7D6;
+
+    &:hover {
+      background: lighten($client-bg, 5%);
+    }
+  }
+}

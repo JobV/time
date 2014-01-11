@@ -1,31 +1,10 @@
-.projects
-  %h3.text-center Projects
-  .project-n{ "ng-repeat" => "project in projects", "ng-click" => "showProject(project)" }
-    .project-name
-      {{ project.name }} 
-    .project-rate
-      € {{ project.hourly_rate / 100 }}/hr
+%h2 Projects
+.add-project{ "ng-click" => "openProjectModal()" }    
+  add project
+  %i.fa.fa-plus
+    
+.project-n{ "ng-repeat" => "project in projects" }
+  {{ project.name }}
+  {{ project.hourly_rate / 100 }}
 
-
-%fieldset{ "ng-show" => "selected_project_show" }
-  %legend {{ selected_project.name }}
-
-  %form{ "ng-submit" => "updateProject(selected_project)" }
-    .row
-      .small-12.column
-        %label Project name
-        %input{ type: 'text', "ng-model" => "selected_project.name", placeholder: "Project name" }
-
-      .small-12.column
-        %label Hourly Rate
-        %input{ type: 'text', "ng-model" => "selected_project.new_hourly_rate", placeholder: "Hourly rate, e.g. 65" }
-
-    .row
-      .small-12.column
-        %button.log-button
-          Update Project
-
-  .row
-    .small-12.column
-      %button{ "ng-click" => "deleteProject(selected_project)" }
-        Delete project
+= render 'layouts/new_project'

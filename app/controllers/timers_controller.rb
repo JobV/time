@@ -4,7 +4,7 @@ class TimersController < ApplicationController
 
   def index
     @new_timer = Timer.new
-    @timers         = current_user.timers.includes(:project)
+    @timers         = current_user.timers.includes(:project).includes(:client)
     @projects       = current_user.projects
     @release_notes  = `git log --color --pretty=format:'(%cr) %s ;' --abbrev-commit -8`.split(";")
     respond_with @timers, root: false

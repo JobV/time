@@ -1,21 +1,9 @@
-%div{ "ng-controller" => "newClientCtrl" }
-  %h2 CLIENTS
-  .add-client{ "ng-click" => "openModal()" }
-    add client
-    %i.fa.fa-plus
+%h2 CLIENTS
+.add-client{ "ng-click" => "openModal()" }
+  add client
+  %i.fa.fa-plus
 
-  .client-n{ "ng-repeat" => "client in clients" }
-    {{ client.company_name }}
-
-  / .clients
-  /   %h3 Projects
-  /   %i.fa.fa-plus.add-client{ "ng-click" => "openProjectModal()" }    
-
-  /   .project-n{ "ng-repeat" => "project in projects" }
-  /     .project-name
-  /       {{ project.name }}
-  /       {{ project.hourly_rate / 100 }}
-
+.client-n{ "ng-repeat" => "client in clients" }
+  {{ client.company_name }}
 
 = render 'layouts/new_client'
-= render 'layouts/new_project'
