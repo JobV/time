@@ -4,6 +4,11 @@
 
 // Uncomment to use rem-calc() in your settings
 @import "foundation/functions";
+@import "colors";
+
+// FONTS
+@import url(http://fonts.googleapis.com/css?family=Monda);
+
 
 $experimental: true;
 
@@ -331,7 +336,7 @@ $rem-base: 16px;
 // $form-label-bottom-margin: rem-calc(8);
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
-// $input-font-size: rem-calc(14);
+$input-font-size: rem-calc(16);
 $input-bg-color: #fff;
 $input-focus-bg-color: #fff;
 $input-border-color: darken(#fff, 20%);
@@ -835,7 +840,7 @@ $input-include-glowing-effect: false;
 
 // These control the background color for the table and even rows
 $table-bg: #f9f9f9;
-$table-even-row-bg: #fff  ;
+// $table-even-row-bg: #eee; // #517697  ;
 
 // These control the table cell border style
 $table-border-style: none;
@@ -843,7 +848,7 @@ $table-border-size: 0px;
 // $table-border-color: #ddd;
 
 // These control the table head styles
-$table-head-bg: #fff  ;
+$table-head-bg: #ccc; //#517697  ;
 // $table-head-font-size: rem-calc(14);
 // $table-head-font-color: #222;
 // $table-head-font-weight: bold;
@@ -927,18 +932,38 @@ $table-head-bg: #fff  ;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #f8f8f8;
+$topbar-bg-color: $jx-blue; // #f8f8f8;
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 65px;
-$topbar-margin-bottom: 0px;
+$topbar-height: 65px;
+// $topbar-margin-bottom: 4px;
 
 // Control Input height for top bar
 
 // Controlling the styles for the title in the top bar
-$topbar-title-weight: lighter;
-// $topbar-title-font-size: rem-calc(24);
+$topbar-title-weight: 400;
+$topbar-title-font-size: rem-calc(24);
+
+// .top-bar {
+//   border-bottom: 4px solid $jx-blue2 !important;
+// }
+
+.top-bar .name h1 a {
+  font-family: Monda;
+}
+
+.top-bar .name h1 a {
+  font-family: Monda;
+}
+
+.top-bar-section li a {
+  // &:hover { border-bottom: 4px solid black !important; }
+}
+
+.top-bar-section li a:not(.button):hover {
+  background: $jx-blue !important;
+}
 
 // Style the top bar dropdown elements
 $topbar-dropdown-bg: #fff;
@@ -949,16 +974,18 @@ $topbar-dropdown-link-bg: #fff;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: #999;
+$topbar-link-color: #fff;
 $topbar-link-color-hover: #555;
 // $topbar-link-color-active: #fff;
 // $topbar-link-weight: normal;
-// $topbar-link-font-size: rem-calc(13);
+$topbar-link-font-size: rem-calc(16);
 $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg-hover: #f8f8f8;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: darken($primary-color, 5%);
-// $topbar-link-font-family: $body-font-family;
+$topbar-link-font-family: Monda;
+
+
 
 // $topbar-button-font-size: 0.75rem;
 
@@ -969,7 +996,7 @@ $topbar-link-bg-hover: #f8f8f8;
 // $topbar-dropdown-label-bg: #333;
 
 // Top menu icon styles
-// $topbar-menu-link-transform: uppercase;
+$topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: rem-calc(13);
 // $topbar-menu-link-weight: bold;
 // $topbar-menu-link-color: #fff;

@@ -5,7 +5,7 @@
   %form
     %input{ "ng-model" => "new_project.name", type: 'text', placeholder: "Project name (required)", "required" => "" }
     %input{ "ng-model" => "new_project.hourly_rate", type: 'text', placeholder: "Hourly rate (required, but you can also set this per logged event)", required: "" }
-    %input{ type: 'text', "ng-model" => "new_project.client", placeholder: 'Client this project belongs to', list: "client" }
+    %input{ type: 'text', "ng-model" => "new_project.client", placeholder: 'Client this project belongs to', list: "client", "required" => "" }
 
     %button.log-button{ type: 'button', "ng-click" => "createProject()" } Create Project
 

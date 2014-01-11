@@ -1,13 +1,13 @@
 .timer-list
   %table.small-12.timer-table
-    %thead
-      %tr
-        %th Activity
-        %th Project
-        %th Date
-        %th Time
-        %th Value
-        %th Actions
+    / %thead
+    /   %tr
+    /     %th Activity
+    /     %th Project
+    /     %th Date
+    /     %th Time
+    /     %th Value
+    /     %th Actions
 
     %tbody
       %tr{ "ng-repeat" => "timer in timers | orderBy:'start_time':true" }

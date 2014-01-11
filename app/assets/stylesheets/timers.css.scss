@@ -22,6 +22,7 @@
   color: #eee;
   display: inline;
 }
+
 .timer-n:hover  .delete-button { color: #999; }
 .timer-n i:hover {
   color: #e74c3c;
@@ -43,38 +44,86 @@
 .select2-container .select2-choice {
   border-radius: 0px !important;
   border: 0;  
-  border-bottom: 2px solid #ccc;
-  &:hover { border-bottom: 2px solid $jx-blue; }
+  border-bottom: 3px dashed $new-timer-fr;
+  &:hover { border-bottom: 3px dashed $jx-blue; }
   padding: 5px;
   height: 2.3125rem;
-  background: white; 
+  background: $new-timer-bg; 
+
+  ::-webkit-input-placeholder { /* WebKit browsers */
+    color: $jx-blue;
+  }
+}
+
+.select2-default {
+  color: $jx-blue !important;
 }
 
 .select2-container .select2-choice .select2-arrow {
   border: 0px;
   border-radius: 0px;
-  background: #fff;
+  background: $new-timer-bg;
 }
 
 .new-timer-row {
-  // background: #ccc;
+  background: $new-timer-bg;
   padding-top: 15px;
+  font-family: Monda;
 
   input {
     border: 0px;
-    border-bottom: 2px solid #ccc;
-    &:hover { border-bottom: 2px solid $jx-blue; }
+    background: $new-timer-bg;
+    border-bottom: 3px dashed $new-timer-fr;
+    &:hover { 
+      border-bottom: 3px dashed $jx-blue;
+    }
+    &:focus {
+      // background: #e0e0e0;
+    }
+  }
+
+  ::-webkit-input-placeholder { /* WebKit browsers */
+    color: $jx-blue;
   }
 }
 
+$client-bg: #86C0E6;
+
 .clients {
-  h3 {
-    display: inline;
+
+  background: $client-bg;
+  padding: 0;
+  padding-top: 20px;
+
+  h2 {
+    text-align: center;
+    // font-family: Monda;
+    color: $jx-blue2;
+    // display: inline;
   }
+
   .add-client {
-    display: inline;
-    font-size: 1.2em;
-    &:hover { color: #2ecc71; }
-    padding-left: 5px;
+    padding-bottom: 15px;
+    color: $jx-blue2;
+    text-align: center;
+    &:hover { color: #fff; }
   }
+
+  .client-n {
+    font-family: Monda;
+    color: white;
+    background: $client-bg;
+    padding: 10px 0px;
+    text-align: center;
+    border-top: 1px solid #6BA7D6;
+  }
+}
+
+.clientcol {
+  background: $client-bg;
+}
+
+.timerstuff {
+  // border: 4px solid #aaa;
+  // background-color: #ccc;
 }
