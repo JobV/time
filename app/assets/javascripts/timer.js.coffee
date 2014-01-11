@@ -1,4 +1,4 @@
-app = angular.module("main_timer", ['timer', 'ngResource', 'ng-rails-csrf', 'ui.select2', 'ngAnimate'])
+app = angular.module("main_timer", ['timer', 'ngResource', 'ng-rails-csrf', 'ngAnimate', 'ui.bootstrap'])
 
 #
 # MODEL
@@ -31,15 +31,11 @@ app.factory "Activity", ($resource) ->
 @TimerCtrl = ($scope, $timeout, Timer, Project, Activity) ->
 
   $scope.new_timer  = {}
+
+  $scope.selected = undefined;
+
   $scope.timers     = Timer.query()
   $scope.activities = Activity.query()
-
-
-  $scope.project_select2_options = {
-    placeholder: "Project",
-    dropDownCssClass: "select2_project",
-    containerCssClass: "select2_project"
-  }
 
   $scope.new_timer_window = false
 

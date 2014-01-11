@@ -16,10 +16,10 @@
 //= require angular
 //= require angular-resource
 //= require angular-animate
-//= require select2
-//= require angular-ui-select2
 //= require ng-rails-csrf
-//= require_tree .
+//= require ng-timer
+//= require an_typeahead
+//= require timer
 
 $(document).foundation();
 $(document).ready(function(){
