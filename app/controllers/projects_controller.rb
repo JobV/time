@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
   def index
     @new_project = Project.new
-    @projects = current_user.projects
+    @projects = current_user.projects.includes(:client)
     respond_with @projects, root: false
   end
 

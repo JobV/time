@@ -1,29 +1,5 @@
 @import "colors";
 
-.select2-container .select2-choice {
-  border-radius: 0px !important;
-  border: 0;  
-  border-bottom: 3px dashed $new-timer-fr;
-  &:hover { border-bottom: 3px dashed $jx-blue; }
-  padding: 5px;
-  height: 2.3125rem;
-  background: $new-timer-bg; 
-
-  ::-webkit-input-placeholder { /* WebKit browsers */
-    color: $jx-blue;
-  }
-}
-
-.select2-default {
-  color: $jx-blue !important;
-}
-
-.select2-container .select2-choice .select2-arrow {
-  border: 0px;
-  border-radius: 0px;
-  background: $new-timer-bg;
-}
-
 .new-timer-row {
   background: $new-timer-bg;
   padding-top: 15px;
@@ -45,3 +21,57 @@
     color: $jx-blue;
   }
 }
+
+.timer-n {
+  color: #555;
+  font-weight: 100;
+  font-size: 1.2rem;
+  padding: 6px 9px;
+
+  &:hover { 
+    background-color: #eee; 
+  }
+  .money {
+    display: inline;
+    font-weight: normal;
+    color: #333;
+    padding-left: 50px;
+  }
+}
+
+// ANIMATIONS
+
+// On create
+
+.timer-n.ng-enter {
+  -webkit-animation: 1s fadeIn;
+  animation: 1s fadeIn;
+}
+
+@keyframes fadeIn {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
+}
+@-webkit-keyframes fadeIn {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+// On delete
+
+.timer-n.ng-leave {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.timer-n.ng-leave.ng-leave-active {
+  opacity: 0;
+  background: $jx-red;
+}
+

@@ -70,23 +70,26 @@ app.factory "Activity", ($resource) ->
   compareTimes = (t1,t2) ->
     t1.getTime() == t2.getTime()
 
-  #
-  # Projects
-  #
-  $scope.deleteProject = (project) ->
-    project.$delete ->
-      $scope.projects.splice($scope.projects.indexOf(project), 1)
-      $scope.selected_project_show = false
+  # #
+  # # Projects
+  # #
+  # $scope.deleteProject = (project) ->
+  #   project.$delete ->
+  #     $scope.projects.splice($scope.projects.indexOf(project), 1)
+  #     $scope.selected_project_show = false
 
-  $scope.showProject = (project) ->
-    $scope.selected_project = project
-    $scope.selected_project.new_hourly_rate = project.hourly_rate / 100
-    $scope.selected_project_show = true
+  # $scope.showProject = (project) ->
+  #   $scope.selected_project = project
+  #   $scope.selected_project.new_hourly_rate = project.hourly_rate / 100
+  #   $scope.selected_project_show = true
 
-  $scope.updateProject = ->
-    $scope.selected_project.hourly_rate = $scope.selected_project.new_hourly_rate * 100
-    $scope.selected_project.$update ->
-      $scope.selected_project_show = false
+  # $scope.updateProject = ->
+  #   $scope.selected_project.hourly_rate = $scope.selected_project.new_hourly_rate * 100
+  #   $scope.selected_project.$update ->
+  #     $scope.selected_project_show = false
+
+  
+
 
 @navbarCtrl = ($scope, $rootScope) ->
 

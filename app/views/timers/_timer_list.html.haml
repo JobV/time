@@ -10,5 +10,5 @@
     /     %th Actions
 
     %tbody
-      %tr{ "ng-repeat" => "timer in timers | orderBy:'start_time':true" }
+      %tr.timer-n{ "ng-repeat" => "timer in timers | orderBy:'start_time':true" }
         = render 'listed_timer'

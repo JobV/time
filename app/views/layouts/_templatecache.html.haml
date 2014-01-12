@@ -1,0 +1,5 @@
+%script{id: "test.html", type: "text/ng-template"}
+  %h5.project{ tabindex: "-1", "bind-html-unsafe" => "match.label | typeaheadHighlight:query"} 
+  %h5.company {{ match.model.client.company_name }}
+
+  .divider
