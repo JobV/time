@@ -10,7 +10,11 @@
 
 body {
   // font-family: Monda;
-  background: $new-timer-bg !important;
+  // background: $new-timer-bg !important;
+}
+
+.no-padding {
+  padding: 0 !important;
 }
 
 .topbar {
@@ -37,6 +41,11 @@ body {
 }
 
 .log-button {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+
   background-color: $new-timer-bg;
   border: 2px solid $jx-blue;
   color: $jx-blue;
@@ -46,9 +55,9 @@ body {
   font-family: Monda;
   border-radius: 5px;
   &:hover, &:focus {
-    background-color: $new-timer-bg;
-    border: 2px solid $jx-blue;
-    color: $jx-blue;
+    background-color: lighten($new-timer-bg, 5%);
+    border: 2px solid white;
+    color: white;
     padding: 0.0rem 1.7rem;
     font-size: 1.4rem;
     // font-weight: 100 !important;
@@ -99,7 +108,7 @@ body {
 
 .timer-table {
   border-spacing: 0px !important;
-  background: $new-timer-bg;
+  // background: $new-timer-bg;
   font-family: Monda;
 
   tr {
@@ -174,33 +183,6 @@ body {
   color: #fff;
 }
 
-// .dropdown-menu > li > a:hover,
-// .dropdown-menu > li > a:focus {
-//   color: #262626;
-//   text-decoration: none;
-//   background-color: #f5f5f5;
-// }
-// .dropdown-menu > .active > a,
-// .dropdown-menu > .active > a:hover,
-// .dropdown-menu > .active > a:focus {
-//   color: #fff;
-//   text-decoration: none;
-//   background-color: #428bca;
-//   outline: 0;
-// }
-// .dropdown-menu > .disabled > a,
-// .dropdown-menu > .disabled > a:hover,
-// .dropdown-menu > .disabled > a:focus {
-//   color: #999;
-// }
-// .dropdown-menu > .disabled > a:hover,
-// .dropdown-menu > .disabled > a:focus {
-//   text-decoration: none;
-//   cursor: not-allowed;
-//   background-color: transparent;
-//   background-image: none;
-//   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-// }
 .open > .dropdown-menu {
   display: block;
 }

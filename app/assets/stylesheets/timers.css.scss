@@ -9,17 +9,22 @@
     border: 0px;
     background: $new-timer-bg;
     border-bottom: 3px dashed $new-timer-fr;
+    color: white;
     &:hover { 
       border-bottom: 3px dashed $jx-blue;
+      background: $new-timer-bg;
     }
     &:focus {
-      // background: #e0e0e0;
+      background: $new-timer-bg;
     }
   }
 
   ::-webkit-input-placeholder { /* WebKit browsers */
     color: $jx-blue;
   }
+}
+.new-timer-row-col {
+  background: $new-timer-bg;
 }
 
 .timer-n {

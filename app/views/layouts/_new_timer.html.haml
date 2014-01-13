@@ -1,16 +1,13 @@
-/ %script{type:"text/ng-template", id:"test.html"}
-
-
 .new-timer-row
   %form{ "ng-submit" =>"logTime()" }
     .row
       .medium-10.column
         .medium-3.columns
-          %input{ type: 'text', "ng-model" => "new_timer.activity", placeholder: 'Activity', "typeahead" => "a.name for a in activities | limitTo: 8"}
+          %input{ type: 'text', "ng-model" => "new_timer.activity", placeholder: 'Activity', "typeahead" => "a.name for a in activities | filter:$viewValue | limitTo: 8", "typeahead-template-url" => "activity_dropdown.html" }
         .medium-3.columns
           %input{ type: 'text', "ng-model" => "new_timer.written_start_time", placeholder: 'Today' }
         .medium-3.columns
-          %input{ type: 'text', "ng-model" => "new_timer.project_name", "required" => "", "typeahead" => "p.name for p in projects | filter:$viewValue | limitTo: 8", placeholder: 'Project', "typeahead-template-url" => "test.html" }
+          %input{ type: 'text', "ng-model" => "new_timer.project_name", "required" => "", "typeahead" => "p.name for p in projects | filter:$viewValue | limitTo: 8", placeholder: 'Project', "typeahead-template-url" => "project_dropdown.html" }
         .medium-3.columns
           %input{ type: 'text', "ng-model" => "new_timer.written_time", placeholder: 'e.g. 1h 22m', "required" => "" }
       .medium-1.column.left

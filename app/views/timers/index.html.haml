@@ -2,9 +2,11 @@
 %div{ "ng-controller" => "TimerCtrl" }
   
 
-  .medium-8.column.timerstuff
-    = render 'layouts/new_timer'
-    = render 'timer_list'
+  .medium-8.column.no-padding
+    .row.new-timer-row-col
+      = render 'layouts/new_timer'
+    .row
+      = render 'timer_list'
 
   .medium-2.right.column.clients{ "ng-controller" => "newClientCtrl" }
     = render 'client_list'
