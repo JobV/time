@@ -31,4 +31,14 @@ $project-bg: #A0DCF3;
       background: lighten($project-bg, 5%);
     }
   }
+
+  input.project_filter {
+    border: 0;
+    background: #86C0E6;
+    font-size: 14px;
+    padding-left: 15px;
+  }
+  ::-webkit-input-placeholder {
+    color: lighten($project-bg, 10%);
+  }
 }

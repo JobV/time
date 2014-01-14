@@ -3,7 +3,10 @@
   add client
   %i.fa.fa-plus
 
-.client-n{ "ng-repeat" => "client in clients" }
+.row
+  %input.client_filter.small-10{ type: 'text', "ng-model" => "client_filter", placeholder: 'Search clients' }
+
+.client-n{ "ng-repeat" => "client in clients | filter:client_filter | limitTo:10" }
   {{ client.company_name }}
 
 = render 'layouts/new_client'

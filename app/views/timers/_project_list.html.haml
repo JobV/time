@@ -2,8 +2,10 @@
 .add-project{ "ng-click" => "openProjectModal()" }    
   add project
   %i.fa.fa-plus
-    
-.project-n{ "ng-repeat" => "project in projects" }
+
+.row
+  %input.project_filter.small-10{ type: 'text', "ng-model" => "project_filter", placeholder: 'Search projects' }    
+.project-n{ "ng-repeat" => "project in projects | filter:project_filter | limitTo:10" }
   {{ project.name }}
   {{ project.hourly_rate / 100 }}
 

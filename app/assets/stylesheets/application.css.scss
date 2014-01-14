@@ -125,7 +125,7 @@ body {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
+  min-width: 180px;
   padding: 0px 0;
   margin: 2px 0 0;
   font-size: 14px;
@@ -168,6 +168,7 @@ body {
   line-height: 1.428571429;
   color: #235c7c;
   white-space: nowrap;
+  padding-left: 10px;
 }
 
 // Custom hover class

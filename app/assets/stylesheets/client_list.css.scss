@@ -32,4 +32,14 @@ $client-head-color: #305D7A;
       background: lighten($client-bg, 5%);
     }
   }
+
+  input.client_filter {
+    border: 0;
+    background: #A0DCF3;
+    font-size: 14px;
+    padding-left: 15px;
+  }
+  ::-webkit-input-placeholder {
+    color: darken($client-bg, 10%);
+  }
 }
