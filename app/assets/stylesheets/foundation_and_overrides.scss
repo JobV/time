@@ -839,8 +839,8 @@ $input-include-glowing-effect: false;
 // $include-html-table-classes: $include-html-classes;
 
 // These control the background color for the table and even rows
-$table-bg: #f9f9f9;
-// $table-even-row-bg: #eee; // #517697  ;
+$table-bg: #59ABE3;
+$table-even-row-bg: lighten($table-bg, 5%);
 
 // These control the table cell border style
 $table-border-style: none;
