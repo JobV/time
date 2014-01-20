@@ -8,10 +8,13 @@
 
 @import 'colors';
 
+html, body {
+  height: 100% !important;
+}
+
 body {
   // font-family: Monda;
-  // background: $new-timer-bg !important;
-  background: $new-timer-bg !important;
+  background: -webkit-linear-gradient(top, #b0eafc 0%,#99cc99 100%) center no-repeat no-repeat !important; 
 }
 
 .no-padding {
@@ -19,7 +22,7 @@ body {
 }
 
 .topbar {
-  border-bottom: 1px solid #ccc;
+  // border-bottom: 1px solid #ccc;
 }
 
 .f-dropdown li {
@@ -41,24 +44,24 @@ body {
   }
 }
 
-.log-button {
+.button {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 
-  background-color: $new-timer-bg;
-  border: 2px solid $jx-blue;
-  color: $jx-blue;
-  padding: 0.0rem 1.7rem;
-  font-size: 1.4rem;
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 2px solid white !important;
+  color: $jx-blue !important;
+  padding: 0.0rem 1.7rem !important;
+  font-size: 1.4rem !important;
   font-weight: 100 !important;
-  font-family: Monda;
-  border-radius: 5px;
+  font-family: Monda !important;
+  border-radius: 5px !important;
   &:hover, &:focus {
-    background-color: lighten($new-timer-bg, 5%);
+    background: rgba(255,255,255,0.45) !important;
     border: 2px solid white;
-    color: white;
+    color: rgba(0,0,0,.73) !important; 
     padding: 0.0rem 1.7rem;
     font-size: 1.4rem;
     // font-weight: 100 !important;
@@ -105,16 +108,6 @@ body {
 }
 .fade-show.fade-show-active {
   opacity:1;
-}
-
-.timer-table {
-  border-spacing: 0px !important;
-  // background: $new-timer-bg;
-  font-family: Monda;
-
-  tr {
-    &:hover { background: #eee; }
-  }
 }
 
 // For typeahead

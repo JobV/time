@@ -12,7 +12,7 @@ describe AdminController do
   describe '#index' do
     context 'not signed in' do
       before { get :index }
-      specify { expect(response).to be_redirect }
+      specify { expect_redirect }
     end
 
     context 'not an admin' do
@@ -20,7 +20,7 @@ describe AdminController do
         sign_in user
         get :index
       end
-      specify { expect(response).to be_redirect }
+      specify { expect_redirect }
     end
 
     context 'admin' do
@@ -28,7 +28,7 @@ describe AdminController do
         sign_in admin
         get :index
       end
-      specify { expect(response).to be_success }
+      specify { expect_success }
     end
   end
 

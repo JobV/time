@@ -32,3 +32,11 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+def expect_success
+  expect(response).to be_success
+end
+
+def expect_redirect
+  expect(response).to be_redirect
+end

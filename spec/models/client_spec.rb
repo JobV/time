@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe Client do
-  ATTRIBUTES = [:kvk, :postal_code, :company_name, :contact_person, :address, :city]
+  CLIENT_ATTRIBUTES = [:kvk, :postal_code, :company_name, :contact_person, :address, :city]
   let(:client) { FactoryGirl.build(:client) }
 
-  ATTRIBUTES.each do |attr|
+  CLIENT_ATTRIBUTES.each do |attr|
     specify { expect(client).to respond_to(attr) }
   end
 

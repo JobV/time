@@ -48,6 +48,7 @@ group :test, :development do
   gem 'guard-minitest'
   gem 'jasmine-rails'
   gem 'guard-jasmine'
+  gem 'guard-rspec'
   gem 'database_cleaner'
   gem 'foreman'
   gem 'minitest-reporters'

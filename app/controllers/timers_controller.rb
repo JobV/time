@@ -3,11 +3,8 @@ class TimersController < ApplicationController
   respond_to :json, :html
 
   def index
-    @new_timer = Timer.new
-    @timers         = current_user.timers.includes(:project).includes(:client)
-    @projects       = current_user.projects
-    @release_notes  = `git log --color --pretty=format:'(%cr) %s ;' --abbrev-commit -8`.split(";")
-    respond_with @timers, root: false
+    timers = current_user.timers.includes(:project).includes(:client)
+    respond_with timers, root: false
   end
 
   def show
@@ -18,34 +15,31 @@ class TimersController < ApplicationController
     total_time  = ChronicDuration.parse(params[:written_time]) if params[:written_time]
     project     = current_user.projects.find_or_create_by(name: params[:project_name]) if params[:project_name]
     activity    = current_user.activities.find_or_create_by(name: params[:activity]) if params[:activity]
-    total_value = calculate_total_value(total_time, project.hourly_rate)
+    total_value = calculate_total_value(total_time, project.hourly_rate) if project
     start_time  = parse_start_time(params[:written_start_time])
+    project_id  = project.id if project
+    activity_name = activity.name if activity
+
     respond_with current_user.timers.create(
       start_time:   start_time,
       end_time:     params[:end_time], 
-      project_id:   project.id, 
+      project_id:   project_id, 
       total_time:   total_time, 
       total_value:  total_value,
-      activity:     activity.name)
+      activity:     activity_name)
   end
 
   def update
     respond_with Timer.update(params[:id], params[:timer])
   end
 
-  def stop
-    timer = find_timer_by_id
-    timer.stop
-    respond_with timer
-  end
-
   def destroy
-    @timer = find_timer_by_id
-    respond_with @timer.destroy
-  end
-
-  def starting_time
-    respond_with find_timer_by_id.created_at
+    timer = find_timer_by_id
+    if timer
+      respond_with timer.destroy 
+    else
+      render json: 'ehh..'
+    end
   end
 
   private

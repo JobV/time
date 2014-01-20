@@ -839,8 +839,8 @@ $input-include-glowing-effect: false;
 // $include-html-table-classes: $include-html-classes;
 
 // These control the background color for the table and even rows
-$table-bg: #59ABE3;
-$table-even-row-bg: lighten($table-bg, 5%);
+$table-bg: rbga(255,255,255,0);
+$table-even-row-bg: rbga(255,255,255,0.5);
 
 // These control the table cell border style
 $table-border-style: none;
@@ -932,57 +932,57 @@ $table-head-bg: #ccc; //#517697  ;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: $jx-blue; // #f8f8f8;
-$topbar-bg: $topbar-bg-color;
+$topbar-bg-color: rgba(255,255,255,0); // #f8f8f8;
+$topbar-bg: none;
 
-// Height and margin
-$topbar-height: 65px;
+// // Height and margin
+// $topbar-height: 65px;
 // $topbar-margin-bottom: 4px;
 
-// Control Input height for top bar
+// // Control Input height for top bar
 
-// Controlling the styles for the title in the top bar
-$topbar-title-weight: 400;
-$topbar-title-font-size: rem-calc(24);
+// // Controlling the styles for the title in the top bar
+// $topbar-title-weight: 400;
+// $topbar-title-font-size: rem-calc(24);
 
 // .top-bar {
-//   border-bottom: 4px solid $jx-blue2 !important;
+//   border-bottom: 1px solid #ccc !important;
 // }
 
 .top-bar .name h1 a {
   font-family: Monda;
 }
 
-.top-bar .name h1 a {
-  font-family: Monda;
+.top-bar-section ul {
+  background: none !important;
 }
 
-.top-bar-section li a {
-  // &:hover { border-bottom: 4px solid black !important; }
-}
+// .top-bar-section li a {
+//   background: none;
+// }
 
 .top-bar-section li a:not(.button):hover {
-  background: $jx-blue !important;
+  background: none !important;
 }
 
-// Style the top bar dropdown elements
-$topbar-dropdown-bg: #fff;
-$topbar-dropdown-link-color: #333;
-$topbar-dropdown-link-bg: #fff;
-// $topbar-dropdown-toggle-size: 5px;
-// $topbar-dropdown-toggle-color: #fff;
-// $topbar-dropdown-toggle-alpha: 0.4;
+// // Style the top bar dropdown elements
+// $topbar-dropdown-bg: #333;
+// $topbar-dropdown-link-color: #333;
+$topbar-dropdown-link-bg: none;
+// // $topbar-dropdown-toggle-size: 5px;
+// // $topbar-dropdown-toggle-color: #333;
+// // $topbar-dropdown-toggle-alpha: 0.4;
 
-// Set the link colors and styles for top-level nav
-$topbar-link-color: #fff;
+// // Set the link colors and styles for top-level nav
+$topbar-link-color: white;
 $topbar-link-color-hover: #555;
-// $topbar-link-color-active: #fff;
-// $topbar-link-weight: normal;
-$topbar-link-font-size: rem-calc(16);
-$topbar-link-hover-lightness: -10%; // Darken by 10%
-$topbar-link-bg-hover: #f8f8f8;
-// $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: darken($primary-color, 5%);
+// // $topbar-link-color-active: #333;
+// // $topbar-link-weight: normal;
+// $topbar-link-font-size: rem-calc(16);
+// $topbar-link-hover-lightness: -10%; // Darken by 10%
+// $topbar-link-bg-hover: #f8f8f8;
+$topbar-link-bg-active: none;
+$topbar-link-bg-active-hover: none;
 $topbar-link-font-family: Monda;
 
 

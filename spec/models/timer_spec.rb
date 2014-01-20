@@ -1,10 +1,17 @@
 require 'spec_helper'
 describe Timer do
-  ATTRIBUTES = [:total_time, :end_time, :total_value, :start_time, :activity]
+  TIMER_ATTRIBUTES = [
+    :total_time, 
+    :end_time, 
+    :total_value, 
+    :start_time, 
+    :activity,
+    :invoiced_at,
+    :paid_at]
 
   let(:timer) { FactoryGirl.build(:timer) }
 
-  ATTRIBUTES.each do |attr|
+  TIMER_ATTRIBUTES.each do |attr|
     specify { expect(timer).to respond_to(attr) }
   end
 

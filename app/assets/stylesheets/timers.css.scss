@@ -1,21 +1,22 @@
 @import "colors";
 
 .new-timer-row {
-  background: $new-timer-bg;
+  background: none;
   padding-top: 15px;
   font-family: Monda;
+  float: left;
 
   input {
-    border: 0px;
-    background: $new-timer-bg;
-    border-bottom: 3px dashed $new-timer-fr;
-    color: white;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background: none;
+    color: #333;
     &:hover { 
-      border-bottom: 3px dashed $jx-blue;
-      background: $new-timer-bg;
+      border: 2px solid $jx-blue;
+      // background: rgba(255,255,255,0.25);
     }
     &:focus {
-      background: $new-timer-bg;
+      background: rgba(255,255,255,0.3);
     }
   }
 
@@ -25,7 +26,7 @@
 }
 
 .new-timer-row-col {
-  background: $new-timer-bg;
+  background: none;
 }
 
 .timer-n {
@@ -35,7 +36,7 @@
   padding: 6px 9px;
 
   &:hover { 
-    background-color: #eee; 
+    background-color: rgba(255,255,255,0.3); 
   }
   .money {
     display: inline;
@@ -45,6 +46,10 @@
   }
 }
 
+.timer-table {
+  border-spacing: 0px !important;
+  font-family: Monda;
+}
 // ANIMATIONS
 
 // On create
