@@ -1,14 +1,15 @@
 = render 'layouts/templatecache'
 %div{ "ng-controller" => "TimerCtrl" }
   
-  = render 'layouts/new_timer'
-
-  
-  .large-8.medium-12.column.no-padding
-    = render 'timer_list'
-
-  .large-2.medium-6.right.column.clients{ "ng-controller" => "newClientCtrl" }
-    = render 'client_list'
-
-  .large-2.medium-6.right.column.projects{ "ng-controller" => "newClientCtrl" }
+  .large-2.medium-4.left.column.projects{ "ng-controller" => "newClientCtrl" }
     = render 'project_list'
+  
+  .large-10.column
+    .row 
+      = render 'layouts/new_timer'
+
+    .row 
+      = render 'timer_list'
+
+  / .large-2.medium-6.right.column.clients{ "ng-controller" => "newClientCtrl" }
+  /   = render 'client_list'

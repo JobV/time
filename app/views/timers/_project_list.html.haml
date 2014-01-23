@@ -1,11 +1,14 @@
-%h3
-  Projects 
-  %i.fa.fa-plus.add-project{ "ng-click" => "openProjectModal()" }    
+%i.fa.fa-plus.add-project.right{ "ng-click" => "openProjectModal()" }
 
 .row
   %input.project_filter.small-10{ type: 'text', "ng-model" => "project_filter", placeholder: 'Search projects' }    
+
 .project-n{ "ng-repeat" => "project in projects | filter:project_filter | limitTo:10" }
   {{ project.name }}
   {{ project.hourly_rate / 100 }}
+
+
+
+
 
 = render 'layouts/new_project'

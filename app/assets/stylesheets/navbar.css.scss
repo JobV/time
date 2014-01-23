@@ -1,9 +1,10 @@
 @import 'colors';
 
 .navbutton.active {
-  border: $jx-line-thickness solid $jx-line-color !important;
-  border-bottom: 1px solid $jx-bg-color !important;
-  z-index: 1000 !important;
+  // border: $jx-line-thickness solid $jx-line-color !important;
+  color: rgba(0,0,0,0.8) !important;
+  border-bottom: 1px solid $jx-blue !important;
+  z-index: 10 !important;
   background: $jx-bg-color !important;
 }
 
@@ -15,7 +16,9 @@
   .title {
     display: inline;
     float: left;
+    padding-top: 10px;
   }
+
   .topnav {
     text-align: center;
     display: inline;

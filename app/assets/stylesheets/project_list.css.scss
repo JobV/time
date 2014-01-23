@@ -5,15 +5,20 @@ $project-bg: #A0DCF3;
 .projects {
   // background: $project-bg;
   padding: 0;
+  background: darken($jx-bg-color, 3%);
+  border-right: $jx-line-thickness solid $jx-line-color;
+  min-height: 100% !important;
+  position: absolute;
 
   h3 {
     text-align: center;
     color: $jx-line-color;
   }
   .add-project {
-    text-align: center;
     &:hover { color: #fff; }
     font-size: 1.2rem;
+    padding: 5px 5px;
+    display: inline;
   }
 
   .project-n {
@@ -33,6 +38,8 @@ $project-bg: #A0DCF3;
     font-family: Monda;
     text-align: center;
     border: 0;
+    display: inline;
+    
     // border-bottom: 1px dashed rgba(255,255,255,0.7)
     // background: #86C0E6;
     // font-size: 14px;
