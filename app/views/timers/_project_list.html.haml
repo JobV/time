@@ -1,7 +1,6 @@
-%h2 Projects
-.add-project{ "ng-click" => "openProjectModal()" }    
-  add project
-  %i.fa.fa-plus
+%h3
+  Projects 
+  %i.fa.fa-plus.add-project{ "ng-click" => "openProjectModal()" }    
 
 .row
   %input.project_filter.small-10{ type: 'text', "ng-model" => "project_filter", placeholder: 'Search projects' }    

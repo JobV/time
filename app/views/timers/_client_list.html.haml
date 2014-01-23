@@ -1,7 +1,6 @@
-%h2 CLIENTS
-.add-client{ "ng-click" => "openModal()" }
-  add client
-  %i.fa.fa-plus
+%h3 
+  CLIENTS
+  %i.fa.fa-plus{ "ng-click" => "openModal()" }
 
 .row
   %input.client_filter.small-10{ type: 'text', "ng-model" => "client_filter", placeholder: 'Search clients' }

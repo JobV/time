@@ -1,0 +1,38 @@
+@import 'colors';
+
+.navbutton.active {
+  border: $jx-line-thickness solid $jx-line-color !important;
+  border-bottom: 1px solid $jx-bg-color !important;
+  z-index: 1000 !important;
+  background: $jx-bg-color !important;
+}
+
+.jobbar {
+  height: 65px;
+  border-bottom: $jx-line-thickness solid $jx-line-color;
+  padding-left: 15px;
+
+  .title {
+    display: inline;
+    float: left;
+  }
+  .topnav {
+    text-align: center;
+    display: inline;
+
+    .navbutton {
+      display: inline;
+      font-family: Monda;
+      font-weight: lighter;
+      color: $jx-line-color;
+      font-size: 1.4rem;
+      padding: 3px 15px;
+      position: relative;
+      top: 33px;
+      border: 0;
+
+    }
+  }
+}
+
+

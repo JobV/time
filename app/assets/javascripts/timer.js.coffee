@@ -1,4 +1,13 @@
-app = angular.module("main_timer", ['timer', 'ngResource', 'ng-rails-csrf', 'ngAnimate', 'ui.bootstrap'])
+app = angular.module("main_timer", [
+ 'TimerService',
+ 'ProjectService',
+ 'ClientService',
+ 'ActivityService',
+ 'timer',
+ 'ngResource',
+ 'ng-rails-csrf',
+ 'ngAnimate',
+ 'ui.bootstrap'])
 
 #
 # MODEL
@@ -14,19 +23,6 @@ app.directive "leave", ->
   (scope, element, attrs) ->
     element.bind "mouseleave", ->
       element.removeClass attrs.enter
-
-app.factory "Timer", ($resource) ->
-  $resource "/timers/:id", { id: "@id" }
-
-app.factory "Project", ($resource) ->
-  $resource "/projects/:id", { id: "@id" },
-    { update: { method: 'PUT', params: 'hourly_rate' }}
-
-app.factory "Client", ($resource) ->
-  $resource "/clients/:id", { id: "@id" }
-
-app.factory "Activity", ($resource) ->
-  $resource "/activities/:id", { id: "@id" }
 
 @TimerCtrl = ($scope, $timeout, Timer, Project, Activity) ->
 

@@ -2,14 +2,13 @@
 %div{ "ng-controller" => "TimerCtrl" }
   
   = render 'layouts/new_timer'
+
   
+  .large-8.medium-12.column.no-padding
+    = render 'timer_list'
 
-  .medium-8.medium-centered.column.no-padding
-    .row
-      = render 'timer_list'
-
-  .medium-2.right.column.clients{ "ng-controller" => "newClientCtrl" }
+  .large-2.medium-6.right.column.clients{ "ng-controller" => "newClientCtrl" }
     = render 'client_list'
 
-  .medium-2.right.column.projects{ "ng-controller" => "newClientCtrl" }
+  .large-2.medium-6.right.column.projects{ "ng-controller" => "newClientCtrl" }
     = render 'project_list'

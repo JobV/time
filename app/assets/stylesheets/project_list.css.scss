@@ -3,43 +3,42 @@
 $project-bg: #A0DCF3;
 
 .projects {
-  background: $project-bg;
+  // background: $project-bg;
   padding: 0;
-  padding-top: 20px;
 
-  h2 {
+  h3 {
     text-align: center;
-    color: $jx-blue2;
+    color: $jx-line-color;
   }
-
   .add-project {
-    padding-bottom: 15px;
-    color: $jx-blue2;
     text-align: center;
     &:hover { color: #fff; }
+    font-size: 1.2rem;
   }
 
   .project-n {
     font-family: Monda;
-    color: rgb(35, 92, 124);
-    background: $project-bg;
+    color: rgba(35, 92, 124, 0.9);
+    background: none;
     padding: 10px 0px;
     text-align: center;
-    border-top: 1px solid #6BA7D6;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
 
     &:hover {
-      background: lighten($project-bg, 5%);
+      background: rgba(255,255,255,0.3);
     }
   }
 
   input.project_filter {
     font-family: Monda;
+    text-align: center;
     border: 0;
-    background: #86C0E6;
-    font-size: 14px;
-    padding-left: 15px;
+    // border-bottom: 1px dashed rgba(255,255,255,0.7)
+    // background: #86C0E6;
+    // font-size: 14px;
+    // padding-left: 15px;
   }
   ::-webkit-input-placeholder {
-    color: lighten($project-bg, 10%);
+    color: $jx-input-placeholder-color !important;
   }
 }

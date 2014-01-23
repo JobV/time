@@ -4,15 +4,14 @@
   background: none;
   padding-top: 15px;
   font-family: Monda;
-  float: left;
 
   input {
-    border: 2px solid #fff;
+    border: $jx-line-thickness solid $jx-line-color;
     border-radius: 5px;
     background: none;
     color: #333;
     &:hover { 
-      border: 2px solid $jx-blue;
+      border: $jx-line-thickness solid $jx-blue;
       // background: rgba(255,255,255,0.25);
     }
     &:focus {
@@ -21,7 +20,7 @@
   }
 
   ::-webkit-input-placeholder { /* WebKit browsers */
-    color: $jx-blue;
+    color: $jx-input-placeholder-color !important;
   }
 }
 

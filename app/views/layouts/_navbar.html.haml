@@ -1,28 +1,40 @@
-%nav.top-bar{ "ng-controller" => "navbarCtrl" }
-  %ul.title-area
-    %li.name
-      %h1= link_to 'TIME', timers_path
+/ %nav.top-bar{ "ng-controller" => "navbarCtrl" }
+/   %ul.title-area
+/     %li.name
+/       %h1= link_to 'TIME', timers_path
 
-  %section.top-bar-section
-    - if current_user
-      %ul.right
-        %li
-          %a{ "ng-click" => "openModal()" }
-            %i.fa.fa-plus
-            Client
+/   %section.top-bar-section
+/     - if current_user
+/       %ul.right
+/         %li
+/           %a{ "ng-click" => "openModal()" }
+/             %i.fa.fa-plus
+/             Client
 
-        %li
-          %a{ "ng-click" => "openProjectModal()" }
-            %i.fa.fa-plus
-            Project
+/         %li
+/           %a{ "ng-click" => "openProjectModal()" }
+/             %i.fa.fa-plus
+/             Project
 
 
-        %li.has-dropdown
-          = link_to '#', "data-dropdown" => "drop1" do
-            = current_user.email
-          %ul#drop1.f-dropdown{"data-dropdown-content" => ""}
-            - if current_user.admin
-              %li= link_to 'Admin Panel', admin_path
-            %li= link_to 'Settings', settings_path
-            %li
-              = link_to 'Sign out', destroy_user_session_path
+/         %li.has-dropdown
+/           = link_to '#', "data-dropdown" => "drop1" do
+/             = current_user.email
+/           %ul#drop1.f-dropdown{"data-dropdown-content" => ""}
+/             - if current_user.admin
+/               %li= link_to 'Admin Panel', admin_path
+/             %li= link_to 'Settings', settings_path
+/             %li
+/               = link_to 'Sign out', destroy_user_session_path
+
+.jobbar
+  .row
+    .small-1.column
+      %h3.title TIME
+
+    .small-8.small-centered.column.text-center
+      .topnav
+        .navbutton.active
+          Log
+        .navbutton
+          Invoice

@@ -13,18 +13,12 @@ html, body {
 }
 
 body {
-  // font-family: Monda;
-  background: -webkit-linear-gradient(top, #b0eafc 0%,#99cc99 100%) center no-repeat no-repeat !important; 
+  background: $jx-bg-color !important; // -webkit-linear-gradient(top, #b0eafc 0%,#99cc99 100%) !important; 
 }
 
 .no-padding {
   padding: 0 !important;
 }
-
-.topbar {
-  // border-bottom: 1px solid #ccc;
-}
-
 .f-dropdown li {
   width: 100%;
 }
@@ -50,8 +44,8 @@ body {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 
-  background-color: rgba(0, 0, 0, 0) !important;
-  border: 2px solid white !important;
+  background-color: $jx-bg-color !important;
+  border: $jx-line-thickness solid $jx-line-color !important;
   color: $jx-blue !important;
   padding: 0.0rem 1.7rem !important;
   font-size: 1.4rem !important;
@@ -79,10 +73,6 @@ body {
   color: #e1e1e1;
   position: relative;
   top: 3px;
-}
-
-.timer-list {
-  
 }
 
 .date-title {

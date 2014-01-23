@@ -20,6 +20,7 @@
 //= require ng-timer
 //= require an_typeahead
 //= require timer
+//= require_tree . 
 
 $(document).foundation();
 $(document).ready(function(){

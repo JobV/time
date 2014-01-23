@@ -4,43 +4,42 @@ $client-bg: #86C0E6;
 $client-head-color: #305D7A;
 
 .clients {
-  background: $client-bg;
+  // background: $client-bg;
   padding: 0;
-  padding-top: 20px;
 
-  h2 {
+  h3 {
     text-align: center;
-    color: $client-head-color;
+    color: $jx-line-color;
   }
-
   .add-client {
-    padding-bottom: 15px;
-    color: $client-head-color;
     text-align: center;
     &:hover { color: #fff; }
+    font-size: 1.2rem;
   }
 
   .client-n {
     font-family: Monda;
-    color: white;
-    background: $client-bg;
+    color: rgba(35, 92, 124, 0.9);
+    background: none;
     padding: 10px 0px;
     text-align: center;
-    border-top: 1px solid #6BA7D6;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
 
     &:hover {
-      background: lighten($client-bg, 5%);
+      background: rgba(255,255,255,0.3);
     }
   }
 
   input.client_filter {
     font-family: Monda;
+    text-align: center;
     border: 0;
-    background: #A0DCF3;
-    font-size: 14px;
-    padding-left: 15px;
+    // border-bottom: 1px dashed rgba(255,255,255,0.7)
+    // background: #86C0E6;
+    // font-size: 14px;
+    // padding-left: 15px;
   }
   ::-webkit-input-placeholder {
-    color: darken($client-bg, 10%);
+    color: $jx-input-placeholder-color !important;
   }
 }

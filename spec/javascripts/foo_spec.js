@@ -7,6 +7,10 @@ describe('TimerCtrl tests', function() {
     $scope = $rootScope.$new();
   }));
 
+  it 'is true', inject(function($controller) {
+    return true
+  });
+
   it 'should start the timer if it is not running', inject(function($controller) {
     
   });
