@@ -10,6 +10,7 @@
 @import url(http://fonts.googleapis.com/css?family=Monda);
 
 
+
 $experimental: true;
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
@@ -337,7 +338,7 @@ $rem-base: 16px;
 // $input-font-family: inherit;
 $input-font-color: #333;
 $input-font-size: rem-calc(16);
-$input-bg-color: none;
+$input-bg-color: $jx-bg-color;
 $input-focus-bg-color: rgba(255,255,255,0.3);
 $input-border-color: #fff;
 $input-focus-border-color: #00aeef;
@@ -348,12 +349,12 @@ $input-box-shadow: none; // inset 0 1px 2px rgba(0,0,0,0.1);
 $input-include-glowing-effect: false;
 
 input {
-  border: 2px solid #fff;
-  border-radius: 5px !important;
-  background: none;
+  border: $jx-line-thickness solid $jx-line-color;
+  // border-radius: 5px !important;
+  background: $jx-bg-color;
   color: #333;
   &:hover { 
-    border: 2px solid $jx-blue;
+    border: $jx-line-thickness solid $jx-line-color;
     // background: rgba(255,255,255,0.25);
   }
   &:focus {
@@ -967,7 +968,7 @@ $topbar-bg: none;
 // }
 
 .top-bar .name h1 a {
-  font-family: Monda;
+  font-family: $main-font;
 }
 
 .top-bar-section ul {
@@ -1000,7 +1001,7 @@ $topbar-link-color-hover: #555;
 // $topbar-link-bg-hover: #f8f8f8;
 $topbar-link-bg-active: none;
 $topbar-link-bg-active-hover: none;
-$topbar-link-font-family: Monda;
+$topbar-link-font-family: $main-font;
 
 
 

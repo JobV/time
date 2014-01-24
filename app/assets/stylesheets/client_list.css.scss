@@ -18,7 +18,7 @@ $client-head-color: #305D7A;
   }
 
   .client-n {
-    font-family: Monda;
+    font-family: $main-font;
     color: rgba(35, 92, 124, 0.9);
     background: none;
     padding: 10px 0px;
@@ -31,7 +31,7 @@ $client-head-color: #305D7A;
   }
 
   input.client_filter {
-    font-family: Monda;
+    font-family: $main-font;
     text-align: center;
     border: 0;
     // border-bottom: 1px dashed rgba(255,255,255,0.7)

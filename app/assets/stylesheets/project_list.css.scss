@@ -1,19 +1,29 @@
 @import "colors";
 
-$project-bg: #A0DCF3;
+@media only screen and (max-width: 40em) {
+  .projects {
+    width: none;
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 40.063em) { 
+  .projects {
+    width: 200px;
+    min-height: 100% !important;
+  }
+}
 
 .projects {
-  // background: $project-bg;
   padding: 0;
-  background: darken($jx-bg-color, 3%);
+  background: rgba(0,0,0,0.03);
   border-right: $jx-line-thickness solid $jx-line-color;
-  min-height: 100% !important;
   position: absolute;
 
   h3 {
-    text-align: center;
     color: $jx-line-color;
   }
+
   .add-project {
     &:hover { color: #fff; }
     font-size: 1.2rem;
@@ -23,15 +33,18 @@ $project-bg: #A0DCF3;
 
   .project-n {
     font-family: Monda;
-    color: rgba(35, 92, 124, 0.9);
+    color: rgba(0,0,0,0.8);
     background: none;
-    padding: 10px 0px;
-    text-align: center;
-    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    padding: 10px 5px;
+    border-top: $jx-line-thickness solid $jx-line-color;
 
     &:hover {
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.7);
     }
+  }
+
+  &:last-of-type .project-n {
+    border-bottom: $jx-line-thickness solid $jx-line-color !important;
   }
 
   input.project_filter {
@@ -39,11 +52,11 @@ $project-bg: #A0DCF3;
     text-align: center;
     border: 0;
     display: inline;
-    
-    // border-bottom: 1px dashed rgba(255,255,255,0.7)
-    // background: #86C0E6;
-    // font-size: 14px;
-    // padding-left: 15px;
+    background: darken($jx-bg-color, 3%);
+
+    &:hover, &:focus {
+      background: #fff;
+    }    
   }
   ::-webkit-input-placeholder {
     color: $jx-input-placeholder-color !important;

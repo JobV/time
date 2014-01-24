@@ -3,7 +3,7 @@
 .new-timer-row {
   background: none;
   padding-top: 15px;
-  font-family: Monda;
+  font-family: $main-font;
 
   input {
     border: $jx-line-thickness solid $jx-line-color;
@@ -47,7 +47,7 @@
 
 .timer-table {
   border-spacing: 0px !important;
-  font-family: Monda;
+  font-family: $main-font;
 }
 // ANIMATIONS
 

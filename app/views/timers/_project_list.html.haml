@@ -5,6 +5,7 @@
 
 .project-n{ "ng-repeat" => "project in projects | filter:project_filter | limitTo:10" }
   {{ project.name }}
+  %br
   {{ project.hourly_rate / 100 }}
 
 

@@ -5,18 +5,37 @@
   color: rgba(0,0,0,0.8) !important;
   border-bottom: 1px solid $jx-blue !important;
   z-index: 10 !important;
-  background: $jx-bg-color !important;
+  // background: $jx-bg-color !important;
 }
 
+@media only screen and (max-width: 40em) {
+  .jobbar {
+    height: 40px;
+  }
+  .navbutton {
+    top: 8px; 
+  }
+}
+
+@media only screen and (min-width: 40.063em) { 
+  .jobbar {
+    height: 65px;
+    .title { padding-top: 10px; }
+  }
+  .navbutton {
+    top: 33px; 
+  }
+}
+
+
 .jobbar {
-  height: 65px;
+  // height: 65px;
   border-bottom: $jx-line-thickness solid $jx-line-color;
   padding-left: 15px;
 
   .title {
     display: inline;
     float: left;
-    padding-top: 10px;
   }
 
   .topnav {
@@ -25,15 +44,14 @@
 
     .navbutton {
       display: inline;
-      font-family: Monda;
+      font-family: $main-font;
       font-weight: lighter;
       color: $jx-line-color;
       font-size: 1.4rem;
       padding: 3px 15px;
       position: relative;
-      top: 33px;
       border: 0;
-
+      background: none;
     }
   }
 }
