@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.1.0"
+
 gem 'rails',           '4.1.0beta1'
 gem 'uglifier',     '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -31,18 +33,18 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'simplecov', require: false
 end
 
 group :development do
   gem 'quiet_assets'
-  gem 'parallel_tests'
 end
 
 group :test, :development do
   gem 'sqlite3'
-  gem 'jasmine-rails'
+  gem 'jasmine', git: 'git@github.com:pivotal/jasmine-gem.git'
   gem 'guard-jasmine'
   gem 'guard-rspec'
   gem 'database_cleaner'
