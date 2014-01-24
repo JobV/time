@@ -44,7 +44,7 @@ end
 
 group :test, :development do
   gem 'sqlite3'
-  gem 'jasmine', git: 'git@github.com:pivotal/jasmine-gem.git'
+  # gem 'jasmine'
   gem 'guard-jasmine'
   gem 'guard-rspec'
   gem 'database_cleaner'

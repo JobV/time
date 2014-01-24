@@ -6,18 +6,16 @@ class TimerSerializer < ActiveModel::Serializer
     :start_time,
     :activity,
     :invoiced_at,
-    :paid_at
+    :paid_at,
+    :tag
 
   has_one :project
   has_one :client
 
   # TO BE TESTED
-  def invoiced
-    object.invoiced_at ? true : false
-  end
-
-  # TO BE TESTED
-  def paid
-    object.paid_at ? true : false
+  def tag
+    return 'paid'     if object.paid_at
+    return 'invoiced' if object.invoiced_at
+    return ''
   end
 end
