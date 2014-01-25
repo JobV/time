@@ -43,6 +43,13 @@
     color: #333;
     padding-left: 50px;
   }
+
+  &:nth-child(odd) {
+    background: rgba(255,255,255, 0.19);
+  }
+  &:nth-child(even) {
+    background: none;
+  }
 }
 
 .timer-table {

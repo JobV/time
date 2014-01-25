@@ -857,8 +857,8 @@ $reveal-modal-bg: rgba(0,0,0,0.4);
 // $include-html-table-classes: $include-html-classes;
 
 // These control the background color for the table and even rows
-$table-bg: rbga(255,255,255,0);
-$table-even-row-bg: rbga(255,255,255,0.5);
+$table-bg: none;
+// $table-even-row-bg: rgba(255, 255, 255, 0.19) !important;
 
 // These control the table cell border style
 $table-border-style: none;
