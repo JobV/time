@@ -1,9 +1,14 @@
-%i.fa.fa-plus.add-project.right{ "ng-click" => "openProjectModal()" }
+/ %i.fa.fa-plus.add-project.right{ "ng-click" => "openProjectModal()" }
 
 .row
-  %input.project_filter.small-10{ type: 'text', "ng-model" => "project_filter", placeholder: 'Search projects' }    
+  %input.project_filter.small-10{ type: 'text', "ng-model" => "search_filter", placeholder: 'Search' }    
 
-.project-n{ "ng-repeat" => "project in projects | filter:project_filter | limitTo:10" }
+.client-n{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10" }
+  {{ client.company_name }}
+
+.onepixel
+
+.project-n{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10" }
   {{ project.name }}
   %br
   {{ project.hourly_rate / 100 }}
@@ -13,3 +18,4 @@
 
 
 = render 'layouts/new_project'
+= render 'layouts/new_client'

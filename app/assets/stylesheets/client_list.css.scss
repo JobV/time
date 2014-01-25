@@ -19,10 +19,9 @@ $client-head-color: #305D7A;
 
   .client-n {
     font-family: $main-font;
-    color: rgba(35, 92, 124, 0.9);
+    color: rgba(0,0,0,0.8);
     background: none;
-    padding: 10px 0px;
-    text-align: center;
+    padding: 10px 5px;
     border-bottom: 1px dashed rgba(255,255,255,0.5);
 
     &:hover {

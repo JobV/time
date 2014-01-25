@@ -31,17 +31,34 @@
     display: inline;
   }
 
+  .client-n {
+    font-family: $main-font;
+    color: rgba(0,0,0,0.8);
+    background: none;
+    padding: 10px 5px;
+    border-bottom: $jx-line-thickness solid $jx-line-color;
+
+    &:hover {
+      background: rgba(255,255,255,0.3);
+    }
+  }
+
+  .onepixel {
+    padding-top: 5px;
+  }
+
   .project-n {
-    font-family: Monda;
+    font-family: $main-font;
     color: rgba(0,0,0,0.8);
     background: none;
     padding: 10px 5px;
     border-top: $jx-line-thickness solid $jx-line-color;
 
     &:hover {
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.3);
     }
   }
+
 
   &:last-of-type .project-n {
     border-bottom: $jx-line-thickness solid $jx-line-color !important;
@@ -52,10 +69,11 @@
     text-align: center;
     border: 0;
     display: inline;
-    background: darken($jx-bg-color, 3%);
+    background: rgba(255,255,255,0.5);
+    margin-bottom: 0px !important;
 
     &:hover, &:focus {
-      background: #fff;
+      background: rgba(255,255,255,0.8);
     }    
   }
   ::-webkit-input-placeholder {

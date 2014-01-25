@@ -13,8 +13,8 @@ html, body {
 }
 
 body {
-  background: $jx-bg-color !important; // -webkit-linear-gradient(top, #b0eafc 0%,#99cc99 100%) !important; 
-  // background: -webkit-linear-gradient(top, #b0eafc 0%,#99cc99 100%) !important; ;
+  // background: $jx-bg-color !important; // -webkit-linear-gradient(top, #b0eafc 0%,#99cc99 100%) !important; 
+  background: -webkit-linear-gradient(top, #b0eafc 0%,#99cc99 100%) !important; ;
 }
 
 .no-padding {
@@ -45,7 +45,7 @@ body {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 
-  background-color: $jx-bg-color !important;
+  background-color: rgba(255,255,255,0.2) !important;
   border: $jx-line-thickness solid $jx-line-color !important;
   color: $jx-blue !important;
   padding: 0.0rem 1.7rem !important;
