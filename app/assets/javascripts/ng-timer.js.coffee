@@ -78,6 +78,7 @@ angular.module("timer", []).directive "timer", ["$compile", ($compile) ->
     else
       $scope.millis = 0
     calculateTimeUnits()
+    
     tick = ->
       $scope.millis = new Date() - $scope.startTime
       adjustment = $scope.millis % 1000

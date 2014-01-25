@@ -38,6 +38,7 @@ app.directive "leave", ->
   $scope.selected_project = {}
   $scope.selected_project_show = false
 
+  $scope.start_value = "Start"
   #
   # Timers
   #
@@ -66,26 +67,14 @@ app.directive "leave", ->
   compareTimes = (t1,t2) ->
     t1.getTime() == t2.getTime()
 
-  # #
-  # # Projects
-  # #
-  # $scope.deleteProject = (project) ->
-  #   project.$delete ->
-  #     $scope.projects.splice($scope.projects.indexOf(project), 1)
-  #     $scope.selected_project_show = false
+  $scope.start_time = null
 
-  # $scope.showProject = (project) ->
-  #   $scope.selected_project = project
-  #   $scope.selected_project.new_hourly_rate = project.hourly_rate / 100
-  #   $scope.selected_project_show = true
+  $scope.toggleTimer = ->
+    if $scope.start_value == "Start"
+      $scope.start_value = "Stop"
 
-  # $scope.updateProject = ->
-  #   $scope.selected_project.hourly_rate = $scope.selected_project.new_hourly_rate * 100
-  #   $scope.selected_project.$update ->
-  #     $scope.selected_project_show = false
-
-  
-
+    else
+      $scope.start_value = "Start"
 
 @navbarCtrl = ($scope, $rootScope) ->
 

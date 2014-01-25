@@ -1,5 +1,33 @@
 @import "colors";
 
+// KLEIN
+@media only screen and (max-width: 40em) {
+  .new-timer {
+  }
+  .timer-list {
+
+  }
+}
+
+// GROOT
+@media only screen and (min-width: 40.063em) { 
+  .right-side {
+    float: left;
+    max-width: 100%;
+  }
+  .new-timer {
+    width: 400px;
+    margin-left: 205px;
+    float: left;
+  }
+  .timer-list {
+    margin-left: 205px;
+  }
+  .timer-table {
+    min-width: 100%;
+  }
+}
+
 .new-timer-row {
   background: none;
   padding-top: 15px;
@@ -22,10 +50,6 @@
   ::-webkit-input-placeholder { /* WebKit browsers */
     color: $jx-input-placeholder-color !important;
   }
-}
-
-.new-timer-row-col {
-  background: none;
 }
 
 .timer-n {
