@@ -3,7 +3,7 @@
 /     %li.name
 /       %h1= link_to 'TIME', timers_path
 
-/   %section.top-bar-section
+/ /   %section.top-bar-section
 /     - if current_user
 /       %ul.right
 /         %li
@@ -37,3 +37,13 @@
         Log
       .navbutton
         Invoice
+
+  .small-3.right.column{ "ng-controller" => "navbarCtrl" }
+    - if current_user
+      %a{ "ng-click" => "openModal()" }
+        %i.fa.fa-plus
+        Client
+
+      %a{ "ng-click" => "openProjectModal()" }
+        %i.fa.fa-plus
+        Project
