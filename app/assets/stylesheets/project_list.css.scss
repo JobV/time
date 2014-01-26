@@ -10,7 +10,7 @@
 @media only screen and (min-width: 40.063em) { 
   .projects {
     width: 200px;
-    min-height: 100% !important;
+    min-height: -webkit-calc(100% - 65px) !important;
   }
 }
 
@@ -35,8 +35,8 @@
     font-family: $main-font;
     color: rgba(0,0,0,0.8);
     background: none;
-    padding: 10px 5px;
-    border-bottom: $jx-line-thickness solid $jx-line-color;
+    padding: 0px;
+    border-bottom: $jx-line-thickness solid rgba(255,255,255,0.35);
 
     &:hover {
       background: rgba(255,255,255,0.3);
@@ -45,7 +45,32 @@
 
   .onepixel {
     padding-top: 5px;
-    background: rgba(255,255,255,0.5);
+    // background: rgba(255,255,255,0.5);
+  }
+
+  .client-n {
+    .company-name {
+      display: inline-block;
+      padding: 10px;
+    }
+    .uninvoiced {
+      display: inline-block;
+      float: right;
+      height: 18px;
+      min-width: 70px;
+      padding: 0px 5px;
+      line-height: 18px;
+      font-size: 0.8rem;
+      // background: rgba(0, 0, 0, 0.46);
+      // color: white;
+      text-align: right;
+      .money {
+
+      }
+      .time {
+        
+      }
+    }
   }
 
   .project-n {
@@ -53,7 +78,7 @@
     color: rgba(0,0,0,0.8);
     background: none;
     padding: 10px 5px;
-    border-top: $jx-line-thickness solid $jx-line-color;
+    border-top: $jx-line-thickness solid rgba(255,255,255,0.35);
 
     &:hover {
       background: rgba(255,255,255,0.3);

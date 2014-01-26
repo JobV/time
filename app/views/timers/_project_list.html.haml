@@ -4,7 +4,13 @@
   %input.project_filter.small-10{ type: 'text', "ng-model" => "search_filter", placeholder: 'Search' }    
 
 .client-n{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10" }
-  {{ client.company_name }}
+  .company-name
+    {{ client.company_name }}    
+  .uninvoiced
+    .money
+      € {{ client.uninvoiced / 100 }}
+    .time
+      {{ parseTime(client.uninvoiced_time) }}
 
 .onepixel
 

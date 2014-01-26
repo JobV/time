@@ -17,12 +17,17 @@
   }
   .new-timer {
     width: 400px;
-    margin-left: 205px;
+    margin-left: 200px;
     float: left;
+    // border-right: $jx-line-thickness solid $jx-line-color;
   }
   .timer-list {
-    margin-left: 205px;
+    margin-left: 200px;
   }
+}
+
+.timer-list {
+  border-top: $jx-line-thickness solid $jx-line-color;
 }
 
 .timer-table {
@@ -60,7 +65,7 @@
   padding: 6px 9px;
 
   &:hover { 
-    background-color: rgba(255,255,255,0.3); 
+    background-color: rgba(255,255,255,0.3);
   }
   .money {
     display: inline;

@@ -1,3 +1,10 @@
+# Timer
+#
+# A timer can be:
+# - uninvoiced
+# - invoiced (not paid)
+# - paid
+
 require 'spec_helper'
 describe Timer do
   TIMER_ATTRIBUTES = [

@@ -23,19 +23,22 @@
     .title { padding-top: 10px; }
   }
   .navbutton {
-    top: 33px; 
+    top: 33px;
   }
 }
 
 
 .jobbar {
   // height: 65px;
+  // background: rgba(255,255,255,0.2);
   border-bottom: $jx-line-thickness solid $jx-line-color;
   padding-left: 15px;
 
   .title {
     display: inline;
     float: left;
+    color: rgba(0,0,0,0.8);
+    font-family: Quicksand;
   }
 
   .topnav {
