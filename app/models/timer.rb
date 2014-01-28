@@ -5,6 +5,9 @@ class Timer < ActiveRecord::Base
 
   attr_accessor :written_time
 
+  after_save    :update_totals
+  after_destroy :update_totals
+
   after_initialize :set_time
 
   def parse_time
@@ -14,5 +17,12 @@ class Timer < ActiveRecord::Base
   def set_time
     total_time_will_change!
     total_time = parse_time
+  end
+
+  private 
+
+  def update_totals
+    project.calculate_totals if project
+    client.calculate_totals  if client
   end
 end

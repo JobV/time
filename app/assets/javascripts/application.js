@@ -17,8 +17,6 @@
 //= require angular-resource
 //= require angular-animate
 //= require ng-rails-csrf
-//= require ng-timer
-//= require an_typeahead
 //= require timer
 //= require_tree . 
 

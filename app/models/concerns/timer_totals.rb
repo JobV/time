@@ -1,27 +1,40 @@
 module TimerTotals
   extend ActiveSupport::Concern
 
-  def uninvoiced
+  def calculate_totals
+    uninvoiced        = sum_uninvoiced
+    uninvoiced_time   = sum_uninvoiced_time
+
+    invoiced          = sum_invoiced
+    invoiced_time     = sum_invoiced_time
+
+    paid              = sum_paid
+    paid_time         = sum_paid_time
+
+    self.save
+  end
+
+  def sum_uninvoiced
     uninvoiced_timers.sum(:total_value)
   end
 
-  def uninvoiced_time
+  def sum_uninvoiced_time
     uninvoiced_timers.sum(:total_time)
   end
 
-  def invoiced
+  def sum_invoiced
     invoiced_timers.sum(:total_value)
   end
 
-  def invoiced_time
+  def sum_invoiced_time
     invoiced_timers.sum(:total_time)
   end
 
-  def paid
+  def sum_paid
     paid_timers.sum(:total_value)
   end
 
-  def paid_time
+  def sum_paid_time
     paid_timers.sum(:total_time)
   end
 

@@ -3,18 +3,16 @@
 .row
   %input.project_filter.small-10{ type: 'text', "ng-model" => "search_filter", placeholder: 'Search' }    
 
-.client-n{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10" }
-  .company-name
-    {{ client.company_name }}    
+.client-n.ng-cloak{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10" }
+  .company-name.ng-cloak{ "ng-bind" => "client.company_name"}
   .uninvoiced
-    .money
-      € {{ client.uninvoiced / 100 }}
+    .money{ "ng-cloak" => "", "ng-bind" => "'€ ' + client.sum_uninvoiced / 100" }
     .time
-      {{ parseTime(client.uninvoiced_time) }}
+      {{ parseTime(client.sum_uninvoiced_time) }}
 
 .onepixel
 
-.project-n{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10" }
+.project-n.ng-cloak{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10" }
   {{ project.name }}
   %br
   {{ project.hourly_rate / 100 }}

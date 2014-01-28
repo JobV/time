@@ -1,1 +1,65 @@
-Timer.create
+user    = User.create(email: 'test@new.com', password: 'jobiscool', password_confirmation: 'jobiscool')
+
+client1 = user.clients.create(company_name: 'JAXONS')
+client2 = user.clients.create(company_name: 'Apple')
+client3 = user.clients.create(company_name: 'Tesla')
+client4 = user.clients.create(company_name: 'Asana')
+client5 = user.clients.create(company_name: 'Google')
+
+project1 = user.projects.create(name: 'Time', hourly_rate: 6000, client_id: client1.id)
+project1.timers.create!(total_time: 2*60*60, total_value: project1.hourly_rate * 2, user_id: user.id)
+project1.timers.create!(total_time: 3*60*60, total_value: project1.hourly_rate * 3, user_id: user.id)
+project1.timers.create!(total_time: 4*60*60, total_value: project1.hourly_rate * 4, user_id: user.id)
+project1.timers.create!(total_time: 5*60*60, total_value: project1.hourly_rate * 5, user_id: user.id)
+
+project2 = user.projects.create(name: 'Hello', hourly_rate: 5000, client_id: client1.id)
+project2.timers.create(total_time: 5*60*60, total_value: project2.hourly_rate * 5, user_id: user.id)
+project2.timers.create(total_time: 6*60*60, total_value: project2.hourly_rate * 6, user_id: user.id)
+project2.timers.create(total_time: 9*60*60, total_value: project2.hourly_rate * 9, user_id: user.id)
+
+project3 = user.projects.create(name: 'iOS', hourly_rate: 16000, client_id: client2.id)
+project3.timers.create(total_time: 1*60*60, total_value: project3.hourly_rate * 1, user_id: user.id)
+project3.timers.create(total_time: 3*60*60, total_value: project3.hourly_rate * 3, user_id: user.id)
+project3.timers.create(total_time: 6*60*60, total_value: project3.hourly_rate * 6, user_id: user.id)
+
+project4 = user.projects.create(name: 'OSX', hourly_rate: 18000, client_id: client2.id)
+project4.timers.create(total_time: 1*60*60, total_value: project4.hourly_rate * 1, user_id: user.id)
+project4.timers.create(total_time: 2*60*60, total_value: project4.hourly_rate * 2, user_id: user.id)
+project4.timers.create(total_time: 3*60*60, total_value: project4.hourly_rate * 3, user_id: user.id)
+project4.timers.create(total_time: 4*60*60, total_value: project4.hourly_rate * 4, user_id: user.id)
+
+project5 = user.projects.create(name: 'Model S', hourly_rate: 28000, client_id: client3.id)
+project5.timers.create(total_time: 1*60*60, total_value: project5.hourly_rate * 1, user_id: user.id)
+project5.timers.create(total_time: 2*60*60, total_value: project5.hourly_rate * 2, user_id: user.id)
+project5.timers.create(total_time: 3*60*60, total_value: project5.hourly_rate * 3, user_id: user.id)
+project5.timers.create(total_time: 4*60*60, total_value: project5.hourly_rate * 4, user_id: user.id)
+
+project6 = user.projects.create(name: 'Model M', hourly_rate: 38000, client_id: client3.id)
+project6.timers.create(total_time: 1*60*60, total_value: project6.hourly_rate * 1, user_id: user.id)
+project6.timers.create(total_time: 2*60*60, total_value: project6.hourly_rate * 2, user_id: user.id)
+project6.timers.create(total_time: 3*60*60, total_value: project6.hourly_rate * 3, user_id: user.id)
+project6.timers.create(total_time: 4*60*60, total_value: project6.hourly_rate * 4, user_id: user.id)
+
+project7 = user.projects.create(name: 'Dashboard', hourly_rate: 16500, client_id: client4.id)
+project7.timers.create(total_time: 1*60*60, total_value: project7.hourly_rate * 1, user_id: user.id)
+project7.timers.create(total_time: 2*60*60, total_value: project7.hourly_rate * 2, user_id: user.id)
+project7.timers.create(total_time: 3*60*60, total_value: project7.hourly_rate * 3, user_id: user.id)
+project7.timers.create(total_time: 4*60*60, total_value: project7.hourly_rate * 4, user_id: user.id)
+
+project8 = user.projects.create(name: 'iPhone app', hourly_rate: 17600, client_id: client4.id)
+project8.timers.create(total_time: 1*60*60, total_value: project8.hourly_rate * 1, user_id: user.id)
+project8.timers.create(total_time: 2*60*60, total_value: project8.hourly_rate * 2, user_id: user.id)
+project8.timers.create(total_time: 3*60*60, total_value: project8.hourly_rate * 3, user_id: user.id)
+project8.timers.create(total_time: 4*60*60, total_value: project8.hourly_rate * 4, user_id: user.id)
+
+project9 = user.projects.create(name: 'Search', hourly_rate: 48000, client_id: client5.id)
+project9.timers.create(total_time: 1*60*60, total_value: project9.hourly_rate * 1, user_id: user.id)
+project9.timers.create(total_time: 2*60*60, total_value: project9.hourly_rate * 2, user_id: user.id)
+project9.timers.create(total_time: 3*60*60, total_value: project9.hourly_rate * 3, user_id: user.id)
+project9.timers.create(total_time: 4*60*60, total_value: project9.hourly_rate * 4, user_id: user.id)
+
+project10 = user.projects.create(name: 'Google +', hourly_rate: 23400, client_id: client5.id)
+project10.timers.create(total_time: 1*60*60, total_value: project10.hourly_rate * 1, user_id: user.id)
+project10.timers.create(total_time: 2*60*60, total_value: project10.hourly_rate * 2, user_id: user.id)
+project10.timers.create(total_time: 3*60*60, total_value: project10.hourly_rate * 3, user_id: user.id)
+project10.timers.create(total_time: 4*60*60, total_value: project10.hourly_rate * 4, user_id: user.id)

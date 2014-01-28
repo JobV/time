@@ -50,6 +50,8 @@
 
   .client-n {
     .company-name {
+      // font-family: Oxygen;
+      font-weight: bold;
       display: inline-block;
       padding: 10px;
     }
@@ -65,10 +67,11 @@
       // color: white;
       text-align: right;
       .money {
-
+        font-weight: bold;
+        color: rgba(0,0,0,0.8);
       }
       .time {
-        
+        color: rgba(0, 116, 194, 0.81);
       }
     }
   }
