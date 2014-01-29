@@ -17,7 +17,9 @@ angular.module('timerController', [])
     $scope.start_value = "Start"
 
     $scope.logTime = ->
-      timer = Timer.save($scope.new_timer)
+      timer = Timer.save $scope.new_timer, ->
+        $rootScope.$emit('updateClient', timer.project.client)
+
       $scope.timers.push(timer)
       $scope.new_timer = {}
 

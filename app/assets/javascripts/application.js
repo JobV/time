@@ -17,7 +17,6 @@
 //= require angular-resource
 //= require angular-animate
 //= require ng-rails-csrf
-//= require timer
 //= require_tree . 
 
 $(document).foundation();

@@ -22,15 +22,17 @@ class Timer < ActiveRecord::Base
   private
 
   def update_totals
-    update_client
-    update_project
+    if project
+      update_client
+      update_project
+    end
   end
 
   def update_client
-    client.calculate_totals  if client
+    project.client.calculate_totals if project.client
   end
 
   def update_project
-    project.calculate_totals if project
+    project.calculate_totals
   end
 end

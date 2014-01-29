@@ -52,10 +52,10 @@ $opt2-bg: #fff;
 
 $white: 255;
 $black: 0;
-$main-line-color: $black;
+$main-line-color: $white;
 $main-bg-color: $white;
 
-$jx-line-color:              rgba($main-line-color,$main-line-color,$main-line-color,0.15);
+$jx-line-color:              rgba($main-line-color,$main-line-color,$main-line-color,0.7);
 $jx-bg-color:                rgba($main-bg-color,$main-bg-color,$main-bg-color,1);
 $jx-input-placeholder-color: rgba(0,0,0,0.6);
 $jx-line-thickness: 1px;
