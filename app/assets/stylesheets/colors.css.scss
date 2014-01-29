@@ -50,8 +50,13 @@ $opt1-fr: #fff;
 $opt2-fr: #ccc;
 $opt2-bg: #fff;
 
-$jx-line-color:              rgba(255,255,255,0.9);
-$jx-bg-color:                rgba(255,255,255,1);
+$white: 255;
+$black: 0;
+$main-line-color: $black;
+$main-bg-color: $white;
+
+$jx-line-color:              rgba($main-line-color,$main-line-color,$main-line-color,0.15);
+$jx-bg-color:                rgba($main-bg-color,$main-bg-color,$main-bg-color,1);
 $jx-input-placeholder-color: rgba(0,0,0,0.6);
 $jx-line-thickness: 1px;
 $jx-input-radius: 5px;
