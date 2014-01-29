@@ -3,12 +3,13 @@
 .row
   %input.project_filter.small-10{ type: 'text', "ng-model" => "search_filter", placeholder: 'Search' }    
 
-.client-n.ng-cloak{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10" }
+.client-n.ng-cloak{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
   .company-name.ng-cloak{ "ng-bind" => "client.company_name"}
   .uninvoiced
-    .money{ "ng-cloak" => "", "ng-bind" => "'€ ' + client.sum_uninvoiced / 100" }
+    .money.ng-cloak
+      € {{ client.uninvoiced / 100}}
     .time
-      {{ parseTime(client.sum_uninvoiced_time) }}
+      {{ parseTime(client.uninvoiced_time) }}
 
 .onepixel
 

@@ -8,7 +8,5 @@ class ClientSerializer < ActiveModel::Serializer
     :paid,
     :uninvoiced_time,
     :invoiced_time,
-    :paid_time,
-    :sum_uninvoiced,
-    :sum_uninvoiced_time
+    :paid_time
 end

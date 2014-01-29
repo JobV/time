@@ -2,53 +2,72 @@ module TimerTotals
   extend ActiveSupport::Concern
 
   def calculate_totals
-    uninvoiced        = sum_uninvoiced
-    uninvoiced_time   = sum_uninvoiced_time
-
-    invoiced          = sum_invoiced
-    invoiced_time     = sum_invoiced_time
-
-    paid              = sum_paid
-    paid_time         = sum_paid_time
-
-    self.save
+    update(
+      uninvoiced:       calc_uninvoiced_value,
+      uninvoiced_time:  calc_uninvoiced_time,
+      invoiced:         calc_invoiced_value,
+      invoiced_time:    calc_invoiced_time,
+      paid:             calc_paid_value,
+      paid_time:        calc_paid_time
+      )
   end
 
-  def sum_uninvoiced
-    uninvoiced_timers.sum(:total_value)
+  #
+  ## UNINVOICED
+  #
+  def uninvoiced!
+    update(uninvoiced: calc_uninvoiced_value)
   end
 
-  def sum_uninvoiced_time
-    uninvoiced_timers.sum(:total_time)
+  def uninvoiced_time!
+    update(uninvoiced_time: calc_uninvoiced_time)
   end
 
-  def sum_invoiced
-    invoiced_timers.sum(:total_value)
+  #
+  ## INVOICED
+  #
+  def invoiced!
+    update(invoiced: calc_invoiced_value)
   end
 
-  def sum_invoiced_time
-    invoiced_timers.sum(:total_time)
+  def invoiced_time!
+    update(invoiced_time: calc_invoiced_time)
   end
 
-  def sum_paid
-    paid_timers.sum(:total_value)
+  #
+  ## PAID
+  #
+  def paid!
+    update(paid: calc_paid_value)
   end
 
-  def sum_paid_time
-    paid_timers.sum(:total_time)
+  def paid_time!
+    update(paid: calc_paid_time)
   end
 
   private
 
-  def uninvoiced_timers
-    timers.where(invoiced_at: nil, paid_at: nil)    
+  def calc_uninvoiced_time
+    timers ? timers.where(invoiced_at: nil, paid_at: nil).sum(:total_time) : 0
   end
 
-  def invoiced_timers
-    timers.where.not(invoiced_at: nil).where(paid_at: nil)
+  def calc_uninvoiced_value
+    timers ? timers.where(invoiced_at: nil, paid_at: nil).sum(:total_value) : 0
   end
 
-  def paid_timers
-    timers.where.not(paid_at: nil)
+  def calc_invoiced_time
+    timers ? timers.where.not(invoiced_at: nil).where(paid_at: nil).sum(:total_time) : 0
+  end
+
+  def calc_invoiced_value
+    timers ? timers.where.not(invoiced_at: nil).where(paid_at: nil).sum(:total_value) : 0
+  end
+
+  def calc_paid_time
+    timers ? timers.where.not(paid_at: nil).sum(:total_time) : 0
+  end
+
+  def calc_paid_value
+    timers ? timers.where.not(paid_at: nil).sum(:total_value) : 0
   end
 end

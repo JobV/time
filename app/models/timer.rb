@@ -19,10 +19,18 @@ class Timer < ActiveRecord::Base
     total_time = parse_time
   end
 
-  private 
+  private
 
   def update_totals
-    project.calculate_totals if project
+    update_client
+    update_project
+  end
+
+  def update_client
     client.calculate_totals  if client
+  end
+
+  def update_project
+    project.calculate_totals if project
   end
 end

@@ -32,57 +32,64 @@ describe Project do
       total_value: 38, 
       total_time: 130) }
 
-  # describe 'totals' do
-  #   describe '.uninvoiced' do
-  #     it 'returns the uninvoiced totals' do
-  #       timer_1 && timer_2
-  #       expect(project.uninvoiced).to eq 50
-  #       expect(project.uninvoiced_time).to eq 250
-  #     end
+  describe 'totals' do
+    describe '.uninvoiced' do
+      it 'returns the uninvoiced totals' do
+        timer_1 && timer_2
 
-  #     it 'returns 0 when there are no totals' do
-  #       timer_1.update(invoiced_at: Time.now)
-  #       timer_2.update(paid_at: Time.now)
+        project.calculate_totals
+        expect(project.uninvoiced).to eq 50
+        expect(project.uninvoiced_time).to eq 250
+      end
 
-  #       expect(project.uninvoiced).to eq 0
-  #       expect(project.uninvoiced_time).to eq 0
-  #     end
-  #   end
+      it 'returns 0 when there are no totals' do
+        timer_1.update(invoiced_at: Time.now)
+        timer_2.update(paid_at: Time.now)
 
-  #   describe '.invoiced' do
-  #     it 'returns the invoiced time totals' do
-  #       timer_1.update(invoiced_at: Time.now)
-  #       timer_2.update(invoiced_at: Time.now)
+        project.calculate_totals
+        expect(project.uninvoiced).to eq 0
+        expect(project.uninvoiced_time).to eq 0
+      end
+    end
 
-  #       expect(project.invoiced).to eq 50
-  #       expect(project.invoiced_time).to eq 250
-  #     end
+    describe '.invoiced' do
+      it 'returns the invoiced time totals' do
+        timer_1.update(invoiced_at: Time.now)
+        timer_2.update(invoiced_at: Time.now)
 
-  #     it 'returns 0 when there are no totals' do
-  #       timer_1.update(invoiced_at: nil)
-  #       timer_2.update(paid_at: Time.now)
+        project.calculate_totals
+        expect(project.invoiced).to eq 50
+        expect(project.invoiced_time).to eq 250
+      end
 
-  #       expect(project.invoiced).to eq 0
-  #       expect(project.invoiced_time).to eq 0
-  #     end
-  #   end
+      it 'returns 0 when there are no totals' do
+        timer_1.update(invoiced_at: nil)
+        timer_2.update(paid_at: Time.now)
 
-  #   describe '.paid time' do
-  #     it 'returns the paid time totals' do
-  #       timer_1.update(paid_at: Time.now)
-  #       timer_2.update(paid_at: Time.now)
+        project.calculate_totals
+        expect(project.invoiced).to eq 0
+        expect(project.invoiced_time).to eq 0
+      end
+    end
 
-  #       expect(project.paid).to eq 50
-  #       expect(project.paid_time).to eq 250
-  #     end
+    describe '.paid time' do
+      it 'returns the paid time totals' do
+        timer_1.update(paid_at: Time.now)
+        timer_2.update(paid_at: Time.now)
 
-  #     it 'returns 0 when there are no totals' do
-  #       timer_1.update(paid_at: nil)
-  #       timer_2.update(invoiced_at: Time.now)
+        project.calculate_totals
+        expect(project.paid).to eq 50
+        expect(project.paid_time).to eq 250
+      end
+
+      it 'returns 0 when there are no totals' do
+        timer_1.update(paid_at: nil)
+        timer_2.update(invoiced_at: Time.now)
         
-  #       expect(project.paid).to eq 0
-  #       expect(project.paid_time).to eq 0
-  #     end
-  #   end
-  # end
+        project.calculate_totals
+        expect(project.paid).to eq 0
+        expect(project.paid_time).to eq 0
+      end
+    end
+  end
 end

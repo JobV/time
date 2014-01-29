@@ -3,7 +3,7 @@
   %h2 Create a new Project
   %p A project is something you work on for multiple days, weeks, months or even years. When you create an invoice for a client, time is typically grouped by project.
   %form
-    %input{ "ng-model" => "new_project.name", type: 'text', placeholder: "Project name (required)", "required" => "" }
+    %input{ "ng-model" => "new_project.name", type: 'text', placeholder: "Project name (required)", "required" => "", autofocus: true }
     %input{ "ng-model" => "new_project.hourly_rate", type: 'text', placeholder: "Hourly rate (required, but you can also set this per logged event)", required: "" }
     %input{ type: 'text', "ng-model" => "new_project.client", placeholder: 'Client this project belongs to', list: "client", "required" => "" }
 
