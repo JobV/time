@@ -18,7 +18,7 @@ angular.module('timerController', [])
 
     $scope.logTime = ->
       timer = Timer.save $scope.new_timer, ->
-        $rootScope.$emit('updateClient', timer.project.client)
+        $rootScope.$emit('updateClient', timer.project.client.uninvoiced, timer.project.client)
 
       $scope.timers.push(timer)
       $scope.new_timer = {}
@@ -34,6 +34,7 @@ angular.module('timerController', [])
     $scope.deleteTimer = (timer) ->
       timer.$delete ->
         $scope.timers.splice($scope.timers.indexOf(timer), 1)
+        $rootScope.$emit('updateClient', timer.project.client.uninvoiced - timer.total_value, timer.project.client)
 
     # TODO: only display s if nec
     $scope.parseTime = (seconds) ->

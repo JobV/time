@@ -10,8 +10,13 @@ angular.module('clientController',[])
     $rootScope.$on "openProjectModal", ->
       $scope.openProjectModal()
 
-    $rootScope.$on "updateClient", (event, client) ->
-      x.uninvoiced = client.uninvoiced if x.id == client.id for x in $rootScope.clients
+    unbind = $rootScope.$on "updateClient", (event, value, client) ->
+      for x in $rootScope.clients
+        if x.id == client.id
+          x.uninvoiced = value
+
+
+    $scope.$on('$destroy', unbind)
 
     $scope.newClient = ->
       client = Client.save($scope.new_client)
