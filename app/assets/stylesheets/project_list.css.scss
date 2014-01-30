@@ -16,8 +16,9 @@
 
 .projects {
   padding: 0;
-  background: rgba(0,0,0,0.03);
-  border-right: $jx-line-thickness solid $jx-line-color;
+  // background: #F3F2F0;
+  background: rgba(255, 255, 255, 0.6);
+  // border-right: $jx-line-thickness solid $jx-line-color;
   position: absolute;
 
   h3 {
@@ -32,11 +33,11 @@
   }
 
   .client-n {
-    font-family: $main-font;
+    font-family: Helvetica Neue;
     color: rgba(0,0,0,0.8);
     background: none;
     padding: 0px;
-    border-bottom: $jx-line-thickness solid rgba(255,255,255,0.35);
+    // border-bottom: $jx-line-thickness solid rgba(255,255,255,0.15);
 
     &:hover {
       background: rgba(255,255,255,0.3);
@@ -51,7 +52,7 @@
   .client-n {
     .company-name {
       // font-family: Oxygen;
-      font-weight: bold;
+      font-weight: 200;
       display: inline-block;
       padding: 10px;
     }
@@ -81,7 +82,7 @@
     color: rgba(0,0,0,0.8);
     background: none;
     padding: 10px 5px;
-    border-top: $jx-line-thickness solid rgba(255,255,255,0.35);
+    // border-top: $jx-line-thickness solid rgba(255,255,255,0.35);
 
     &:hover {
       background: rgba(255,255,255,0.3);
@@ -90,7 +91,7 @@
 
 
   &:last-of-type .project-n {
-    border-bottom: $jx-line-thickness solid $jx-line-color !important;
+    // border-bottom: $jx-line-thickness solid $jx-line-color !important;
   }
 
   input.project_filter {
@@ -98,7 +99,7 @@
     text-align: center;
     border: 0;
     display: inline;
-    background: rgba(255,255,255,0.5);
+    background: none;
     margin-bottom: 0px !important;
 
     &:hover, &:focus {
