@@ -1,10 +1,26 @@
-%td {{ timer.tag }}
-%td {{ timer.activity }}
-%td {{ timer.client.name }}
-%td {{ timer.project.name }}
-%td {{ timer.start_time | date }}
-%td {{ parseTime(timer.total_time) }}
-%td € {{ timer.total_value / 100 }}
-%td
-  .delete-button
-    %i.fa.fa-times{ "ng-click" => "deleteTimer(timer)" }  
+.tag
+  &nbsp;
+.buttons{ "ng-click" => "deleteTimer(timer)" }
+  %i.fa.fa-times
+.activity
+  {{ timer.activity }}
+.start-time
+  {{ timer.start_time | date }}
+.total-value
+  € {{ timer.total_value / 100 }}
+.project
+  {{ timer.project.name }}
+.total-time
+  {{ parseTime(timer.total_time) }}
+
+
+/ %td {{ timer.tag }}
+/ %td {{ timer.activity }}
+/ %td {{ timer.client.name }}
+/ %td {{ timer.project.name }}
+/ %td {{ timer.start_time | date }}
+/ %td {{ parseTime(timer.total_time) }}
+/ %td € {{ timer.total_value / 100 }}
+/ %td
+/   .delete-button
+/     %i.fa.fa-times{ "ng-click" => "deleteTimer(timer)" }  

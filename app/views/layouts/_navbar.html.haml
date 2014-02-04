@@ -9,15 +9,15 @@
   /     .navbutton
   /       Invoice
 
-  / .small-3.right.column{ "ng-controller" => "navbarCtrl" }
-  /   - if current_user
-  /     %a{ "ng-click" => "openModal()" }
-  /       %i.fa.fa-plus
-  /       Client
+  .small-3.right.column{ "ng-controller" => "navbarCtrl" }
+    - if current_user
+      %a{ "ng-click" => "openModal()" }
+        %i.fa.fa-plus
+        Client
 
-  /     %a{ "ng-click" => "openProjectModal()" }
-  /       %i.fa.fa-plus
-  /       Project
+      %a{ "ng-click" => "openProjectModal()" }
+        %i.fa.fa-plus
+        Project
 
 /         %li.has-dropdown
 /           = link_to '#', "data-dropdown" => "drop1" do

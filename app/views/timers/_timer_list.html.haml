@@ -1,4 +1,2 @@
-%table.timer-table
-  %tbody
-    %tr.timer-n{ "ng-repeat" => "timer in timers | orderBy:'start_time':true" }
-      = render 'listed_timer'
+.timer-n{ "ng-repeat" => "timer in timers" }
+  = render 'listed_timer'

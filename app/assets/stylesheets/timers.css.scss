@@ -18,11 +18,12 @@
   .new-timer {
     width: 400px;
     margin-left: 200px;
+    // margin-top: 15px;
     float: left;
     // border-right: $jx-line-thickness solid $jx-line-color;
   }
-  .timer-list {
-    margin-left: 200px;
+  .main-content {
+    margin-left: 215px;
   }
 }
 
@@ -34,6 +35,10 @@
   min-width: 100%;
 }
 
+.new-timer {
+  background: rgba(255,255,255,0.6);
+}
+
 .new-timer-row {
   background: none;
   padding-top: 15px;
@@ -42,7 +47,7 @@
   input {
     border: $jx-line-thickness solid $jx-line-color;
     border-radius: 5px !important;
-    background: none;
+    background: white;
     color: #333;
     &:hover { 
       border: $jx-line-thickness solid $jx-blue;
@@ -59,26 +64,93 @@
 }
 
 .timer-n {
-  color: #555;
-  font-weight: 100;
-  font-size: 1.2rem;
-  padding: 6px 9px;
+  background: #fff;
+  width: 650px;
+  line-height: 39px;
+  margin-bottom: 10px;
+  
+  font-size: 18px;
+  font-family: Helvetica Neue;
+  font-weight: 200;
 
-  &:hover { 
-    background-color: rgba(255,255,255,0.3);
-  }
-  .money {
-    display: inline;
-    font-weight: normal;
-    color: #333;
-    padding-left: 50px;
+  text-align: center;
+
+  .tag {
+    display: inline-block;
+    float: left;
+
+    width: 10px;
+    background-color: #ccc;
+    .uninvoiced { background-color: #D6D6D6; }
+    .invoiced   { background-color: #F4D03F; }
+    .paid       { background-color: #3FC380; }
   }
 
-  &:nth-child(odd) {
-    background: rgba(255,255,255, 0.19);
+  .activity {
+    display: inline-block;
+    float: left;
+
+    color: #404040;
+    margin-left: 20px;
   }
-  &:nth-child(even) {
-    background: none;
+
+  .start-time {
+    display: inline-block;
+    color: #D8D8D8;
+    margin-left: 20px;
+  }
+
+  .total-time {
+    display: inline-block;
+    color: #727272;
+
+    margin-left: 20px;
+    float: right;
+  }
+
+  .project {
+    display: inline-block;
+    margin-left: 20px;
+    float: right;
+    font-weight: 500;
+    width: 120px;
+
+    background-color: #1BBC9B;
+    color: #88FFEE;
+
+    padding: 0 15px; 
+
+    text-align: center;
+  }
+
+  .total-value {
+    display: inline-block;
+    float: right;
+    padding: 0 15px;
+    border: 3px solid #1BBC9B;
+    height: 39px;
+    line-height: 33px;
+    min-width: 115px;
+    text-align: right;
+  }
+
+  .buttons {
+    display: none;
+    float: right;
+    width: 0px;
+    background: #F63F4B !important;
+    color: white;
+  }
+
+  &:hover {
+    .buttons {
+      display: inline-block;
+      width: 30px;
+      &:hover {
+        color: #333;
+      }
+    }
+    width: 680px;
   }
 }
 
