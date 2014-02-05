@@ -1,0 +1,84 @@
+@import "colors";
+
+@media only screen and (max-width: 40em) {
+  .projects {
+    width: none;
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 40.063em) { 
+  .projects {
+    width: 261px;
+  }
+}
+
+.projects {
+  padding-top: 5px;
+
+  input.project_filter {
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    border: 0;
+    background: #d8d8d8;
+    color: #fff;
+    height: 56px;
+    margin-bottom: 10px;
+    &:hover, &:focus {
+      background: #4b4b4b;
+    }    
+  }
+  ::-webkit-input-placeholder {
+    color: #fff !important;
+  }
+}
+
+.projects .client-n {
+  font-weight: 700;
+  background: #1bbc9b;
+  margin-bottom: 10px;
+
+  .company-name { 
+    display: inline-block; 
+    background: #049372;
+    color: #A0FFD1;
+    padding: 15px 15px;
+    width: 100px;
+    text-align: center;
+  }
+  .uninvoiced {
+    float: right;
+    display: inline-block;
+    color: white;
+    padding: 15px 15px;
+    text-align: center;
+  }
+}
+
+.projects .project-n {
+  font-weight: 700;
+  background: #22a7f0;
+  margin-bottom: 10px;
+  height: 39px;
+  line-height: 39px;
+
+  .project-name {
+    display: inline-block;
+    color: white;
+    padding: 0px 15px;
+  }
+
+  .uninvoiced {
+    float: right;
+    display: inline-block;
+    padding: 0px 15px;
+  }
+
+  .underbar {
+    display: box;
+    height: 3px;
+    background: #0072b0;
+  }
+}

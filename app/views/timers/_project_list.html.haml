@@ -1,26 +1,22 @@
-/ %i.fa.fa-plus.add-project.right{ "ng-click" => "openProjectModal()" }
+.projects{ "ng-controller" => "newClientCtrl" }
+  %input.project_filter{ type: 'text', "ng-model" => "search_filter", placeholder: 'SEARCH' }    
 
-.row
-  %input.project_filter.small-10{ type: 'text', "ng-model" => "search_filter", placeholder: 'Search' }    
-
-.client-n.ng-cloak{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
-  .company-name.ng-cloak{ "ng-bind" => "client.company_name"}
-  .uninvoiced
-    .money.ng-cloak
+  .client-n.ng-cloak{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
+    .company-name.ng-cloak{ "ng-bind" => "client.company_name"}
+    .uninvoiced
       € {{ client.uninvoiced / 100}}
-    .time
-      {{ parseTime(client.uninvoiced_time) }}
 
-.onepixel
 
-.project-n.ng-cloak{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10" }
-  {{ project.name }}
-  %br
-  {{ project.hourly_rate / 100 }}
-
+  .project-n.ng-cloak{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
+    .project-name
+      {{ project.name }}
+    .uninvoiced
+      € {{ project.uninvoiced / 100 }}
+    .underbar
 
 
 
 
-= render 'layouts/new_project'
-= render 'layouts/new_client'
+
+  = render 'layouts/new_project'
+  = render 'layouts/new_client'
