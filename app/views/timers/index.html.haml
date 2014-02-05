@@ -1,16 +1,9 @@
 = render 'layouts/templatecache'
 %div{ "ng-controller" => "TimerCtrl" }
   
-  .projects{ "ng-controller" => "newClientCtrl" }
-    = render 'project_list'
+  = render 'layouts/new_timer'
   
-  / .row.right-side
-  /   .new-timer
-  /     = render 'layouts/new_timer'
+  = render 'timer_list'
 
-  .main-content
-    = render 'timer_list'
-
-  / .row.right-side
-  /   .timer-list
-  /     = render 'timer_list'
+  / .projects{ "ng-controller" => "newClientCtrl" }
+  /   = render 'project_list'

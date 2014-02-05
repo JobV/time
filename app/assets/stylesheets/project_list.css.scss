@@ -16,9 +16,7 @@
 
 .projects {
   padding: 0;
-  // background: #F3F2F0;
   background: rgba(255, 255, 255, 0.6);
-  // border-right: $jx-line-thickness solid $jx-line-color;
   position: absolute;
 
   h3 {
@@ -33,7 +31,7 @@
   }
 
   .client-n {
-    font-family: Helvetica Neue;
+    font-family: Open Sans;
     color: rgba(0,0,0,0.8);
     background: none;
     padding: 0px;
@@ -46,12 +44,10 @@
 
   .onepixel {
     padding-top: 5px;
-    // background: rgba(255,255,255,0.5);
   }
 
   .client-n {
     .company-name {
-      // font-family: Oxygen;
       font-weight: 200;
       display: inline-block;
       padding: 10px;
@@ -64,8 +60,6 @@
       padding: 0px 5px;
       line-height: 18px;
       font-size: 0.8rem;
-      // background: rgba(0, 0, 0, 0.46);
-      // color: white;
       text-align: right;
       .money {
         font-weight: bold;
@@ -95,7 +89,7 @@
   }
 
   input.project_filter {
-    font-family: Monda;
+    font-family: Open Sans;
     text-align: center;
     border: 0;
     display: inline;
