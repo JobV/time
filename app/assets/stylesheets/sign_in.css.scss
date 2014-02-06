@@ -1,0 +1,20 @@
+.sign-in {
+  width: 400px;
+
+  margin-top: 50px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-in-button {
+  padding: 15px 15px;
+  width: 100%;
+  font-weight: 700;
+  font-family: Open Sans;
+  font-size: 1.6rem;
+  background: #1BBC9b;
+  color: white;
+  transition: background 0.5s;
+  -webkit-transition: background 0.5s; /* Safari */
+}

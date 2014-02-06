@@ -1,17 +1,19 @@
-.row
-  .medium-8.medium-centered.column
+.small-8.small-centered.column.text-center
+  %h1 Welcome to Time
+
+
+.sign-in
+  .small-12.medium-centered.column
     - if flash[:alert]
       .alert-box{ "data-alert" => '' }
         = flash[:alert]
         %a.close{ href:"#" } &times;
 
     = form_for(resource, as: resource_name, url: session_path(resource_name), authenticity_token: true) do |f|
-      .form-group
-        = f.email_field :email, class: "form-control input-lg", placeholder: "Email"
+      = f.email_field :email, placeholder: "Email"
 
-      .form-group
-        = f.password_field :password, class:"form-control input-lg", placeholder: "Password"
+      = f.password_field :password, placeholder: "Password"
       / %div
       /   = f.check_box :remember_me
       /   = f.label :remember_me
-      %div= f.submit "Sign in", class: 'button'
+      %div= f.submit "SIGN IN", class: 'sign-in-button'
