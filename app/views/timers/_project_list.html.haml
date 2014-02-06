@@ -8,13 +8,17 @@
     .inner-client
       .money-box
         .title uninvoiced
-        {{ client.uninvoiced / 100 }}
+        .value {{ client.uninvoiced / 100 }}
       .money-box
         .title invoiced
-        {{ client.invoiced / 100 }}
+        .value {{ client.invoiced / 100 }}
       .money-box
         .title paid
-        {{ client.paid / 100 }}
+        .value
+          {{ client.paid / 100 }}
+
+      .edit-button
+        = link_to 'Edit', '#', class: 'button tiny right'
 
   .project-n.ng-cloak{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
     .project-name

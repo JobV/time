@@ -73,11 +73,23 @@
     text-align: center;
     width: 85px;
     height: 44px;
+
     .title {
       padding: 4px 0px;
       position: relative;
       font-size: 0.6rem;
     }
+
+    .value {
+      width: 85px;
+    }
+  }
+
+  .edit-button {
+    float: right;
+    color: white;
+    padding-top: 5px;
+    padding-right: 5px;
   }
 }
 
@@ -87,7 +99,7 @@
 }
 
 .client-n:hover .inner-client {
-  height: 100px;
+  height: 90px;
 }
 
 
