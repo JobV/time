@@ -9,7 +9,7 @@
 
 @media only screen and (min-width: 40.063em) { 
   .projects {
-    width: 261px;
+    width: 263px;
   }
 }
 
@@ -36,7 +36,6 @@
 }
 
 .projects .client-n {
-  font-weight: 700;
   background: #1bbc9b;
   margin-bottom: 10px;
 
@@ -47,15 +46,52 @@
     padding: 15px 15px;
     width: 100px;
     text-align: center;
+    -webkit-transition: width 0.3s;
   }
   .uninvoiced {
-    float: right;
     display: inline-block;
     color: white;
     padding: 15px 15px;
+    opacity: 1;
+    -webkit-transition: opacity 0.3s;
+    position: fixed;
+  }
+
+}
+
+.inner-client {
+  background: #1bbc9b;
+  height: 0px;
+  overflow: hidden;
+  -webkit-transition: height 0.3s;
+
+  .money-box {
+    display: inline-block;
+    background: lighten(#1bbc9b, 10%);
+    margin: 0;
+    // line-height: 44px;
     text-align: center;
+    width: 85px;
+    height: 44px;
+    .title {
+      padding: 4px 0px;
+      position: relative;
+      font-size: 0.6rem;
+    }
   }
 }
+
+.client-n:hover {
+  .company-name { width: 100%; }
+  .uninvoiced { opacity: 0; }
+}
+
+.client-n:hover .inner-client {
+  height: 100px;
+}
+
+
+// PROJECTS
 
 .projects .project-n {
   font-weight: 700;

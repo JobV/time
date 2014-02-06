@@ -5,7 +5,16 @@
     .company-name.ng-cloak{ "ng-bind" => "client.company_name"}
     .uninvoiced
       € {{ client.uninvoiced / 100}}
-
+    .inner-client
+      .money-box
+        .title uninvoiced
+        {{ client.uninvoiced / 100 }}
+      .money-box
+        .title invoiced
+        {{ client.invoiced / 100 }}
+      .money-box
+        .title paid
+        {{ client.paid / 100 }}
 
   .project-n.ng-cloak{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
     .project-name
