@@ -1,12 +1,11 @@
 = render 'layouts/templatecache'
 %div{ "ng-controller" => "TimerCtrl" }
-  
-  .row
-    .small-4.column
-      = render 'project_list'
 
-    .small-8.column
-      = render 'layouts/new_timer'
-      = render 'timer_list'
+  .sidebar-container
+    = render 'project_list'
+
+  .small-8.column
+    = render 'layouts/new_timer'
+    = render 'timer_list'
   
   

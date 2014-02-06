@@ -27,6 +27,12 @@ body {
   display: inline-block;
 }
 
+.sidebar-container {
+  float: left;
+  display: inline-block;
+  margin-left: 10px;
+}
+
 .main {
   display: inline-block;
   margin-left: auto;
