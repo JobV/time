@@ -16,7 +16,7 @@ gem 'chronic'
 
 gem 'haml'
 gem 'sass-rails'
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.0.0'
 gem 'font-awesome-rails'
 gem 'active_model_serializers'
 
