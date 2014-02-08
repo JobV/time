@@ -69,13 +69,14 @@
     text-align: center;
     -webkit-transition: width 0.3s;
   }
+
   .uninvoiced {
     display: inline-block;
     color: white;
     padding: 15px 15px;
     opacity: 1;
     -webkit-transition: opacity 0.3s;
-    position: fixed;
+    position: absolute;
   }
 
 }

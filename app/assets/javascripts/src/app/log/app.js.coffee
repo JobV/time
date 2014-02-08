@@ -9,6 +9,7 @@ angular.module("main_timer", [
   'ngAnimate',
   'ui.bootstrap',
   'commonDirectives',
+  'commonFilters',
   'modals',
   'navbar',
   'timerController',
