@@ -13,6 +13,27 @@
   }
 }
 
+.create-buttons {
+  margin-bottom: 79px;
+  text-align: center;
+
+  .new-button {
+    height: 56px;
+    width: 130px;
+    line-height: 56px;
+    display: block;
+    background: #95a5a6;
+    color: white;
+
+    @include transition (background 0.3s);
+
+
+    &:hover, &:focus {
+      background: #1BBC9B;
+    }
+  }
+}
+
 .projects {
   padding-top: 5px;
 
@@ -25,7 +46,7 @@
     background: #d8d8d8;
     color: #fff;
     height: 56px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     &:hover, &:focus {
       background: #4b4b4b;
     }    

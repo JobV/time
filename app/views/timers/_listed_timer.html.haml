@@ -12,15 +12,3 @@
   {{ timer.project.name }}
 .total-time
   {{ parseTime(timer.total_time) }}
-
-
-/ %td {{ timer.tag }}
-/ %td {{ timer.activity }}
-/ %td {{ timer.client.name }}
-/ %td {{ timer.project.name }}
-/ %td {{ timer.start_time | date }}
-/ %td {{ parseTime(timer.total_time) }}
-/ %td € {{ timer.total_value / 100 }}
-/ %td
-/   .delete-button
-/     %i.fa.fa-times{ "ng-click" => "deleteTimer(timer)" }  

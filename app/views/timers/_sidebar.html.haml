@@ -1,5 +1,14 @@
 .projects{ "ng-controller" => "newClientCtrl" }
-  %input.project_filter{ type: 'text', "ng-model" => "search_filter", placeholder: 'SEARCH' }    
+  %input.project_filter{ type: 'text', "ng-model" => "search_filter", placeholder: 'SEARCH' }
+
+  .create-buttons
+    .new-button.left{ "ng-click" => "openModal()" }
+      %i.fa.fa-plus
+      Client
+
+    .new-button.right{ "ng-click" => "openProjectModal()" }
+      %i.fa.fa-plus
+      Project
 
   .client-n.ng-cloak{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
     .company-name.ng-cloak{ "ng-bind" => "client.company_name"}

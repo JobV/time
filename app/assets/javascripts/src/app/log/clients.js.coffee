@@ -35,7 +35,6 @@ angular.module('clientController',[])
       $rootScope.modal = { show: true }
 
     $scope.openProjectModal = ->
-      console.log 'open sesame'
       $rootScope.project_modal = { show: true }
 
     $(document).on "close", "[data-reveal]", ->
