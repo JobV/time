@@ -1,8 +1,8 @@
 %div{ "ng-controller" => "newClientCtrl" }
-#modalNewClient.reveal-modal.medium{ "ng-controller" => "newClientCtrl", "data-reveal" => "", "reveal-modal" => "modal.show" }
-  %h2 Create a new client
+#modalNewClient.reveal-modal.modal-client.medium{ "ng-controller" => "newClientCtrl", "data-reveal" => "", "reveal-modal" => "modal.show" }
+  %h2.center Create a new client
   %p A client can be your employer, a person or company that you invoice or anyone else. A client has one or multiple projects, which each contain logged time.
-  %form
+  %form.new-client-form
     %input{ "ng-model" => "new_client.company_name", type: 'text', placeholder: "Client's name (required)", "required" => "", autofocus: true }
     %input{ "ng-model" => "new_client.contact_person", type: 'text', placeholder: "Contact person at client"}
     %input{ "ng-model" => "new_client.kvk", type: 'text', placeholder: "Client company registry number"}
