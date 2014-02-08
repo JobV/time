@@ -1,25 +1,24 @@
 // For typeahead
 .dropdown-menu {
-  font-family: Helvetica;
+  font-family: Open Sans;
   position: absolute;
   top: 100%;
   left: 0;
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 180px;
+  min-width: 340px;
   padding: 0px 0;
-  margin: 2px 0 0;
+  margin: 0px 0 0;
   font-size: 14px;
   list-style: none;
-  background-color: #fff;
+  background-color: #59ABE3;
   background-clip: padding-box;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, .15);
-  // border-radius: 4px;
+  border: 0;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
+
 .dropdown-menu.pull-right {
   right: 0;
   left: auto;
@@ -28,14 +27,14 @@
   height: 1px;
   margin: 0;
   overflow: hidden;
-  background-color: #e5e5e5;
+  background-color: #89C4F4;
 }
 .dropdown-menu > li > .company {
   display: inline;
   clear: both;
   font-weight: normal;
   line-height: 1.428571429;
-  color: #333;
+  color: #C5EFF7;
   white-space: nowrap;
   float: right;
   padding-right: 8px;
@@ -48,7 +47,7 @@
   clear: both;
   font-weight: normal;
   line-height: 1.428571429;
-  color: #235c7c;
+  color: #fff;
   white-space: nowrap;
   padding-left: 10px;
 }
@@ -56,13 +55,13 @@
 // Custom hover class
 .dropdown-menu > li:hover,
 .dropdown-menu > li > a:hover {
-  background: lighten(#a0dcf3, 15%);
+  background: #2C3E50;
   color: #fff;
 }
 
 .dropdown-menu > .active,
 .dropdown-menu > .active > a {
-  background: lighten(#a0dcf3, 15%);
+  background: #2C3E50;
   color: #fff;
 }
 

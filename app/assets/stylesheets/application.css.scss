@@ -2,11 +2,18 @@
  *
  *= require_self
  *= require font-awesome
- *= require foundation_and_overrides
- *= require_tree .
  */
 
+@import 'bourbon';
 @import 'colors';
+@import 'foundation_and_overrides';
+
+@import 'timers';
+@import 'animate';
+@import 'navbar';
+@import 'sidebar';
+@import 'sign_in';
+@import 'typeahead';
 
 html, body {
   // height: 100% !important;
@@ -38,15 +45,6 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-
-
-
-
-
-
-
-
-
 
 .no-padding {
   padding: 0 !important;

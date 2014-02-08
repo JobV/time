@@ -18,6 +18,8 @@ gem 'haml'
 gem 'sass-rails'
 gem 'foundation-rails', '~> 5.0.0'
 gem 'font-awesome-rails'
+gem 'bourbon'
+
 gem 'active_model_serializers'
 
 gem 'puma'
@@ -32,8 +34,6 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'spring'
-  gem 'spring-commands-rspec'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'simplecov', require: false
 end
@@ -49,4 +49,6 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'database_cleaner'
   gem 'foreman'
+  # gem 'spring'
+  # gem 'spring-commands-rspec'
 end
