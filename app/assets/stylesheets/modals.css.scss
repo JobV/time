@@ -1,11 +1,31 @@
 .modal-client {
   text-align: center;
   color: white !important;
-  width: 500px !important;
+  h2 {
+    color: white;
+    margin-bottom: 25px;
+  }
 }
 
 .new-client-form {
   width: 263px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.new-client-form input {
+  border: 0;
+  height: 59px;
+  padding-left: 18px;
+
+  @include placeholder {
+    color: #999 !important;
+  }
+}
+
+.new-client-form button {
+  width: 263px;
+  height: 65px;
+  font-size: 1.2rem;
+  background: #2BA082;
 }
