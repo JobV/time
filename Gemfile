@@ -27,6 +27,8 @@ gem 'ng-rails-csrf'
 
 gem "bower-rails", "~> 0.6.0"
 
+gem 'intercom-rails', '~> 0.2.24'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
