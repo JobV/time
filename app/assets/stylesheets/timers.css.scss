@@ -109,6 +109,11 @@
     display: inline-block;
     float: left;
 
+    width: 130px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
     color: #404040;
     margin-left: 20px;
   }
@@ -137,9 +142,13 @@
     background-color: #1BBC9B;
     color: #88FFEE;
 
-    padding: 0 15px; 
+    padding: 0 15px;
 
     text-align: center;
+
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .total-value {

@@ -4,6 +4,7 @@
   margin-bottom: 10px;
   height: 39px;
   line-height: 39px;
+  width: 263px;
 
   .project-name {
     display: inline-block;
@@ -18,7 +19,8 @@
   }
 
   .underbar {
-    display: box;
+    display: block;
+    width: 263px;
     height: 3px;
     background: #0072b0;
     @include transition(all 0.3s);

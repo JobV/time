@@ -32,12 +32,10 @@
 
   .project-n.ng-cloak{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
     .project-name
-      {{ project.name }}
+      {{ project.name | truncate:14 }}
     .uninvoiced
       € {{ project.uninvoiced / 100 }}
     .underbar
-
-
 
 
 
