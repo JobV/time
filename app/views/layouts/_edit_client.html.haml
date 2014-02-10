@@ -1,0 +1,14 @@
+%div{ "ng-controller" => "newClientCtrl" }
+#modalNewClient.reveal-modal.modal-client.medium{ "ng-controller" => "newClientCtrl", "data-reveal" => "", "reveal-modal" => "update_client_modal.show" }
+  %h2.center Edit {{ update_client_modal.client.company_name }}
+  / %p A client can be your employer, a person or company that you invoice or anyone else. A client has one or multiple projects, which each contain logged time.
+  %form.new-client-form
+    %input{ "ng-model" => "update_client_modal.client.company_name", type: 'text', placeholder: "Client's name (required)", "required" => "", autofocus: true }
+    %input{ "ng-model" => "update_client_modal.client.contact_person", type: 'text', placeholder: "Contact person at client"}
+    %input{ "ng-model" => "update_client_modal.client.kvk", type: 'text', placeholder: "Client company registry number"}
+    %input{ "ng-model" => "update_client_modal.client.address", type: 'text', placeholder: "Address"}
+    %input{ "ng-model" => "update_client_modal.client.postal_code", type: 'text', placeholder: "Postal code"}
+    %input{ "ng-model" => "update_client_modal.client.city", type: 'text', placeholder: "City"}
+    %button{ type: 'button', "ng-click" => "updateClient(update_client_modal.client)" } SAVE CHANGES
+
+  %a.close-reveal-modal{ "ng-click" => "modal.showModal = false" } ×

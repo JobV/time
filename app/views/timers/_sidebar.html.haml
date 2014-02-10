@@ -27,7 +27,8 @@
           {{ client.paid / 100 }}
 
       .edit-button
-        = link_to 'Edit', '#', class: 'button tiny right'
+        .button.tiny.right{ "ng-click" => "openUpdateClientModal(client)"}
+          Edit
 
   .project-n.ng-cloak{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
     .project-name
@@ -42,3 +43,4 @@
 
   = render 'layouts/new_project'
   = render 'layouts/new_client'
+  = render 'layouts/edit_client'

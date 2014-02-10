@@ -3,9 +3,13 @@ angular.module('clientController',[])
   .controller 'newClientCtrl', ($scope, $rootScope, $timeout, Client, Project) ->
     $scope.new_client   = {}
     $scope.new_project  = {}
+    $scope.client       = {}
 
     $rootScope.$on "openClientModal", ->
       $scope.openModal()
+
+    $rootScope.$on "updateClientModal", ->
+      $scope.openUpdateClientModal()
 
     $rootScope.$on "openProjectModal", ->
       $scope.openProjectModal()
@@ -15,7 +19,6 @@ angular.module('clientController',[])
         if x.id == client.id
           x.uninvoiced = value
 
-
     $scope.$on('$destroy', unbind)
 
     $scope.newClient = ->
@@ -24,6 +27,11 @@ angular.module('clientController',[])
       $scope.new_client = {}
       $rootScope.modal = { show: false }
 
+    $scope.updateClient = (updated_client) ->
+      client = $rootScope.clients[$rootScope.clients.indexOf(updated_client)]
+      client.$update ->
+        $rootScope.update_client_modal = { show: false }
+
     $scope.createProject = ->
       $scope.new_project.hourly_rate = $scope.new_project.hourly_rate * 100
       project = Project.save($scope.new_project)
@@ -31,14 +39,22 @@ angular.module('clientController',[])
       $scope.new_project = {}
       $rootScope.project_modal = { show: false }
 
+    #
+    # MODALS
+    #
     $scope.openModal = ->
       $rootScope.modal = { show: true }
+
+    $scope.openUpdateClientModal = (client) ->
+      $rootScope.update_client_modal = { show: true }
+      $rootScope.update_client_modal.client = $rootScope.clients[$rootScope.clients.indexOf(client)]
 
     $scope.openProjectModal = ->
       $rootScope.project_modal = { show: true }
 
     $(document).on "close", "[data-reveal]", ->
       $timeout ->
-        $rootScope.modal = { show: false }
-        $rootScope.project_modal = { show: false }
+        $rootScope.modal                = { show: false }
+        $rootScope.project_modal        = { show: false }
+        $rootScope.update_client_modal  = { show: false }
       , 200
