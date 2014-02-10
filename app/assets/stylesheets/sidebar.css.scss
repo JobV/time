@@ -55,31 +55,3 @@
     color: #fff !important;
   }
 }
-
-// PROJECTS
-
-.projects .project-n {
-  font-weight: 700;
-  background: #22a7f0;
-  margin-bottom: 10px;
-  height: 39px;
-  line-height: 39px;
-
-  .project-name {
-    display: inline-block;
-    color: white;
-    padding: 0px 15px;
-  }
-
-  .uninvoiced {
-    float: right;
-    display: inline-block;
-    padding: 0px 15px;
-  }
-
-  .underbar {
-    display: box;
-    height: 3px;
-    background: #0072b0;
-  }
-}

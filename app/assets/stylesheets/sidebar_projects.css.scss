@@ -1,0 +1,36 @@
+.projects .project-n {
+  font-weight: 300;
+  background: #22a7f0;
+  margin-bottom: 10px;
+  height: 39px;
+  line-height: 39px;
+
+  .project-name {
+    display: inline-block;
+    color: white;
+    padding: 0px 15px;
+  }
+
+  .uninvoiced {
+    float: right;
+    display: inline-block;
+    padding: 0px 15px;
+  }
+
+  .underbar {
+    display: box;
+    height: 3px;
+    background: #0072b0;
+    @include transition(all 0.3s);
+  }
+
+  @include transition(all 0.3s);
+}
+
+.project-n:hover {
+  height: 86px;
+}
+
+.project-n:hover .underbar {
+  height: 50px;
+}
