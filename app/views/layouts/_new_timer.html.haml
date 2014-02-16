@@ -9,7 +9,7 @@
   
     %input.small-12{ type: 'text', "ng-model" => "new_timer.written_start_time", placeholder: 'Today' }
 
-    %timer.stopwatch{ "interval" => "1000", "autostart" => "false" }
+    %timer.stopwatch{ "interval" => "1000", "autostart" => "false", "ng-class" => "timerRunning == true ? 'stopwatch stopwatch-running' : 'stopwatch'" }
       {{hours}}h {{minutes}}m {{ seconds }}s
 
 
