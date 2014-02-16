@@ -5,14 +5,21 @@
     
     %input.small-12{ type: 'text', "ng-model" => "new_timer.activity", placeholder: 'Activity', "typeahead" => "a.name for a in activities | filter:$viewValue | limitTo: 8", "typeahead-template-url" => "activity_dropdown.html" }
     
-    
-    %timer{ "interval" => "1000", "autostart" => "false" }
-      %input.small-12{ type: 'text', "ng-model" => "new_timer.written_time", placeholder: 'e.g. 1h 22m', "required" => "" }
+    %input.small-12{ type: 'text', "ng-model" => "new_timer.written_time", placeholder: 'e.g. 1h 22m', "required" => "" }
   
     %input.small-12{ type: 'text', "ng-model" => "new_timer.written_start_time", placeholder: 'Today' }
-  
-    %button.button.log-button.small-12{ "ng-disabled" => "new_timer_form.$invalid" }
-      LOG TIME
+
+    %timer.stopwatch{ "interval" => "1000", "autostart" => "false" }
+      {{hours}}h {{minutes}}m {{ seconds }}s
+
+
+    .timer-buttons
+      %button.button.log-button.left{ "ng-disabled" => "new_timer_form.$invalid" }
+        LOG TIME
+
+      .button.log-button.right{ "ng-click" => "toggleTimer()" }
+        {{ timerRunning == true ? 'STOP' : 'START'}}
+
     .small-12.column.clear-form{ "ng-click" => "new_timer = {}" }
       %a
         clear entire form

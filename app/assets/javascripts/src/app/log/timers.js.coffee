@@ -4,17 +4,10 @@ angular.module('timerController', [])
 
     $scope.new_timer  = {}
 
-    $scope.selected = undefined;
-
     $scope.timers     = Timer.query()
     $scope.activities = Activity.query()
 
     $scope.new_timer_window = false
-
-    $scope.selected_project = {}
-    $scope.selected_project_show = false
-
-    $scope.start_value = "Start"
 
     $scope.logTime = ->
       timer = Timer.save $scope.new_timer, ->
@@ -23,20 +16,11 @@ angular.module('timerController', [])
       $scope.timers.push(timer)
       $scope.new_timer = {}
 
-      # $timeout ->
-      #   # considering taking out project refresh and replace with somethingsmart
-      #   # $rootScope.projects   = Project.query()
-      #   # $rootScope.clients    = Client.query()
-      #   $scope.activities     = Activity.query()
-
-      # , 200
-
     $scope.deleteTimer = (timer) ->
       timer.$delete ->
         $scope.timers.splice($scope.timers.indexOf(timer), 1)
         $rootScope.$emit('updateClient', timer.project.client.uninvoiced - timer.total_value, timer.project.client)
 
-    # TODO: only display s if nec
     $scope.parseTime = (seconds) ->
       minutes           = Math.floor(seconds / 60)
       seconds_left      = Math.floor(seconds % 60)
@@ -47,12 +31,24 @@ angular.module('timerController', [])
     compareTimes = (t1,t2) ->
       t1.getTime() == t2.getTime()
 
-    $scope.start_time = null
+
+    # STOPWATCH
+
+    $scope.timerRunning = false
 
     $scope.toggleTimer = ->
-      if $scope.start_value == "Start"
-        $scope.start_value = "Stop"
-
+      if $scope.timerRunning
+        stopTimer()
       else
-        $scope.start_value = "Start"
+        startTimer()
 
+    startTimer = ->
+      $rootScope.$broadcast('timer-start')
+      $scope.timerRunning = true
+
+    stopTimer = ->
+      $rootScope.$broadcast('timer-stop')
+      $scope.timerRunning = false
+
+    $scope.$on 'timer-stopped', (event,time) ->
+      $scope.new_timer.written_time = "#{time.hours}h #{time.minutes}m #{time.seconds}s"

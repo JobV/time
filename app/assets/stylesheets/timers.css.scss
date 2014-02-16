@@ -56,8 +56,30 @@
     color: rgba(255,255,255,0.9) !important;
   }
 
+  .timer-buttons {
+    width: 340px;
+    height: 63px;
+    text-align: center;
+  }
+
+  .stopwatch {
+    width: 340px;
+    height: 30px;
+    overflow: hidden;
+    float: right;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hidden-stopwatch {
+
+  }
+
   .log-button {
-    width: 100%;
+    width: 170px;
+    border: 0;
+    display: inline-block;
     margin-bottom: 5px;
     background: #16A085;
     font-weight: 700 !important;

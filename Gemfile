@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'angularjs-rails'
 
+gem 'execjs'
+
 gem 'devise'
 # gem 'pundit'
 gem 'chronic_duration'
