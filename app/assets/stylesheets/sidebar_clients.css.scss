@@ -1,11 +1,11 @@
 .projects .client-n {
-  background: #1bbc9b;
-  margin-bottom: 10px;
+  background: #22A7F0;
+  border-bottom: 2px solid #3498DB;
 
   .company-name { 
     display: inline-block; 
-    background: #049372;
-    color: #A0FFD1;
+    background: #22A7F0;
+    color: #fff;
     padding: 15px 15px;
     width: 100px;
     text-align: center;
@@ -24,14 +24,14 @@
 }
 
 .inner-client {
-  background: #1bbc9b;
+  background: #ABB7B7;
   height: 0px;
   overflow: hidden;
   -webkit-transition: height 0.3s;
 
   .money-box {
     display: inline-block;
-    background: lighten(#1bbc9b, 10%);
+    background: lighten(#ABB7B7, 10%);
     margin: 0;
     // line-height: 44px;
     text-align: center;

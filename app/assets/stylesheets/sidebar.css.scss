@@ -14,15 +14,15 @@
 }
 
 .create-buttons {
-  margin-bottom: 79px;
+  margin-bottom: 56px;
   text-align: center;
 
   .new-button {
     height: 56px;
-    width: 130px;
+    width: 131.5px;
     line-height: 56px;
     display: block;
-    background: #95a5a6;
+    background: #22A7F0;
     color: white;
 
     @include transition (background 0.3s);
@@ -35,7 +35,7 @@
 }
 
 .projects {
-  padding-top: 5px;
+  padding-top: 0px;
 
   input.project_filter {
     font-family: Open Sans;
@@ -43,10 +43,10 @@
     font-size: 18px;
     text-align: center;
     border: 0;
-    background: #d8d8d8;
+    background: #2574A9;
     color: #fff;
     height: 56px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     &:hover, &:focus {
       background: #4b4b4b;
     }    
