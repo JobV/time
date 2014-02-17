@@ -28,8 +28,9 @@
 
 .jobbar {
   padding-left: 15px;
-  box-shadow: 1px 0px 2px #ccc;
+  // box-shadow: 1px 0px 2px #ccc;
   background: #fff !important;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 
   .title {
     display: inline;

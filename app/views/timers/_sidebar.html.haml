@@ -15,20 +15,15 @@
     .uninvoiced
       € {{ client.uninvoiced / 100}}
     .inner-client
-      .money-box
-        .title uninvoiced
-        .value {{ client.uninvoiced / 100 }}
-      .money-box
-        .title invoiced
-        .value {{ client.invoiced / 100 }}
-      .money-box
-        .title paid
-        .value
-          {{ client.paid / 100 }}
+      .invoiced
+        .title € {{ client.invoiced / 100 }}
 
-      .edit-button
-        .button.tiny.right{ "ng-click" => "openUpdateClientModal(client)"}
-          Edit
+      .paid
+        .title € {{ client.paid / 100 }}
+
+      / .edit-button
+      /   .button.tiny.right{ "ng-click" => "openUpdateClientModal(client)"}
+      /     Edit
 
   .project-n.ng-cloak{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
     .project-name

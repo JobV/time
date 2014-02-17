@@ -22,19 +22,22 @@
     width: 131.5px;
     line-height: 56px;
     display: block;
-    background: #22A7F0;
-    color: white;
+    background: #fff;
+    color: #555;
+    border-bottom: 0px solid #1BBC9B;
 
-    @include transition (background 0.3s);
+    @include transition (border 0.3s);
 
 
     &:hover, &:focus {
-      background: #1BBC9B;
+      background: #fff;
+      border-bottom: 6px solid #1BBC9B; 
     }
   }
 }
 
 .projects {
+  background: #fff;
   padding-top: 0px;
 
   input.project_filter {
@@ -43,15 +46,15 @@
     font-size: 18px;
     text-align: center;
     border: 0;
-    background: #2574A9;
+    background: #f9f9f9; //#2574A9;
     color: #fff;
     height: 56px;
     margin-bottom: 0px;
     &:hover, &:focus {
-      background: #4b4b4b;
+      background: #aaa; 
     }    
   }
   ::-webkit-input-placeholder {
-    color: #fff !important;
+    color: #555 !important;
   }
 }
