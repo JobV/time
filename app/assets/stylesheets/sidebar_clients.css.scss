@@ -5,7 +5,7 @@
   .company-name { 
     display: inline-block; 
     background: #fff;
-    color: #555;
+    color: #444;
     padding: 15px 15px;
     width: 100px;
     text-align: left;
@@ -22,6 +22,7 @@
     float: right;
   }
 
+  padding-bottom: 15px;
 }
 
 .inner-client {
@@ -77,9 +78,9 @@
 
 .client-n .invoiced {
   font-size: 0.8rem;
-  line-height: 35px;
+  line-height: 32px;
   height: 35px;
-  background: #ccc;
+  border: 2px solid #FFA300;
   width: 100px;
   border-radius: 17.5px;
   text-align: center;
@@ -90,13 +91,54 @@
 
 .client-n .paid {
   font-size: 0.8rem;
-  line-height: 35px;
+  line-height: 32px;
   height: 35px;
-  background: #aaa;
+  border: 2px solid #4DAAFF;
   width: 100px;
   border-radius: 17.5px;
   text-align: center;
   display: inline-block;
   float: right;
   margin-right: 15px;
+}
+
+.client-n-project {
+  height: 30px;
+  line-height: 20px;
+  padding: 5px 15px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.client-n-project .p-name {
+  float: left;
+  display: inline-block;
+}
+
+.client-n-project .p-uninvoiced {
+  display: inline-block;
+  padding-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  float: right;
+  padding: 0 5px;
+}
+
+.client-n-project .p-invoiced {
+  display: inline-block;
+  padding-right: 5px;
+  border: 1px solid #FFA300;
+  border-radius: 30px;
+  float: right;
+  padding: 0 5px;
+  margin-right: 5px;
+}
+
+.client-n-project .p-paid {
+  display: inline-block;
+  border: 1px solid #4DAAFF;
+  border-radius: 30px;
+  float: right;
+  padding: 0 5px;
+  margin-right: 5px;
 }

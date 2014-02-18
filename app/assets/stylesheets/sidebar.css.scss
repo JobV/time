@@ -28,9 +28,9 @@
 
     @include transition (border 0.3s);
 
-
     &:hover, &:focus {
       background: #fff;
+      color: #1BBC9B;
       border-bottom: 6px solid #1BBC9B; 
     }
   }

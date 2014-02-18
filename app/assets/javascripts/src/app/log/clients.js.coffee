@@ -18,6 +18,7 @@ angular.module('clientController',[])
       for x in $rootScope.clients
         if x.id == client.id
           x.uninvoiced = value
+          x.updated_at = Date()
 
     $scope.$on('$destroy', unbind)
 
@@ -34,8 +35,13 @@ angular.module('clientController',[])
 
     $scope.createProject = ->
       $scope.new_project.hourly_rate = $scope.new_project.hourly_rate * 100
-      project = Project.save($scope.new_project)
-      $rootScope.projects.push(project)
+      project = Project.save $scope.new_project, ->
+        console.log project.client
+        for x in $rootScope.clients
+          if x.id == project.client.id
+            x.projects.push(project)
+            x.updated_at = Date()
+
       $scope.new_project = {}
       $rootScope.project_modal = { show: false }
 

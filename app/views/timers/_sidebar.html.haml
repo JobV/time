@@ -10,7 +10,7 @@
       %i.fa.fa-plus
       Project
 
-  .client-n.ng-cloak{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10 | orderBy:'updated_at'", "ng-click" => "fold_out = ! fold_out", "ng-class" => "fold_out == true ? 'client-n client-n-out' : 'client-n'" }
+  .client-n.ng-cloak{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10 | orderBy:'updated_at':true", "ng-click" => "fold_out = ! fold_out", "ng-class" => "fold_out == true ? 'client-n client-n-out' : 'client-n'" }
     .company-name.ng-cloak{ "ng-bind" => "client.company_name"}
     .uninvoiced
       € {{ client.uninvoiced / 100}}
@@ -25,12 +25,19 @@
       /   .button.tiny.right{ "ng-click" => "openUpdateClientModal(client)"}
       /     Edit
 
-  .project-n.ng-cloak{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
-    .project-name
-      {{ project.name | truncate:14 }}
-    .uninvoiced
-      € {{ project.uninvoiced / 100 }}
-    .underbar
+    .client-n-project{ "ng-repeat" => "project in client.projects" }
+      .p-name {{ project.name }}
+      .p-uninvoiced {{ project.uninvoiced / 100 }}
+      .p-invoiced {{ project.invoiced / 100 }}
+      .p-paid {{ project.paid / 100 }}
+
+
+  / .project-n.ng-cloak{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
+  /   .project-name
+  /     {{ project.name | truncate:14 }}
+  /   .uninvoiced
+  /     € {{ project.uninvoiced / 100 }}
+  /   .underbar
 
 
 
