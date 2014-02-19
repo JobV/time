@@ -14,12 +14,7 @@
     .company-name.ng-cloak {{ client.company_name | truncate }}
     .uninvoiced
       € {{ client.uninvoiced / 100}}
-    .inner-client
-      .invoiced
-        .title € {{ client.invoiced / 100 }}
-
-      .paid
-        .title € {{ client.paid / 100 }}
+    
 
       / .edit-button
       /   .button.tiny.right{ "ng-click" => "openUpdateClientModal(client)"}
@@ -31,15 +26,12 @@
       .p-invoiced {{ project.invoiced / 100 }}
       .p-paid {{ project.paid / 100 }}
 
+    .inner-client
+      .invoiced
+        .title € {{ client.invoiced / 100 }}
 
-  / .project-n.ng-cloak{ "ng-repeat" => "project in projects | filter:search_filter | limitTo:10 | orderBy:'updated_at'" }
-  /   .project-name
-  /     {{ project.name | truncate:14 }}
-  /   .uninvoiced
-  /     € {{ project.uninvoiced / 100 }}
-  /   .underbar
-
-
+      .paid
+        .title € {{ client.paid / 100 }}
 
   = render 'layouts/new_project'
   = render 'layouts/new_client'

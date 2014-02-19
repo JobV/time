@@ -27,7 +27,7 @@
 .inner-client {
   background: #fff;
   height: 0px;
-  // padding-top: 10px;
+  padding-top: 10px;
   overflow: hidden;
   @include transition(height, 0.3s);
 
@@ -117,10 +117,9 @@
 .client-n-project .p-uninvoiced {
   display: inline-block;
   padding-right: 5px;
-  border: 1px solid #ccc;
-  border-radius: 30px;
   float: right;
   padding: 0 5px;
+  @include transition(all 0.3s);
 }
 
 .client-n-project .p-invoiced {
@@ -131,6 +130,10 @@
   float: right;
   padding: 0 5px;
   margin-right: 5px;
+  opacity: 0;
+  @include transition(all 0.3s);
+  position: relative;
+  right: -30px;
 }
 
 .client-n-project .p-paid {
@@ -140,4 +143,21 @@
   float: right;
   padding: 0 5px;
   margin-right: 5px;
+  opacity: 0;
+  @include transition(all 0.3s);
+  position: relative;
+  right: -20px;
+}
+
+.client-n:hover .client-n-project .p-paid {
+  opacity: 1;
+  right: 0;
+}
+.client-n:hover .client-n-project .p-invoiced {
+  opacity: 1;
+  right: 0;
+}
+.client-n:hover .client-n-project .p-uninvoiced {
+  border: 1px solid #ccc;
+  border-radius: 30px;
 }
