@@ -1,258 +1,63 @@
 @import "colors";
 
-// KLEIN
-@media only screen and (max-width: 40em) {
-  .new-timer {
-  }
-  .timer-list {
-
-  }
-}
-
-// GROOT
-@media only screen and (min-width: 40.063em) { 
-  .right-side {
-    float: left;
-    max-width: 100%;
-  }
-  .new-timer {
-
-  }
-  .main-content {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 .timer-list {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40px;
-  width: 650px;
+  background: #fff;
+  padding-top: 50px;
+  width: 950px;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
-.new-timer {
-  font-family: Open Sans !important;
-  width: 340px;
-  margin-top: 10px;
-  margin-right: auto;
-  margin-left: auto;
-
-  input {
-    font-size: 1.1rem;
-    height: 56px;
-    padding-left: 15px;
-    border: none;
-    background: #65C6BB;
-    color: #333;
-    margin-bottom: 0;
-    border-bottom: 1px solid lighten(#65C6BB, 20%);
-    &:hover, &:focus {
-      background: #86E2D5;
-      border-bottom: 1px solid lighten(#65C6BB, 20%);
-    }
-  }
-
-
-  ::-webkit-input-placeholder { /* WebKit browsers */
-    color: rgba(255,255,255,0.9) !important;
-  }
-
-  .timer-buttons {
-    width: 340px;
-    height: 63px;
-    text-align: center;
-  }
-
-  $stopwatch-height: 69px;
-  .stopwatch {
-    color: #555;
-    font-family: Open Sans;
-    font-weight: 700;
-    font-size: 1.5rem;
-    background: #C5EFF7;
-    width: 340px;
-    height: 0px;
-    line-height: $stopwatch-height;
-    overflow: hidden;
-    float: right;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    @include transition(height, 0.3s)
-  }
-
-  .stopwatch-running {
-    height: $stopwatch-height;
-  }
-
-  .log-button {
-    width: 170px;
-    border: 0;
-    display: inline-block;
-    margin-bottom: 5px;
-    background: #16A085;
-    font-weight: 700 !important;
-    font-family: Open Sans;
-    font-size: 1.4rem;
-    &:focus, &:hover {
-      color: #333;
-      background: #8BE9D6;
-    }
-    
-    &[disabled] {
-      background: #ABB7B7 !important;
-      &:focus, &:hover {
-        color: #fff;
-      }
-    }
-  }
-
-  .clear-form {
-    text-align: center;
-    a { color: #E2A9A9 !important; }
-  }
+.main-container {
+  padding: 30px;
+  display: inline-block;
+  border-left: 1px solid rgba(0,0,0,0.1);
 }
 
 .timer-n {
-  background: #fff;
-  width: 650px;
-  line-height: 39px;
-  margin-bottom: 10px;
-  
-  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
+
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding: 2px 0px;
+      
   font-family: Open Sans;
-  font-weight: 200;
-
-  text-align: center;
-
-  .tag {
-    display: inline-block;
-    float: left;
-
-    width: 10px;
-    background-color: #ccc;
-    .uninvoiced { background-color: #D6D6D6; }
-    .invoiced   { background-color: #F4D03F; }
-    .paid       { background-color: #3FC380; }
-  }
-
-  .activity {
-    display: inline-block;
-    float: left;
-
-    width: 130px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-
-    color: #404040;
-    margin-left: 20px;
-  }
-
-  .start-time {
-    display: inline-block;
-    color: #D8D8D8;
-    margin-left: 20px;
-  }
-
-  .total-time {
-    display: inline-block;
-    color: #727272;
-
-    margin-left: 20px;
-    float: right;
-  }
-
-  .project {
-    display: inline-block;
-    margin-left: 20px;
-    float: right;
-    font-weight: 500;
-    width: 120px;
-
-    background-color: #1BBC9B;
-    color: #88FFEE;
-
-    padding: 0 15px;
-
-    text-align: center;
-
-    text-overflow: clip;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .total-value {
-    display: inline-block;
-    float: right;
-    padding: 0 15px;
-    // border: 3px solid #1BBC9B;
-    height: 39px;
-    line-height: 39px;
-    min-width: 115px;
-    text-align: right;
-  }
-
-  .buttons {
-    display: none;
-    float: right;
-    width: 0px;
-    background: #F63F4B !important;
-    color: white;
-  }
-
-  &:hover {
-    .buttons {
-      display: inline-block;
-      width: 30px;
-      &:hover {
-        color: #333;
-      }
-    }
-    background: #ECF8FF;
-    width: 680px;
-  }
+  font-size: 1rem;
+  width: 850px;
+  // height: 39px;
+  line-height: 39px;
+  color: #333;
 }
 
-.timer-table {
-  border-spacing: 0px !important;
-  font-family: $main-font;
-}
-// ANIMATIONS
-
-// On create
-
-.timer-n.ng-enter {
-  -webkit-animation: 1s fadeIn;
-  animation: 1s fadeIn;
+@mixin timer-element($element-width) {
+  width: $element-width;
+  display: inline-block;
+  padding-left: 10px;
 }
 
-@keyframes fadeIn {
-  0%    { opacity: 0; }
-  100%  { opacity: 1; }
-}
-@-webkit-keyframes fadeIn {
-  0%    { opacity: 0; }
-  100%  { opacity: 1; }
+.tag {
+  width: 10px;
+  display: inline-block;
+  // background-color: rgba(0,0,0,0.2);
 }
 
-.fadeIn {
-  animation-name: fadeIn;
+.time {
+  @include timer-element(110px);
 }
 
-// On delete
-
-.timer-n.ng-leave {
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+.activity {
+  @include timer-element(250px);
+  font-family: Open Sans Condensed;
+  font-weight: 300;
 }
 
-.timer-n.ng-leave.ng-leave-active {
-  opacity: 0;
-  background: $jx-red;
+.project {
+  @include timer-element(230px);
 }
 
+.value {
+  @include timer-element(100px);
+}
+
+.options {
+  @include timer-element(80px);
+}

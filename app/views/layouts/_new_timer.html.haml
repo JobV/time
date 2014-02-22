@@ -14,10 +14,10 @@
 
 
     .timer-buttons
-      %button.button.log-button.left{ "ng-disabled" => "new_timer_form.$invalid" }
+      %button.log-button.left{ "ng-disabled" => "new_timer_form.$invalid" }
         LOG TIME
 
-      .button.log-button.right{ "ng-click" => "toggleTimer()" }
+      .stopwatch-button{ "ng-click" => "toggleTimer()" }
         {{ timerRunning == true ? 'STOP' : 'START'}}
 
     .small-12.column.clear-form{ "ng-click" => "new_timer = {}" }

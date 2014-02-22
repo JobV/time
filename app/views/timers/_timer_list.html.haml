@@ -1,3 +1,14 @@
 .timer-list
   .timer-n{ "ng-repeat" => "timer in timers | orderBy:'start_time':true" }
-    = render 'listed_timer'
+    .tag
+      &nbsp;
+    .time
+      {{ parseTime(timer.total_time) }}
+    .activity
+      {{ timer.activity | truncate:35 }}
+    .project
+      {{ timer.project.name | truncate:30 }}
+    .value
+      € {{ timer.total_value / 100 }}
+    .options
+      @ $ % #

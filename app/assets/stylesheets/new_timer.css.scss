@@ -1,0 +1,108 @@
+.new-timer {
+  font-family: Open Sans !important;
+  width: 340px;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid rgba(0,0,0,0.1);
+
+  input {
+    font-size: 1.1rem;
+    height: 56px;
+    padding-left: 15px;
+    border: none;
+    background: #fff;
+    color: #444;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    &:hover, &:focus {
+      background: #f7f7f7;
+    }
+  }
+
+  input:hover, input:focus {
+    @include placeholder {
+      color: #555 !important;
+    }
+  }
+
+  ::-webkit-input-placeholder { /* WebKit browsers */
+    color: #999 !important;
+  }
+
+  .timer-buttons {
+    width: 340px;
+    height: 63px;
+    text-align: center;
+  }
+
+  $stopwatch-height: 69px;
+  .stopwatch {
+    color: #555;
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: #33788A !important;
+    width: 340px;
+    height: 0px;
+    line-height: $stopwatch-height;
+    overflow: hidden;
+    float: right;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    @include transition(height, 0.3s)
+  }
+
+  .stopwatch-running {
+    height: $stopwatch-height;
+  }
+
+  @mixin timer-button {
+    width: 169px;
+    height: 63px;
+    line-height: 63px;
+    padding: 0;
+    display: inline-block;
+    margin-bottom: 5px;
+    background: #fff;
+    color: #33788A;
+    font-weight: 700 !important;
+    font-family: Open Sans;
+    font-size: 1.4rem;
+
+    @include transition(all 0.2s);
+
+    &:focus, &:hover {
+      color: #33788A;
+      background: #f7f7f7;
+      border-bottom: 4px solid #33788A;
+    }
+    
+    &[disabled] {
+      background: rgba(255,255,255,0.1) !important;
+      color: #aaa !important;
+    }
+  }
+
+  .log-button {
+    @include timer-button;
+  }
+
+  .stopwatch-button {
+    @include timer-button;
+    background: #33788A !important;
+    color: #fff;
+    border: 0;
+
+    &:hover, &:focus {
+      background: #71C0D5 !important;
+      border: 0;
+    }
+  }
+
+  .clear-form {
+    text-align: center;
+    a { color: #E2A9A9 !important; }
+  }
+}

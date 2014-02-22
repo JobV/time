@@ -9,6 +9,7 @@
 @import 'foundation_and_overrides';
 
 @import 'timers';
+@import 'new_timer';
 @import 'animate';
 @import 'navbar';
 @import 'sidebar';
@@ -59,13 +60,6 @@ body {
 
 .settings-link {
   padding-top: 13px !important;
-}
-
-.timer {
-  font-size: 2.1rem;
-  color: #e1e1e1;
-  position: relative;
-  top: 3px;
 }
 
 .date-title {
