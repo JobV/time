@@ -2,8 +2,6 @@
   font-family: Open Sans !important;
   width: 340px;
   margin-top: 10px;
-  margin-right: auto;
-  margin-left: auto;
   border: 1px solid rgba(0,0,0,0.1);
 
   input {
@@ -38,9 +36,9 @@
 
   $stopwatch-height: 69px;
   .stopwatch {
-    color: #555;
+    color: #fff;
     font-family: Open Sans;
-    font-weight: 700;
+    font-weight: 100;
     font-size: 1.5rem;
     background: #33788A !important;
     width: 340px;

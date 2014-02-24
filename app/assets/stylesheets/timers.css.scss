@@ -8,9 +8,9 @@
 }
 
 .main-container {
-  padding: 30px;
+  padding: 5px 15px;
   display: inline-block;
-  border-left: 1px solid rgba(0,0,0,0.1);
+  // border-left: 1px solid rgba(0,0,0,0.1);
 }
 
 .timer-n {
@@ -26,6 +26,10 @@
   // height: 39px;
   line-height: 39px;
   color: #333;
+}
+
+.timer-n:hover {
+  background: #f7f7f7;
 }
 
 @mixin timer-element($element-width) {
