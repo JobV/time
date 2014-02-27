@@ -7,7 +7,7 @@
     .activity
       {{ timer.activity | truncate:35 }}
     .project
-      {{ timer.project.name | truncate:30 }}
+      {{ timer.project.name | truncate:25 }}
     .value
       € {{ timer.total_value / 100 }}
     .options
