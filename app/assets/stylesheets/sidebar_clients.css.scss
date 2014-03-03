@@ -4,9 +4,8 @@
 
   .company-name { 
     display: inline-block; 
-    background: #fff;
     color: #444;
-    padding: 15px 15px;
+    padding: 5px 10px;
     text-align: left;
     -webkit-transition: width 0.3s;
   }
@@ -14,20 +13,24 @@
   .uninvoiced {
     display: inline-block;
     color: #999;
-    padding: 15px 15px;
+    padding: 5px 10px;
     opacity: 1;
     -webkit-transition: opacity 0.3s;
     // position: absolute;
     float: right;
   }
 
-  padding-bottom: 15px;
+  &:hover {
+    background: #F7FCFF;
+    .uninvoiced {
+      color: #333;
+    }
+  }
 }
 
 .inner-client {
   background: #fff;
   height: 0px;
-  padding-top: 10px;
   overflow: hidden;
   @include transition(height, 0.3s);
 
@@ -77,8 +80,8 @@
 
 .client-n .invoiced {
   font-size: 0.8rem;
-  line-height: 32px;
-  height: 35px;
+  line-height: 26px;
+  height: 26px;
   border: 2px solid #FFA300;
   width: 100px;
   border-radius: 17.5px;
@@ -102,11 +105,17 @@
 }
 
 .client-n-project {
-  height: 30px;
-  line-height: 20px;
-  padding: 5px 15px;
-  color: #777;
+  height: 26px;
+  line-height: 26px;
+  padding: 0px 10px;
+  color: #D6CECE;
   font-size: 0.9rem;
+  border-top: 1px solid rgba(0,0,0,0.02);
+
+  &:hover {
+    // background: #fff;
+    color: #555;
+  }
 }
 
 .client-n-project .p-name {
@@ -116,48 +125,49 @@
 
 .client-n-project .p-uninvoiced {
   display: inline-block;
-  padding-right: 5px;
   float: right;
-  padding: 0 5px;
+  width: 40px;
+  text-align: right;
+  border-left: 1px solid rgba(0,0,0,0.02);
   @include transition(all 0.3s);
 }
 
 .client-n-project .p-invoiced {
   display: inline-block;
   padding-right: 5px;
-  border: 1px solid #FFA300;
-  border-radius: 30px;
+  color: rgba(255, 163, 0, 0.5);
   float: right;
+  width: 40px;
+  text-align: right;
   padding: 0 5px;
   margin-right: 5px;
-  opacity: 0;
+  opacity: 1;
   @include transition(all 0.3s);
+  border-left: 1px solid rgba(0,0,0,0.02);
   position: relative;
-  right: -30px;
+  // right: -30px;
 }
 
 .client-n-project .p-paid {
   display: inline-block;
-  border: 1px solid #4DAAFF;
-  border-radius: 30px;
+  color: rgba(77, 170, 255, 0.5);
   float: right;
+  width: 40px;
+  text-align: right;
   padding: 0 5px;
   margin-right: 5px;
-  opacity: 0;
+  opacity: 1;
   @include transition(all 0.3s);
+  border-left: 1px solid rgba(0,0,0,0.02);
   position: relative;
-  right: -20px;
+  // right: -20px;
 }
 
-.client-n:hover .client-n-project .p-paid {
-  opacity: 1;
-  right: 0;
+.client-n .client-n-project:hover .p-paid {
+  color: rgba(77, 170, 255, 1);
 }
-.client-n:hover .client-n-project .p-invoiced {
-  opacity: 1;
-  right: 0;
+.client-n .client-n-project:hover .p-invoiced {
+  color: rgba(255, 163, 0, 1);
 }
 .client-n:hover .client-n-project .p-uninvoiced {
-  border: 1px solid #ccc;
-  border-radius: 30px;
 }
