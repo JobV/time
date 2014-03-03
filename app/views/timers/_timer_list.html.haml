@@ -5,9 +5,9 @@
     .time
       {{ parseTime(timer.total_time) }}
     .activity
-      {{ timer.activity | truncate:35 }}
+      {{ timer.activity | limitTo:35 }}
     .project
-      {{ timer.project.name | truncate:25 }}
+      {{ timer.project.name | limitTo:25 }}
     .value
       € {{ timer.total_value / 100 }}
     .options

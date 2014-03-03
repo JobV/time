@@ -11,7 +11,7 @@
       Project
 
   .client-n.ng-cloak{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10 | orderBy:'updated_at':true", "ng-click" => "fold_out = ! fold_out", "ng-class" => "fold_out == true ? 'client-n client-n-out' : 'client-n'" }
-    .company-name.ng-cloak {{ client.company_name | truncate }}
+    .company-name.ng-cloak {{ client.company_name | limitTo:15 }}
     .uninvoiced
       € {{ client.uninvoiced / 100}}
     
@@ -21,7 +21,7 @@
       /     Edit
 
     .client-n-project{ "ng-repeat" => "project in client.projects | filter:search_filter" }
-      .p-name {{ project.name | truncate }}
+      .p-name {{ project.name | limitTo:15 }}
       .p-uninvoiced {{ project.uninvoiced / 100 }}
       .p-invoiced {{ project.invoiced / 100 }}
       .p-paid {{ project.paid / 100 }}

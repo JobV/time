@@ -10,7 +10,6 @@
   min-width: 340px;
   padding: 0px 0;
   margin: 0px 0 0;
-  font-size: 14px;
   list-style: none;
   background-color: #59ABE3;
   background-clip: padding-box;
@@ -33,7 +32,8 @@
   display: inline;
   clear: both;
   font-weight: normal;
-  line-height: 1.428571429;
+  font-size: 0.9rem;
+  line-height: 1rem;
   color: #C5EFF7;
   white-space: nowrap;
   float: right;
@@ -46,7 +46,8 @@
   // padding: 3px 8px;
   clear: both;
   font-weight: normal;
-  line-height: 1.428571429;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
   color: #fff;
   white-space: nowrap;
   padding-left: 10px;
