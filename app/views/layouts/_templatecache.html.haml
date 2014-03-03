@@ -1,5 +1,5 @@
 %script{id: "project_dropdown.html", type: "text/ng-template"}
-  %h5.project{ tabindex: "-1", "bind-html-unsafe" => "match.label | limitTo:28 | typeaheadHighlight:query"} 
+  %h5{ tabindex: "-1", "bind-html-unsafe" => "match.label | limitTo:28 | typeaheadHighlight:query"} 
   %h5.company {{ match.model.client.company_name | limitTo:12 }}
 
   .divider
