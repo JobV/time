@@ -1,11 +1,13 @@
 .projects .client-n {
-  background: #fff;
-  border-top: 1px solid rgba(0,0,0,0.1);
+  background: #f9f9f9;
+  // border-top: 1px solid rgba(0,0,0,0.1);
 
   .company-name { 
+    font-family: Source Sans Pro;
+    font-weight: 400;
     display: inline-block; 
     color: #444;
-    padding: 5px 10px;
+    padding: 20px 10px;
     text-align: left;
     -webkit-transition: width 0.3s;
   }
@@ -13,7 +15,7 @@
   .uninvoiced {
     display: inline-block;
     color: #999;
-    padding: 5px 10px;
+    padding: 20px 10px;
     opacity: 1;
     -webkit-transition: opacity 0.3s;
     // position: absolute;
@@ -21,7 +23,7 @@
   }
 
   &:hover {
-    background: #F7FCFF;
+    background: #eee;
     .uninvoiced {
       color: #333;
     }

@@ -17,8 +17,10 @@
 //= require angular-resource
 //= require angular-animate
 //= require ng-rails-csrf
+//= require jquery.sticky.js
 //= require_tree . 
 
 $(document).foundation();
 $(document).ready(function(){
+  $(".sidebar-container").sticky({topSpacing:0});
 });

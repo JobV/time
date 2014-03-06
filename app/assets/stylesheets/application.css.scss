@@ -38,7 +38,13 @@ body {
   display: inline-block;
 }
 
+.main {
+  height: 100%;
+}
+
 .sidebar-container {
+  height: 100%;
+  background: #f9f9f9;
   float: left;
   display: inline-block;
   margin-left: 0px;

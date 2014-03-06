@@ -11,7 +11,7 @@
       Project
 
   .client-n.ng-cloak{ "ng-repeat" => "client in clients | filter:search_filter | limitTo:10 | orderBy:'updated_at':true", "ng-click" => "fold_out = ! fold_out", "ng-class" => "fold_out == true ? 'client-n client-n-out' : 'client-n'" }
-    .company-name.ng-cloak {{ client.company_name | limitTo:15 }}
+    .company-name.ng-cloak {{ client.company_name | limitTo:15 | uppercase }}
     .uninvoiced
       {{ client.uninvoiced / 100}}
     
@@ -20,11 +20,11 @@
       /   .button.tiny.right{ "ng-click" => "openUpdateClientModal(client)"}
       /     Edit
 
-    .client-n-project{ "ng-repeat" => "project in client.projects | filter:search_filter" }
-      .p-name {{ project.name | limitTo:9 }}
-      .p-uninvoiced {{ project.uninvoiced / 100 }}
-      .p-invoiced {{ project.invoiced / 100 }}
-      .p-paid {{ project.paid / 100 }}
+    / .client-n-project{ "ng-repeat" => "project in client.projects | filter:search_filter" }
+    /   .p-name {{ project.name | limitTo:9 }}
+    /   .p-uninvoiced {{ project.uninvoiced / 100 }}
+    /   .p-invoiced {{ project.invoiced / 100 }}
+    /   .p-paid {{ project.paid / 100 }}
 
   = render 'layouts/new_project'
   = render 'layouts/new_client'

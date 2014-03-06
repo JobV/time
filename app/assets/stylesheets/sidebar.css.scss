@@ -22,14 +22,14 @@
     width: 131px;
     line-height: 56px;
     display: block;
-    background: #fff;
+    background: #f9f9f9;
     color: #555;
     border-bottom: 0px solid #1BBC9B;
 
     @include transition (border 0.3s);
 
     &:hover, &:focus {
-      background: #fff;
+      // background: #fff;
       color: #1BBC9B;
       border-bottom: 6px solid #1BBC9B; 
     }
@@ -37,9 +37,11 @@
 }
 
 .projects {
-  background: #fff;
+  background: #f9f9f9;
   padding-top: 0px;
   border-right: 1px solid rgba(0,0,0,0.1);
+
+  height: 100%;
 
   input.project_filter {
     font-family: Open Sans;
