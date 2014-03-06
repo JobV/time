@@ -21,7 +21,7 @@ class Timer < ActiveRecord::Base
 
   def self.to_csv
     CSV.generate do |csv|
-      csv << ['Client', 'Project', 'Date', 'Minutes','Activity','Value']
+      csv << ['Client', 'Project', 'Date', 'Minutes','Activity','Euro']
       all.each do |timer|
         csv << [
           timer.client ? timer.client.company_name : 'not defined',
@@ -29,7 +29,7 @@ class Timer < ActiveRecord::Base
           "#{timer.created_at.strftime('%a %d %b %Y')}",
           self.parse_seconds(timer.total_time),
           timer.activity,
-          "€ #{timer.total_value / 100}" ]
+          "#{timer.total_value / 100}" ]
       end
     end
   end
