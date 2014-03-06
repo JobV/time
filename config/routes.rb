@@ -10,6 +10,8 @@ Jxtime::Application.routes.draw do
   resources :clients
   resources :activities
 
+  get 'export' => 'timers#export', as: :export_timers
+
   post 'timers/start' => 'timers#start', as:  :start_timer
   post 'timers/:id'  => 'timers#stop', as:   :stop_timer
 

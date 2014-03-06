@@ -42,6 +42,11 @@ class TimersController < ApplicationController
     end
   end
 
+  def export
+    @timers = current_user.timers
+    render text: @timers.to_csv
+  end
+
   private
 
   def calculate_total_value(time_in_seconds, hourly_rate)
